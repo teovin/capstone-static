@@ -1,0 +1,26 @@
+:root {
+    --white: #FFFFFF;
+    --beige: #F7F6F2;
+
+    --gray-100: #F7F7F9;
+    --gray-200: #CED4DA;
+    --gray-300: #6C757D;
+    --gray-400: #495057;
+    --gray-500: #2F2F2F;
+    --gray-600: #000000;
+
+    --red: #FF654D;
+
+    --yellow: #FCD84D;
+
+    --blue-100: #007BFF;
+    --blue-200: #0075FF;
+    --blue-300: #2C60FF;
+    --blue-400: #004FB3;
+
+    --purple-100: #B3A7FD;
+    --purple-200: #E878FF;
+    --purple-300: #4830FD;
+
+    --gradient: linear-gradient(45deg, var(--purple-300) 0%, var(--red) 100%);
+}
