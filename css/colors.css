@@ -1,5 +1,5 @@
 :root {
-    ---color-white: #FFFFFF;
+    --color-white: #FFFFFF;
     --color-beige: #F7F6F2;
 
     --color-gray-100: #F7F7F9;
@@ -22,5 +22,5 @@
     --color-purple-200: #E878FF;
     --color-purple-300: #4830FD;
 
-    --color-gradient: linear-gradient(45deg, var(--purple-300) 0%, var(--red) 100%);
+    --color-gradient: linear-gradient(45deg, var(--color-purple-300) 0%, var(--color-red) 100%);
 }
