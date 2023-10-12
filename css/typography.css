@@ -11,8 +11,8 @@
     --font-size-225: 2rem;
     --font-size-250: 2.5rem;
 
-    --font-sans-text: “source-sans-pro”, sans-serif;
-    --font-serif: “source-serif pro”, baskerville, georgia, serif;
-    --font-mono: “source-code”, monospace;
-    --font-sans-titling: “titillium”, sans-serif;
+    --font-sans-text: "Source Sans 3 VF", sans-serif;
+    --font-serif: "Source Serif VF", baskerville, georgia, serif;
+    --font-mono: source-code, monospace;
+    --font-sans-titling: titillium, sans-serif;
 }
