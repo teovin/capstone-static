@@ -42,7 +42,7 @@ export class CaselawMap extends LitElement  {
         font-weight: 400;
         letter-spacing: 1px;
         line-height: 1.2;
-        border-bottom: 1px solid var(--color-white);
+        border-block-end: 1px solid var(--color-white);
         padding-block-end: var(--spacing-50);
       }
 
