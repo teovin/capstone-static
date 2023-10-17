@@ -1,0 +1,16 @@
+/* Measurements use calc so rem measurements are 1:1 with px size
+Example: calc(4rem / 16) is equal to 4px or 0.25rem */
+:root {
+    --spacing-50: calc(4rem / 16);
+    --spacing-75: calc(8rem / 16);
+    --spacing-100: calc(12rem / 16);
+    --spacing-125: 1rem;
+    --spacing-150: calc(18rem / 16);
+    --spacing-175: calc(20rem / 16);
+    --spacing-200: calc(24rem / 16);
+    --spacing-225: calc(28rem / 16);
+    --spacing-250: calc(32rem / 16);
+    --spacing-275: calc(36rem / 16);
+    --spacing-300: calc(40rem / 16);
+    --spacing-325: calc(48rem / 16);
+}
