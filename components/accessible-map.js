@@ -82,8 +82,10 @@ export class AccessibleMap extends LitElement {
 	>
 		<title>Map of USA and territories</title>
 		<desc>Map showing a summary of available data</desc>
+
 		<path d="M222.989 9.4405L213.836 34.5876ZM222.989 9.4405C220.96 8.43697 219.967 6.04644 220.76 3.86917C221.61 1.53403 224.192 0.329727 226.528 1.17964C228.863 2.02956 230.067 4.61222 229.217 6.94735C228.367 9.28343 225.785 10.4868 223.449 9.63688C223.291 9.57908 223.137 9.5135 222.989 9.4405Z" fill="white"/>
 		<path d="M222.989 9.4405L213.836 34.5876M222.989 9.4405C220.96 8.43697 219.967 6.04644 220.76 3.86917C221.61 1.53403 224.192 0.329727 226.528 1.17964C228.863 2.02956 230.067 4.61222 229.217 6.94735C228.367 9.28343 225.785 10.4868 223.449 9.63688C223.291 9.57908 223.137 9.5135 222.989 9.4405Z" stroke="white" stroke-width="0.5"/>
+		
 		${this.abbreviations.map((abbreviation) =>
 		svg`<g class="map__group">
 				<title id=${abbreviation}>${mapData[abbreviation].name}</title>
