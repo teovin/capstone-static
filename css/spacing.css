@@ -12,5 +12,14 @@ Example: calc(4rem / 16) is equal to 4px or 0.25rem */
     --spacing-250: calc(32rem / 16);
     --spacing-275: calc(36rem / 16);
     --spacing-300: calc(40rem / 16);
-    --spacing-325: calc(48rem / 16);
+    --spacing-325: calc(44rem / 16);
+    --spacing-350: calc(48rem / 16);
+    --spacing-375: calc(52rem / 16);
+    --spacing-400: calc(56rem / 16);
+    --spacing-425: calc(60rem / 16);
+    --spacing-450: calc(64rem / 16);
+    --spacing-475: calc(68rem / 16);
+    --spacing-500: calc(72rem / 16);
+    --spacing-525: calc(76rem / 16);
+    --spacing-550: calc(80rem / 16);
 }
