@@ -1,8 +1,11 @@
 import {LitElement, css, html} from '../lib/lit.js';
 import { baseStyles } from '../lib/wc-base.js';
+import './accessible-map.js';
+import { mapAbbreviations, mapData } from '../data/map.js';
 
 export class CaselawMap extends LitElement  {
   static properties = {
+    activeState: {type: String | undefined}
   };
 
   static styles = [
@@ -13,9 +16,31 @@ export class CaselawMap extends LitElement  {
       }
 
       .mapRegion {
+        display: grid;
+        position: relative;
+        column-gap: var(--spacing-350);
+        grid-template-columns: 18rem 1fr;
         background: var(--color-gradient);
         padding-block: var(--spacing-325) var(--spacing-225);
-        padding-inline: var(--spacing-150);
+        padding-inline: var(--spacing-150) var(--spacing-550);
+      }
+
+      @media (min-width: 75rem) {
+        .mapRegion {
+          column-gap: var(--spacing-550);
+        }
+      }
+
+      .mapRegion::after {
+        --size: 25px; 
+
+        content: "";
+        position: absolute;
+        bottom: 0;
+        left: calc(50% - var(--size));
+        border-left: var(--size) solid transparent;
+        border-right: var(--size) solid transparent;
+        border-bottom: var(--size) solid var(--color-gray-600);
       }
 
       .mapRegion__heading {
@@ -30,7 +55,6 @@ export class CaselawMap extends LitElement  {
 
       .infoBox {
         background: var(--color-gray-500);
-        max-width: 15.625rem;
         padding-block: var(--spacing-125) var(--spacing-275);
         padding-inline: var(--spacing-125);
         margin-block-start: var(--spacing-100);
@@ -66,17 +90,19 @@ export class CaselawMap extends LitElement  {
     `
   ];
 
-  constructor() {
-    super();
+  _onMapUpdate(event) {
+    const target = event.target;
+    this.activeState = target.activeState;
   }
 
   render() {
     return html`
     <div class="mapRegion">
+      <div>
       <h2 class="mapRegion__heading">Our data</h2>
       <p class="mapRegion__subheading">360 years of United States caselaw</p>
       <div class="infoBox">		
-        <h3 class="infoBox__heading">State and Federal Totals</h3>
+        <h3 class="infoBox__heading">${this.activeState ? mapData[this.activeState].name : "State and Federal Totals"}</h3>
         <p class="infoBox__text">6,930,777<br /><span class="infoBox__textDescriptor">Unique cases</span><p>
         <p class="infoBox__text">612<br /><span class="infoBox__textDescriptor">Reporters</span><p>
         <p class="infoBox__text">36,357,668<br /><span class="infoBox__textDescriptor">Pages scanned</span><p>
@@ -85,6 +111,9 @@ export class CaselawMap extends LitElement  {
         <p class="infoBox__text">612<br /><span class="infoBox__textDescriptor">Reporters</span><p>
         <p class="infoBox__text">36,357,668<br /><span class="infoBox__textDescriptor">Pages scanned</span><p>
       </div>
+      </div>
+
+      <accessible-map width="543" height="432" .data=${mapData} .abbreviations=${mapAbbreviations} @map-update=${this._onMapUpdate}></accessible-map>
     </div>
     `;
   }
