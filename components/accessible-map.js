@@ -77,7 +77,10 @@ export class AccessibleMap extends LitElement {
 	render() {
 		return html`
 			<svg
+				data-abbreviation="us"
+				tabindex="0"
 				@mouseleave="${this._handleHoverExit}"
+				@keydown="${this._handleKeyboardEvent}"
 				fill="none"
 				class="map"
 				viewBox="0 0 ${this.width} ${this.height}"
@@ -100,7 +103,7 @@ export class AccessibleMap extends LitElement {
 					(abbreviation) =>
 						svg`<g class="map__group">
 				<title id=${abbreviation}>${mapData[abbreviation].name}</title>
-				<a data-abbreviation=${abbreviation} @keydown="${this._handleKeyboardEvent}" @focus="${this._handlePointerEvent}"  href="https://tinykitelab.com" class="map__link map__link--${abbreviation}" aria-labelledby=${abbreviation}>
+				<a data-abbreviation=${abbreviation} @focus="${this._handlePointerEvent}"  href="https://tinykitelab.com" class="map__link map__link--${abbreviation}" aria-labelledby=${abbreviation}>
 					<path data-abbreviation=${abbreviation} @mouseover="${this._handlePointerEvent}" class="map__path" d=${mapData[abbreviation].path} stroke-width="0.5" stroke="currentColor" />
 				</a>
 			</g>`
