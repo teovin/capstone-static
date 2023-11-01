@@ -11,6 +11,27 @@ export class AccessibleMap extends LitElement {
 		height: {type: Number}
 	}
 
+	static styles = [
+		css`
+			:host {
+				display: block;
+			}
+
+			.map__path {
+				color: var(--color-white);
+				fill: none;
+			}
+
+			.map__link {
+				pointer-events: all;
+			}
+
+			.map__link:hover > .map__path, .map__link:focus > .map__path {
+				fill: var(--color-yellow);
+			}
+		`,
+	];
+
 	_handlePointerEvent(event) {
 		const activeState = event.target.getAttribute("data-abbreviation");
 		this.activeState = activeState
@@ -74,27 +95,6 @@ export class AccessibleMap extends LitElement {
 	</svg>
 	`
 	}
-
-	static styles = [
-		css`
-			:host {
-				display: block;
-			}
-
-			.map__path {
-				color: var(--color-white);
-				fill: none;
-			}
-
-			.map__link {
-				pointer-events: all;
-			}
-
-			.map__link:hover > .map__path, .map__link:focus > .map__path {
-				fill: var(--color-yellow);
-			}
-		`,
-	];
 
 }
 customElements.define("accessible-map", AccessibleMap);
