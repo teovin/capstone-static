@@ -152,8 +152,7 @@ export const mapData = {
 	dc: {
 		name: "Washington, DC",
 		path: "M448.59 168.83L448.64 168.12L447.85 167.08L448.62 166.5L449.81 167.75L448.59 168.83Z",
-		neighbors: {
-		},
+		neighbors: {},
 	},
 	del: {
 		name: "Delaware",
@@ -386,7 +385,7 @@ export const mapData = {
 		},
 	},
 	neb: {
-		name: "Nebraska", 
+		name: "Nebraska",
 		path: "M265.5 123.01L265.92 124.27L266.52 126.37L266.5 127.42L268.21 129.8L268.8 131.89L268.88 134.8L269.55 135.21L270.18 136.71L271.15 140.31L271.35 142.46L271.09 144.68L271.71 146.92L271.9 147.94L273.49 149.89L274.95 151.47L276.18 154.1H263.19H241.5H229.23H212.75H212.73V153.71L212.75 141.71H193.92L193.85 116.47H212.26H226.41H245.32L247.76 118.09L251.23 119.11L252.04 118.52L254.28 118.57L257.65 118.44L260.09 120.09L262.68 121.16L263.11 122.22L263.91 122.83L265.5 123.01Z",
 		neighbors: {
 			up: "sd",
@@ -533,7 +532,7 @@ export const mapData = {
 			down: "miss",
 			right: "nc",
 			left: "mo",
-		}
+		},
 	},
 	tex: {
 		name: "Texas",
@@ -543,7 +542,7 @@ export const mapData = {
 			down: "haw",
 			right: "la",
 			left: "nm",
-		}
+		},
 	},
 	utah: {
 		name: "Utah",
@@ -553,7 +552,7 @@ export const mapData = {
 			down: "ariz",
 			right: "colo",
 			left: "nev",
-		}
+		},
 	},
 	va: {
 		name: "Virginia",
@@ -563,7 +562,7 @@ export const mapData = {
 			down: "nc",
 			right: "md",
 			left: "w-va",
-		}
+		},
 	},
 	vi: {
 		name: "Virgin Islands",
@@ -573,7 +572,7 @@ export const mapData = {
 			down: "mich",
 			right: "guam",
 			left: "pr",
-		}
+		},
 	},
 	vt: {
 		name: "Vermont",
@@ -583,7 +582,7 @@ export const mapData = {
 			down: "mass",
 			right: "nh",
 			left: "ny",
-		}
+		},
 	},
 	"w-va": {
 		name: "West Virginia",
@@ -593,7 +592,7 @@ export const mapData = {
 			down: "va",
 			right: "md",
 			left: "ohio",
-		}
+		},
 	},
 	wash: {
 		name: "Washington",
@@ -603,26 +602,26 @@ export const mapData = {
 			down: "or",
 			right: "idaho",
 			left: "me",
-		}
+		},
 	},
 	wis: {
-		name: "Wisconsin", 
+		name: "Wisconsin",
 		path: "M322.55 69.01L322.63 69.08L323.22 68.8L323.23 68.84L324.71 69.29L325.47 71.75L333.72 74.18L339.16 76.62L341.83 76.64L343.66 76.82L344.18 79.04L346.41 79.9L347.25 81.78L346.67 82.86L346.24 85.04L348.32 85.16L347.62 87.31L348.88 88.88L348.89 88.86L349.13 88.96L349.04 89.09L345.35 93.87L346.63 95.43L353.56 86.88L354.98 86.83L350.08 97.04L347.95 106.17L346.16 113.5L347.34 119.79L347.09 122.91H347.06V122.94L339.8 122.83L329.96 122.8H320.33L319.41 120.85L316.33 119.62L315.73 117.59L315.34 116.44L315.31 113.74L316.16 112.76L314.93 110.71L314.79 110L314.54 108.54L314.52 105.41L314.21 104.33L311.03 102.39L308.65 100.14L307.99 98.73L306.93 97.84L303.88 95.96L302.75 95.84L300 93.3L300.29 90.38L300.3 86.78L301.01 83.41L299.03 80.89L300.38 78.41L302.39 77.12L304.72 75.62L305.02 75.63L304.92 67.99L307.4 67.23L316.85 64.37L322.55 69.01Z",
 		neighbors: {
 			up: "mich",
 			down: "ill",
 			right: "mich",
 			left: "minn",
-		}
+		},
 	},
 	wyo: {
-		name: "Wyoming", 
+		name: "Wyoming",
 		path: "M193.61 89.79L193.85 116.47L193.92 141.71H184.47L165.58 141.73H156.14H146.68L127.81 141.41L127.85 129.19L127.86 97.11L127.52 96.87L127.69 96.4L127.65 89.67L146.22 89.58L160.89 89.72L177.88 89.65L193.61 89.79Z",
 		neighbors: {
 			up: "mont",
 			down: "colo",
 			right: "nd",
 			left: "idaho",
-		}
+		},
 	},
 };

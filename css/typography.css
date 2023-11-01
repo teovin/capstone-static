@@ -1,18 +1,18 @@
 @import "fonts.css";
 
 :root {
-    --font-size-50: 0.685 rem;
-    --font-size-75: 0.75 rem;
-    --font-size-100: 0.875 rem;
-    --font-size-125: 1 rem;
-    --font-size-150: 1.125rem;
-    --font-size-175: 1.25rem;
-    --font-size-200: 1.5rem;
-    --font-size-225: 2rem;
-    --font-size-250: 2.5rem;
+	--font-size-50: 0.685 rem;
+	--font-size-75: 0.75 rem;
+	--font-size-100: 0.875 rem;
+	--font-size-125: 1 rem;
+	--font-size-150: 1.125rem;
+	--font-size-175: 1.25rem;
+	--font-size-200: 1.5rem;
+	--font-size-225: 2rem;
+	--font-size-250: 2.5rem;
 
-    --font-sans-text: "Source Sans 3 VF", sans-serif;
-    --font-serif: "Source Serif VF", baskerville, georgia, serif;
-    --font-mono: source-code, monospace;
-    --font-sans-titling: titillium, sans-serif;
+	--font-sans-text: "Source Sans 3 VF", sans-serif;
+	--font-serif: "Source Serif VF", baskerville, georgia, serif;
+	--font-mono: source-code, monospace;
+	--font-sans-titling: titillium, sans-serif;
 }
