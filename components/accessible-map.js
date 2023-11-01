@@ -13,10 +13,6 @@ export class AccessibleMap extends LitElement {
 
 	static styles = [
 		css`
-			:host {
-				display: block;
-			}
-
 			.map__path {
 				color: var(--color-white);
 				fill: none;
