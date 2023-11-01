@@ -152,7 +152,12 @@ export const mapData = {
 	dc: {
 		name: "Washington, DC",
 		path: "M448.59 168.83L448.64 168.12L447.85 167.08L448.62 166.5L449.81 167.75L448.59 168.83Z",
-		neighbors: {},
+		neighbors: {
+			up: "md",
+			down: "va",
+			right: "md",
+			left: "md",
+		},
 	},
 	del: {
 		name: "Delaware",
