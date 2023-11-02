@@ -1,26 +1,30 @@
 :root {
-    --color-white: #FFFFFF;
-    --color-beige: #F7F6F2;
+	--color-white: #ffffff;
+	--color-beige: #f7f6f2;
 
-    --color-gray-100: #F7F7F9;
-    --color-gray-200: #CED4DA;
-    --color-gray-300: #6C757D;
-    --color-gray-400: #495057;
-    --color-gray-500: #2F2F2F;
-    --color-gray-600: #000000;
+	--color-gray-100: #f7f7f9;
+	--color-gray-200: #ced4da;
+	--color-gray-300: #6c757d;
+	--color-gray-400: #495057;
+	--color-gray-500: #2f2f2f;
+	--color-gray-600: #000000;
 
-    --color-red: #FF654D;
+	--color-red: #ff654d;
 
-    --color-yellow: #FCD84D;
+	--color-yellow: #fcd84d;
 
-    --color-blue-100: #007BFF;
-    --color-blue-200: #0075FF;
-    --color-blue-300: #2C60FF;
-    --color-blue-400: #004FB3;
+	--color-blue-100: #007bff;
+	--color-blue-200: #0075ff;
+	--color-blue-300: #2c60ff;
+	--color-blue-400: #004fb3;
 
-    --color-purple-100: #B3A7FD;
-    --color-purple-200: #E878FF;
-    --color-purple-300: #4830FD;
+	--color-purple-100: #b3a7fd;
+	--color-purple-200: #e878ff;
+	--color-purple-300: #4830fd;
 
-    --color-gradient: linear-gradient(45deg, var(--color-purple-300) 0%, var(--color-red) 100%);
+	--color-gradient: linear-gradient(
+		45deg,
+		var(--color-purple-300) 0%,
+		var(--color-red) 100%
+	);
 }
