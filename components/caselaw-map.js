@@ -113,34 +113,29 @@ export class CaselawMap extends LitElement {
 								>Unique cases</span
 							>
 						</p>
-						<p></p>
 						<p class="infoBox__text">
 							612<br /><span class="infoBox__textDescriptor">Reporters</span>
 						</p>
-						<p></p>
 						<p class="infoBox__text">
 							36,357,668<br /><span class="infoBox__textDescriptor"
 								>Pages scanned</span
 							>
 						</p>
-						<p></p>
+
 						<h3 class="infoBox__heading">Federal Totals</h3>
 						<p class="infoBox__text">
 							6,930,777<br /><span class="infoBox__textDescriptor"
 								>Unique cases</span
 							>
 						</p>
-						<p></p>
 						<p class="infoBox__text">
 							612<br /><span class="infoBox__textDescriptor">Reporters</span>
 						</p>
-						<p></p>
 						<p class="infoBox__text">
 							36,357,668<br /><span class="infoBox__textDescriptor"
 								>Pages scanned</span
 							>
 						</p>
-						<p></p>
 					</div>
 				</div>
 
