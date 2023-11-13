@@ -6,10 +6,12 @@ export class CapLogo extends LitElement {
 		baseStyles,
 		css`
 			.logo {
+				height: 3.75rem;
+				width: auto;
 				color: var(--color-blue-100);
 
 				&:hover {
-					color: var(--color-white);
+					color: var(--color-purple-200);
 				}
 			}
 		`,
