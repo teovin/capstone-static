@@ -31,9 +31,12 @@ class CapHeader extends LitElement {
 				}
 			}
 
-			.nav__mobileMenuPath,
-			.nav_mobileMenuIcon {
-				transition: 0.3s all;
+			@media (prefers-reduced-motion: no-preference) {
+				.nav__mobileMenuPath,
+				.nav_mobileMenuIcon {
+					transition-property: opacity, transform;
+					transition-duration: 0.3s;
+				}
 			}
 
 			.nav__mobileMenuPath--bottom {
@@ -127,13 +130,17 @@ class CapHeader extends LitElement {
 		const navToggle = this.shadowRoot.querySelector(".nav__mobileMenuToggle");
 		const isToggled = navToggle.ariaExpanded;
 
-		// Aria attribute values are always strings, even if their value is a boolean
-		if (isToggled === "true") {
-			navToggle.ariaExpanded = false;
-			this._handleCloseAnimation();
-		} else {
+		// Note: an aria attribute-derived value is always a string
+		// So to check the value, we need this super verbose syntax
+		if (isToggled === "false") {
 			navToggle.ariaExpanded = true;
 			this._handleOpenAnimation();
+
+			// When mobile nav is toggled, we need to programmatically focus its first link
+			this.shadowRoot.querySelector(".nav__link").focus();
+		} else {
+			navToggle.ariaExpanded = false;
+			this._handleCloseAnimation();
 		}
 	}
 
@@ -192,7 +199,7 @@ class CapHeader extends LitElement {
 					<ul class="nav__list">
 						${navLinks.map((link) => {
 							return html`
-								<li class="nav__item">
+								<li class="nav__item" tab>
 									<a class="nav__link" href="/${link.path}">${link.name}</a>
 								</li>
 							`;
