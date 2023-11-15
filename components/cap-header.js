@@ -7,6 +7,9 @@ class CapHeader extends LitElement {
 	static styles = [
 		baseStyles,
 		css`
+			.header {
+				position: relative;
+			}
 			.nav__mobileMenuToggle {
 				background: none;
 				border: none;
@@ -85,11 +88,6 @@ class CapHeader extends LitElement {
 			.nav__link:focus {
 				color: var(--color-yellow);
 			}
-
-			.skipLink {
-				position: absolute;
-				display: none;
-			}
 		`,
 	];
 
@@ -142,7 +140,7 @@ class CapHeader extends LitElement {
 	render() {
 		return html`
 			<header class="header">
-				<a href="#main" class="skipLink">Skip to main content.</a>
+				<a href="#main" class="u-skipLink">Skip to main content</a>
 
 				<nav class="nav">
 					<a href="/">
