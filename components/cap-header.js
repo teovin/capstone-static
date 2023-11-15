@@ -31,9 +31,9 @@ class CapHeader extends LitElement {
 				}
 			}
 
-			@media (prefers-reduced-motion: no-preference) {
-				.nav__mobileMenuPath,
-				.nav_mobileMenuIcon {
+			.nav__mobileMenuPath,
+			.nav_mobileMenuIcon {
+				@media (prefers-reduced-motion: no-preference) {
 					transition-property: opacity, transform;
 					transition-duration: 0.3s;
 				}
