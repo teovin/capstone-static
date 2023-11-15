@@ -3,7 +3,7 @@ import { baseStyles } from "../lib/wc-base.js";
 import "./accessible-map.js";
 import { mapAbbreviations, mapData } from "../data/map.js";
 
-export class CaselawMap extends LitElement {
+export class CapMap extends LitElement {
 	static properties = {
 		activeState: { type: String | undefined },
 	};
@@ -150,4 +150,4 @@ export class CaselawMap extends LitElement {
 		`;
 	}
 }
-customElements.define("caselaw-map", CaselawMap);
+customElements.define("cap-map", CapMap);
