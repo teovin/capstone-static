@@ -1,7 +1,7 @@
 import { LitElement, html, css } from "../lib/lit.js";
 import { baseStyles } from "../lib/wc-base.js";
 
-class CapHighlights extends LitElement {
+class CapStats extends LitElement {
 	static styles = [
 		baseStyles,
 		css`
@@ -10,7 +10,7 @@ class CapHighlights extends LitElement {
 				--border-md: 4px;
 			}
 
-			.highlight {
+			.stat {
 				display: grid;
 				grid-template-columns: 1fr 1fr;
 				grid-row-gap: var(--spacing-100);
@@ -32,7 +32,7 @@ class CapHighlights extends LitElement {
 				}
 			}
 
-			.highlight::before {
+			.stat::before {
 				--size: 25px;
 
 				content: "";
@@ -44,7 +44,7 @@ class CapHighlights extends LitElement {
 				border-top: var(--size) solid var(--color-gray-500);
 			}
 
-			.highlight__item {
+			.stat__item {
 				position: relative;
 				grid-row: 2;
 				font-family: var(--font-sans-titling);
@@ -57,7 +57,7 @@ class CapHighlights extends LitElement {
 				}
 			}
 
-			.highlight__item--one {
+			.stat__item--one {
 				grid-row: 1;
 				grid-column: 1 / -1;
 
@@ -74,7 +74,7 @@ class CapHighlights extends LitElement {
 				}
 			}
 
-			.highlight__item--one > .highlight__text:nth-of-type(2) {
+			.stat__item--one > .stat__text:nth-of-type(2) {
 				position: relative;
 				grid-row: 1;
 				grid-column: 2;
@@ -101,17 +101,17 @@ class CapHighlights extends LitElement {
 				}
 			}
 
-			.highlight__item--one > .highlight__text:last-of-type {
+			.stat__item--one > .stat__text:last-of-type {
 				grid-row: 2;
 				grid-column: 2;
 				align-self: start;
 			}
 
-			.highlight__item--two {
+			.stat__item--two {
 				padding-inline-end: 1rem;
 			}
 
-			.highlight__item--three {
+			.stat__item--three {
 				margin-inline-start: 1rem;
 				padding-inline-start: 1rem;
 
@@ -133,7 +133,7 @@ class CapHighlights extends LitElement {
 				}
 			}
 
-			.highlight__number {
+			.stat__number {
 				font-size: calc(var(--font-size-200) * 2);
 
 				@media (min-width: 36rem) {
@@ -141,7 +141,7 @@ class CapHighlights extends LitElement {
 				}
 			}
 
-			.highlight__number--one {
+			.stat__number--one {
 				padding-block-end: var(--spacing-100);
 				padding-inline-end: 1rem;
 				font-weight: 900;
@@ -153,40 +153,38 @@ class CapHighlights extends LitElement {
 				}
 			}
 
-			.highlight__number--two {
+			.stat__number--two {
 				font-weight: 700;
 			}
 
-			.highlight__number--three {
+			.stat__number--three {
 				font-weight: 200;
 			}
 
-			.highlight__text {
+			.stat__text {
 				display: block;
 			}
 		`,
 	];
 	render() {
 		return html`
-			<div class="highlight">
-				<p class="highlight__item highlight__item--one">
-					<span class="highlight__number highlight__number--one">6.9</span>
-					<span class="highlight__text highlight__text--one">Million</span>
-					<span class="highlight__text highlight__text--one">Unique Cases</span>
+			<div class="stat">
+				<p class="stat__item stat__item--one">
+					<span class="stat__number stat__number--one">6.9</span>
+					<span class="stat__text stat__text--one">Million</span>
+					<span class="stat__text stat__text--one">Unique Cases</span>
 				</p>
-				<p class="highlight__item highlight__item--two">
-					<span class="highlight__number highlight__number--two">612</span>
-					<span class="highlight__text highlight__text--two">Reporters</span>
+				<p class="stat__item stat__item--two">
+					<span class="stat__number stat__number--two">612</span>
+					<span class="stat__text stat__text--two">Reporters</span>
 				</p>
-				<p class="highlight__item highlight__item--three">
-					<span class="highlight__number highlight__number--three">36M</span>
-					<span class="highlight__text highlight__text--three"
-						>Pages Scanned</span
-					>
+				<p class="stat__item stat__item--three">
+					<span class="stat__number stat__number--three">36M</span>
+					<span class="stat__text stat__text--three">Pages Scanned</span>
 				</p>
 			</div>
 		`;
 	}
 }
 
-customElements.define("cap-highlights", CapHighlights);
+customElements.define("cap-stats", CapStats);
