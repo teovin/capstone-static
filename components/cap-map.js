@@ -16,13 +16,17 @@ export class CapMap extends LitElement {
 			}
 
 			.mapRegion {
-				display: grid;
 				position: relative;
 				column-gap: var(--spacing-350);
 				grid-template-columns: 18rem 1fr;
 				background: var(--color-gradient);
 				padding-block: var(--spacing-325) var(--spacing-225);
 				padding-inline: var(--spacing-150) var(--spacing-550);
+				display: none;
+
+				@media (min-width: 60rem) {
+					display: grid;
+				}
 			}
 
 			@media (min-width: 75rem) {
