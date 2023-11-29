@@ -93,7 +93,7 @@ export class CapSectionHighlight extends LitElement {
 					></cap-decorated-header>
 
 					<p class="sectionHighlight__text">See the full list:</p>
-					<a class="sectionHighlight__button" href="">Press</a>
+					<a class="sectionHighlight__button" href="/press">Press</a>
 				</div>
 
 				<div class="sectionHighlight__main">
