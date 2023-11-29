@@ -16,3 +16,18 @@ export const navLinks = [
 		path: "/about",
 	},
 ];
+
+export const legalLinks = [
+	{
+		name: "Terms",
+		path: "/terms",
+	},
+	{
+		name: "Privacy",
+		path: "/privacy",
+	},
+	{
+		name: "Accessibility",
+		path: "/accessibility",
+	},
+];
