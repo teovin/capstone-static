@@ -38,6 +38,10 @@ export class CapFooter extends LitElement {
 				}
 			}
 
+			.footer__textLink--emphasis {
+				text-decoration: underline;
+			}
+
 			.footer__logo {
 				width: 120px;
 
@@ -93,7 +97,7 @@ export class CapFooter extends LitElement {
 				<cap-social-group theme="dark"></cap-social-group>
 
 				<p class="footer__copyrightNotice">
-					Site text is licensed CC BY-SA 4.0. Source code is MIT licensed.
+					Site text is licensed <a class="footer__textLink footer__textLink--emphasis" href="https://creativecommons.org/licenses/by-sa/4.0/">CC BY-SA 4.0<a>. <a class="footer__textLink footer__textLink--emphasis" href="https://github.com/harvard-lil/capstone">Source code</a> is MIT licensed.
 					Harvard asserts no copyright in caselaw retrieved from this site.
 					©2023 The President and Fellows of Harvard University.
 				</p>
