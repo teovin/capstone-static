@@ -16,6 +16,7 @@ export class CapEmailSignup extends LitElement {
 
 			.formIntro {
 				font-size: var(--font-size-100);
+				font-weight: 600;
 			}
 
 			.form {
@@ -73,13 +74,7 @@ export class CapEmailSignup extends LitElement {
 					/>
 				</div>
 				<label class="form__label" for="email">Email</label>
-				<input
-					type="email"
-					name="EMAIL"
-					class="form__input"
-					placeholder="email"
-					id="email"
-				/>
+				<input type="email" name="EMAIL" class="form__input" id="email" />
 				<button
 					class="form__button"
 					value="Subscribe"
