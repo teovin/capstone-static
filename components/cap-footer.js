@@ -32,6 +32,10 @@ export class CapFooter extends LitElement {
 			.footer__textLink {
 				color: inherit;
 				text-decoration: none;
+
+				&:hover {
+					color: var(--color-yellow);
+				}
 			}
 
 			.footer__logo {
