@@ -64,10 +64,18 @@ export class CapEmailSignup extends LitElement {
 				target="_blank"
 				novalidate=""
 			>
+				<div style="position: absolute; left: -5000px;" aria-hidden="true">
+					<input
+						type="text"
+						name="b_4290964398813d739f2398db0_e097736c6f"
+						tabindex="-1"
+						value=""
+					/>
+				</div>
 				<label class="form__label" for="email">Email</label>
 				<input
 					type="email"
-					name="email"
+					name="EMAIL"
 					class="form__input"
 					placeholder="email"
 					id="email"
