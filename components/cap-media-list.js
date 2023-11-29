@@ -14,6 +14,7 @@ export class CapMediaList extends LitElement {
 		css`
 			:host {
 				--color-link: var(--color-blue-300);
+				--color-link-hover: var(--color-gray-600);
 				--color-publisher: var(--color-gray-500);
 				--color-date: var(--color-gray-400);
 				--list-style-type: none;
@@ -34,6 +35,10 @@ export class CapMediaList extends LitElement {
 				text-decoration: none;
 				color: var(--color-link);
 				margin-block-end: var(--spacing-100);
+
+				&:hover {
+					color: var(--color-link-hover);
+				}
 			}
 
 			.mediaList__date {
@@ -53,6 +58,7 @@ export class CapMediaList extends LitElement {
 				--color-link: var(--color-purple-200);
 				--color-publisher: var(--color-yellow);
 				--color-date: var(--color-gray-200);
+				--color-link-hover: var(--color-yellow);
 			}
 		`,
 	];
