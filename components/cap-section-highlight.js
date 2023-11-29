@@ -12,15 +12,20 @@ export class CapSectionHighlight extends LitElement {
 		css`
 			.sectionHighlight {
 				display: grid;
-				grid-template-columns: 25% 1fr 25%;
-				grid-gap: var(--spacing-350);
 				background: var(--color-gray-500);
 				color: var(--color-white);
 				padding-block: var(--spacing-450);
 				padding-inline: var(--spacing-550);
 				font-family: var(--font-sans-text);
 
+				@media (min-width: 35rem) {
+					grid-gap: var(--spacing-350);
+					grid-template-columns: 1fr 1fr;
+				}
+
 				@media (min-width: 65rem) {
+					grid-gap: var(--spacing-350);
+					grid-template-columns: 25% 1fr 25%;
 					padding-inline: calc(var(--spacing-500) * 2);
 				}
 			}
@@ -62,6 +67,14 @@ export class CapSectionHighlight extends LitElement {
 				padding-inline: calc(var(--spacing-175) / 2);
 				padding-block: calc(var(--spacing-100) / 2);
 				margin-block-start: var(--spacing-100);
+			}
+
+			.sectionHighlight__supplemental {
+				grid-column: 2 / -1;
+
+				@media (min-width: 65rem) {
+					grid-column: unset;
+				}
 			}
 
 			.sectionHighlight__quote {
