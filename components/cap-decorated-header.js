@@ -17,10 +17,15 @@ export class CapDecoratedHeader extends LitElement {
 				font-weight: 600;
 				font-family: var(--font-sans-titling);
 				position: relative;
+				line-height: 1.125;
 			}
 
-			.heading--gray {
+			.heading--white {
 				color: var(--color-white);
+			}
+
+			.heading--black {
+				color: var(--color-gray-600);
 			}
 
 			.heading--wedge::before {
@@ -40,8 +45,7 @@ export class CapDecoratedHeader extends LitElement {
 	constructor() {
 		super();
 		this.icon = "wedge";
-		this.theme = "gray";
-		this.textDecoration = "border";
+		this.theme = "white";
 	}
 	render() {
 		return html`
