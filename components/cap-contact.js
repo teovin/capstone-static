@@ -12,8 +12,7 @@ export class CapContact extends LitElement {
 		css`
 			.contact {
 				display: grid;
-				grid-template-columns: 1fr 1fr 1fr;
-				grid-gap: var(--spacing-350);
+
 				justify-content: center;
 				justify-items: center;
 				background: var(--color-yellow);
@@ -22,7 +21,13 @@ export class CapContact extends LitElement {
 				padding-inline: var(--spacing-550);
 				font-family: var(--font-sans-text);
 
+				@media (min-width: 35rem) {
+					grid-template-columns: 1fr 1fr;
+				}
+
 				@media (min-width: 65rem) {
+					grid-template-columns: 1fr 1fr 1fr;
+					grid-gap: var(--spacing-350);
 					padding-inline: calc(var(--spacing-500) * 2);
 				}
 			}
@@ -30,12 +35,22 @@ export class CapContact extends LitElement {
 			.contact__socialText {
 				font-size: var(--font-size-100);
 				font-family: var(--font-serif);
-				margin-block: var(--spacing-200);
+
+				@media (min-width: 65rem) {
+					margin-block: var(--spacing-200);
+				}
 			}
 
 			.contact__supplementalText {
 				font-size: var(--font-size-100);
 				font-family: var(--font-sans);
+				grid-column: 2 / -1;
+				justify-self: end;
+
+				@media (min-width: 65rem) {
+					justify-self: unset;
+					grid-column: ;
+				}
 			}
 		`,
 	];
