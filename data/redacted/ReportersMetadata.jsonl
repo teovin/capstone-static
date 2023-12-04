@@ -1,0 +1,3 @@
+{"id": 652, "full_name": "Illinois Circuit Court Reports", "short_name": "Ill. Cir. Ct. Rep.", "start_year": 1866, "end_year": 1908, "jurisdictions": [{"id": 29, "name": "Ill.", "name_long": "Illinois"}], "harvard_hollis_id": ["003884943"], "slug": "ill-cir-ct-rep"}
+{"id": 289, "full_name": "Montana Reports", "short_name": "Mont.", "start_year": 1868, "end_year": 2017, "jurisdictions": [{"id": 20, "name": "Mont.", "name_long": "Montana"}], "harvard_hollis_id": ["001559417"], "slug": "mont"}
+{"id": 485, "full_name": "Wisconsin Reports Second", "short_name": "Wis. 2d", "start_year": 1957, "end_year": 2017, "jurisdictions": [{"id": 46, "name": "Wis.", "name_long": "Wisconsin"}], "harvard_hollis_id": ["003915824"], "slug": "wis-2d"}

@@ -16,13 +16,17 @@ export class CapMap extends LitElement {
 			}
 
 			.mapRegion {
-				display: grid;
 				position: relative;
 				column-gap: var(--spacing-350);
 				grid-template-columns: 18rem 1fr;
 				background: var(--color-gradient);
 				padding-block: var(--spacing-325) var(--spacing-225);
 				padding-inline: var(--spacing-150) var(--spacing-550);
+				display: none;
+
+				@media (min-width: 60rem) {
+					display: grid;
+				}
 			}
 
 			@media (min-width: 75rem) {
@@ -40,7 +44,24 @@ export class CapMap extends LitElement {
 				left: calc(50% - var(--size));
 				border-left: var(--size) solid transparent;
 				border-right: var(--size) solid transparent;
-				border-bottom: var(--size) solid var(--color-gray-600);
+				border-bottom: var(--size) solid var(--color-gray-500);
+			}
+
+			.mapRegion__accessibilityInfo {
+				display: flex;
+				width: 100%;
+				justify-content: flex-end;
+			}
+
+			.mapRegion__tooltipToggle {
+				color: var(--color-white);
+				font-family: var(--font-sans-text);
+				font-size: 1rem;
+				background: none;
+				border: none;
+				cursor: pointer;
+				height: 2rem; /* Minimum touch target size */
+				width: auto;
 			}
 
 			.mapRegion__heading {
@@ -139,13 +160,21 @@ export class CapMap extends LitElement {
 					</div>
 				</div>
 
-				<accessible-map
-					width="543"
-					height="432"
-					.data=${mapData}
-					.abbreviations=${mapAbbreviations}
-					@map-update=${this._onMapUpdate}
-				></accessible-map>
+				<div class="mapRegion__interactiveContainer">
+					<accessible-map
+						width="543"
+						height="432"
+						.data=${mapData}
+						.abbreviations=${mapAbbreviations}
+						@map-update=${this._onMapUpdate}
+					></accessible-map>
+
+					<div class="mapRegion__accessibilityInfo">
+						<button class="mapRegion__tooltipToggle">
+							Keyboard instructions
+						</button>
+					</div>
+				</div>
 			</div>
 		`;
 	}
