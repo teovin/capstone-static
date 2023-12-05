@@ -11,7 +11,7 @@ export class CapFooter extends LitElement {
 		css`
 			.footer {
 				display: grid;
-				grid-template-columns: repeat(4, 1fr);
+				grid-row-gap: 2rem;
 				justify-items: center;
 				align-items: center;
 				margin: 0 auto;
@@ -21,12 +21,26 @@ export class CapFooter extends LitElement {
 
 				color: var(--color-white);
 				font-family: var(--font-sans-text);
+
+				@media (min-width: 35rem) {
+					grid-template-columns: repeat(2, 1fr);
+				}
+
+				@media (min-width: 50rem) {
+					grid-template-columns: repeat(4, 1fr);
+					grid-row-gap: 0;
+				}
 			}
 
 			.footer__list {
 				padding: 0;
 				list-style-type: none;
 				font-size: 1.125rem;
+				text-align: center;
+
+				@media (min-width: 35rem) {
+					text-align: left;
+				}
 			}
 
 			.footer__textLink {
@@ -43,9 +57,11 @@ export class CapFooter extends LitElement {
 			}
 
 			.footer__logo {
+				grid-column: 1 / -1;
 				width: 120px;
 
-				@media (min-width: 64rem) {
+				@media (min-width: 50rem) {
+					grid-column: 1;
 					width: 150px;
 				}
 
@@ -54,13 +70,24 @@ export class CapFooter extends LitElement {
 				}
 			}
 
-			.footer__copyrightNotice {
-				grid-row: 2;
+			.footer__socialWrapper {
 				grid-column: 1 / -1;
-				margin-block-start: var(--spacing-325);
+
+				@media (min-width: 50rem) {
+					grid-column: auto;
+				}
+			}
+
+			.footer__copyrightNotice {
+				grid-column: 1 / -1;
 				text-align: center;
 				font-family: var(--font-sans-text);
 				font-size: var(--font-size-100);
+
+				@media (min-width: 50rem) {
+					margin-block-start: var(--spacing-325);
+					grid-row: 2;
+				}
 			}
 		`,
 	];
@@ -94,7 +121,9 @@ export class CapFooter extends LitElement {
 					)}
 				</ul>
 
+				<div class="footer__socialWrapper">
 				<cap-social-group theme="dark"></cap-social-group>
+				</div>
 
 				<p class="footer__copyrightNotice">
 					Site text is licensed <a class="footer__textLink footer__textLink--emphasis" href="https://creativecommons.org/licenses/by-sa/4.0/">CC BY-SA 4.0<a>. <a class="footer__textLink footer__textLink--emphasis" href="https://github.com/harvard-lil/capstone">Source code</a> is MIT licensed.

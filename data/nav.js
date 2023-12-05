@@ -28,6 +28,6 @@ export const legalLinks = [
 	},
 	{
 		name: "Accessibility",
-		path: "/accessibility",
+		path: "https://accessibility.huit.harvard.edu/digital-accessibility-policy",
 	},
 ];
