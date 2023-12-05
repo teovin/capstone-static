@@ -152,6 +152,7 @@ export class CapMap extends LitElement {
 	render() {
 		return html`
 			<div class="mapRegion">
+				<a href="#supplemental" class="u-skipLink">Skip map</a>
 				<div class="mapRegion__sidebar">
 					<h2 class="mapRegion__heading">Our data</h2>
 					<p class="mapRegion__subheading">
