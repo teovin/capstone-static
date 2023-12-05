@@ -16,7 +16,7 @@ export class CapMap extends LitElement {
 	constructor() {
 		super();
 		this.caselawData = {};
-		this.activeStats = nationalCaselawStats.total;
+		this.activeStats = nationalCaselawStats.state;
 	}
 
 	connectedCallback() {
@@ -139,7 +139,7 @@ export class CapMap extends LitElement {
 		this.activeState = target.activeState;
 
 		if (!this.activeState) {
-			this.activeStats = nationalCaselawStats.total;
+			this.activeStats = nationalCaselawStats.state;
 		} else {
 			this.activeStats = {
 				caseCount: this.caselawData[this.activeState].case_count,
@@ -206,7 +206,7 @@ export class CapMap extends LitElement {
 
 					<p class="mapRegion__accessibilityInfo">
 						The caselaw map is keyboard accessible. When map is in focus, its
-						states and territories can be navigated with arrow keys
+						states and territories can be navigated with arrow keys.
 					</p>
 				</div>
 
