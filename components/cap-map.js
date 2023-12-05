@@ -205,7 +205,7 @@ export class CapMap extends LitElement {
 
 					<p class="mapRegion__accessibilityInfo">
 						The caselaw map is keyboard accessible. When map is in focus, its
-						states can be navigated with arrow keys
+						states and territories can be navigated with arrow keys
 					</p>
 				</div>
 
