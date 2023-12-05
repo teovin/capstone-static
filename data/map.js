@@ -58,6 +58,19 @@ export const mapAbbreviations = [
 	"wyo",
 ];
 
+export const nationalCaselawStats = {
+	total: {
+		caseCount: 6930777,
+		reporterCount: 612,
+		pageCount: 36357668,
+	},
+	state: {
+		caseCount: 1842484,
+		reporterCount: 75,
+		pageCount: 10409741,
+	},
+};
+
 export const mapData = {
 	us: {
 		name: "United States",

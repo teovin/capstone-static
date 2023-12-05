@@ -1,12 +1,37 @@
 import { LitElement, css, html } from "../lib/lit.js";
 import { baseStyles } from "../lib/wc-base.js";
 import "./accessible-map.js";
-import { mapAbbreviations, mapData } from "../data/map.js";
+import {
+	mapAbbreviations,
+	mapData,
+	nationalCaselawStats,
+} from "../data/map.js";
 
 export class CapMap extends LitElement {
 	static properties = {
-		activeState: { type: String | undefined },
+		activeStats: { attribute: false },
+		caselawData: { attribute: false },
 	};
+
+	constructor() {
+		super();
+		this.caselawData = {};
+		this.activeStats = nationalCaselawStats.total;
+	}
+
+	connectedCallback() {
+		super.connectedCallback();
+		this.fetchCaselawMapData();
+	}
+
+	// Fetching this for now, in case we move the file to S3
+	async fetchCaselawMapData() {
+		const response = await fetch(
+			"http://127.0.0.1:5501/data/caselawMapDictionary.json"
+		);
+		const jsonResponse = await response.json();
+		this.caselawData = jsonResponse;
+	}
 
 	static styles = [
 		baseStyles,
@@ -113,6 +138,16 @@ export class CapMap extends LitElement {
 	_onMapUpdate(event) {
 		const target = event.target;
 		this.activeState = target.activeState;
+
+		if (!this.activeState) {
+			this.activeStats = nationalCaselawStats.total;
+		} else {
+			this.activeStats = {
+				caseCount: this.caselawData[this.activeState].case_count,
+				reporterCount: this.caselawData[this.activeState].reporter_count,
+				pageCount: this.caselawData[this.activeState].page_count,
+			};
+		}
 	}
 
 	render() {
@@ -130,30 +165,40 @@ export class CapMap extends LitElement {
 								: "State and Federal Totals"}
 						</h3>
 						<p class="infoBox__text">
-							6,930,777<br /><span class="infoBox__textDescriptor"
+							${this.activeStats.caseCount}<br /><span
+								class="infoBox__textDescriptor"
 								>Unique cases</span
 							>
 						</p>
 						<p class="infoBox__text">
-							612<br /><span class="infoBox__textDescriptor">Reporters</span>
+							${this.activeStats.reporterCount}<br /><span
+								class="infoBox__textDescriptor"
+								>Reporters</span
+							>
 						</p>
 						<p class="infoBox__text">
-							36,357,668<br /><span class="infoBox__textDescriptor"
+							${this.activeStats.pageCount}<br /><span
+								class="infoBox__textDescriptor"
 								>Pages scanned</span
 							>
 						</p>
 
 						<h3 class="infoBox__heading">Federal Totals</h3>
 						<p class="infoBox__text">
-							6,930,777<br /><span class="infoBox__textDescriptor"
+							${nationalCaselawStats.total.caseCount}<br /><span
+								class="infoBox__textDescriptor"
 								>Unique cases</span
 							>
 						</p>
 						<p class="infoBox__text">
-							612<br /><span class="infoBox__textDescriptor">Reporters</span>
+							${nationalCaselawStats.total.reporterCount}<br /><span
+								class="infoBox__textDescriptor"
+								>Reporters</span
+							>
 						</p>
 						<p class="infoBox__text">
-							36,357,668<br /><span class="infoBox__textDescriptor"
+							${nationalCaselawStats.total.pageCount}<br /><span
+								class="infoBox__textDescriptor"
 								>Pages scanned</span
 							>
 						</p>
