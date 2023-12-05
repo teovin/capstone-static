@@ -2,16 +2,16 @@ export const socialLinks = [
 	{
 		name: "Github",
 		icon: "github",
-		path: "",
+		path: "https://github.com/harvard-lil",
 	},
 	{
 		name: "Twitter",
 		icon: "twitter",
-		path: "",
+		path: "https://twitter.com/HarvardLIL",
 	},
 	{
 		name: "Email",
 		icon: "mail",
-		path: "",
+		path: "/contact",
 	},
 ];
