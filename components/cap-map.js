@@ -73,9 +73,8 @@ export class CapMap extends LitElement {
 			}
 
 			.mapRegion__accessibilityInfo {
-				display: flex;
-				width: 100%;
-				justify-content: flex-end;
+				margin-block-start: var(--spacing-100);
+				font-style: italic;
 			}
 
 			.mapRegion__tooltipToggle {
@@ -153,7 +152,7 @@ export class CapMap extends LitElement {
 	render() {
 		return html`
 			<div class="mapRegion">
-				<div>
+				<div class="mapRegion__sidebar">
 					<h2 class="mapRegion__heading">Our data</h2>
 					<p class="mapRegion__subheading">
 						360 years of United States caselaw
@@ -203,6 +202,11 @@ export class CapMap extends LitElement {
 							>
 						</p>
 					</div>
+
+					<p class="mapRegion__accessibilityInfo">
+						The caselaw map is keyboard accessible. When map is in focus, its
+						states can be navigated with arrow keys
+					</p>
 				</div>
 
 				<div class="mapRegion__interactiveContainer">
