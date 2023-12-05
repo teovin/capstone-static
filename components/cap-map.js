@@ -213,12 +213,6 @@ export class CapMap extends LitElement {
 						.abbreviations=${mapAbbreviations}
 						@map-update=${this._onMapUpdate}
 					></accessible-map>
-
-					<div class="mapRegion__accessibilityInfo">
-						<button class="mapRegion__tooltipToggle">
-							Keyboard instructions
-						</button>
-					</div>
 				</div>
 			</div>
 		`;
