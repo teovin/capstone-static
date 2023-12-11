@@ -1,0 +1,15 @@
+.u-col-span-full {
+	grid-column: 1 / -1;
+}
+
+.u-col-span-2 {
+	grid-column: span 2;
+}
+
+.u-col-span-3 {
+	grid-column: span 3;
+}
+
+.u-bg-gray-600 {
+	background-color: var(--color-gray-600);
+}
