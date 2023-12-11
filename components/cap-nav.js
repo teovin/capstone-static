@@ -3,7 +3,7 @@ import { baseStyles } from "../lib/wc-base.js";
 import { navLinks } from "../data/nav.js";
 import "./cap-logo.js";
 
-class CapHeader extends LitElement {
+class CapNav extends LitElement {
 	static styles = [
 		baseStyles,
 		css`
@@ -211,4 +211,4 @@ class CapHeader extends LitElement {
 	}
 }
 
-customElements.define("cap-header", CapHeader);
+customElements.define("cap-nav", CapNav);
