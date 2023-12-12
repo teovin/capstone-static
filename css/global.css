@@ -39,7 +39,3 @@ h5,
 h6 {
 	font-family: var(--font-sans-titling);
 }
-
-p {
-	font-family: var(--font-serif);
-}

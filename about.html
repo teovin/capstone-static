@@ -17,15 +17,22 @@
 		<script type="module" src="/components/cap-nav.js"></script>
 		<script type="module" src="/components/cap-footer.js"></script>
 		<script type="module" src="/components/cap-media-list.js"></script>
-		<script type="module" src="/components/cap-decorated-header.js"></script>
+		<script type="module" src="/components/cap-page-header.js"></script>
 	</head>
 	<body>
-		<cap-nav></cap-nav>
+		<cap-nav> </cap-nav>
 		<main id="main" class="l-interiorPage">
-			<header class="u-bg-gray-600 u-col-span-full">
-				<h1>About</h1>
+			<header class="u-bg-gray-500 u-col-span-full">
+				<cap-page-header heading="About">
+					<p class="u-text-white">
+						The Caselaw Access Project (“CAP”) expands public access to U.S.
+						law. Our goal is to make all published U.S. court decisions freely
+						available to the public online, in a consistent format, digitized
+						from the collection of the Harvard Law School Library.
+					</p>
+				</cap-page-header>
 			</header>
-			<aside>Placeholder</aside>
+			<aside><cap-page</aside>
 			<article class="u-col-span-3">
 				<h2>What data do we have?</h2>
 				<p>

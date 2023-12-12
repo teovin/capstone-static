@@ -6,14 +6,15 @@ export class CapDecoratedHeader extends LitElement {
 		icon: { type: String | undefined },
 		theme: { type: String | undefined },
 		heading: { type: String },
+		headingLevel: { type: String | undefined },
 		border: { type: String | undefined },
+		size: { type: String | undefined },
 	};
 
 	static styles = [
 		baseStyles,
 		css`
 			.heading {
-				font-size: var(--font-size-250);
 				font-weight: 600;
 				font-family: var(--font-sans-titling);
 				position: relative;
@@ -26,6 +27,18 @@ export class CapDecoratedHeader extends LitElement {
 
 			.heading--black {
 				color: var(--color-gray-600);
+			}
+
+			.heading--medium {
+				font-size: var(--font-size-250);
+			}
+
+			.heading--large {
+				font-size: var(--font-size-300);
+
+				@media (min-width: 65rem) {
+					font-size: var(--font-size-325);
+				}
 			}
 
 			.heading--wedge::before {
@@ -46,13 +59,16 @@ export class CapDecoratedHeader extends LitElement {
 		super();
 		this.icon = "wedge";
 		this.theme = "white";
+		this.headingLevel = "h2";
+		this.size = "medium";
 	}
 	render() {
-		return html`
-			<h2 class="heading heading--${this.icon} heading--${this.theme} ">
-				${this.heading}
-			</h2>
-		`;
+		console.log(this.size);
+		const classNames = `heading heading--${this.icon} heading--${this.theme} heading--${this.size}`;
+
+		return this.headingLevel === "h1"
+			? html`<h1 class=${classNames}>${this.heading}</h1>`
+			: html` <h2 class=${classNames}>${this.heading}</h2>`;
 	}
 }
 

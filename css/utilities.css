@@ -13,3 +13,23 @@
 .u-bg-gray-600 {
 	background-color: var(--color-gray-600);
 }
+
+.u-bg-gray-500 {
+	background-color: var(--color-gray-500);
+}
+
+.u-font-size-150 {
+	font-size: var(--font-size-150);
+}
+
+.u-font-size-175 {
+	font-size: var(--font-size-175);
+}
+
+.u-text-white {
+	color: var(--color-white);
+}
+
+.u-margin-block-start-275 {
+	margin-block-start: var(--spacing-275);
+}
