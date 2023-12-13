@@ -1,4 +1,4 @@
-[
+export const anchorLinks = [
 	{
 		title: "What data do we have?",
 		url: "#what-data-do-we-have",
