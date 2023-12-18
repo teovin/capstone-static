@@ -2,6 +2,7 @@ import { LitElement, html } from "../lib/lit.js";
 import "../components/cap-nav.js";
 import "../components/cap-page-header.js";
 import "../components/cap-footer.js";
+import "../components/cap-anchor-list.js";
 import { anchorLinks } from "../data/aboutSidebarLinks.js";
 
 export class CapAboutPage extends LitElement {
@@ -25,10 +26,8 @@ export class CapAboutPage extends LitElement {
 						</p>
 					</cap-page-header>
 				</header>
-				<aside>
-					${anchorLinks.map(
-						(link) => html` <a href="${link.url}">${link.title}</a> `
-					)}
+				<aside class="u-w-fit">
+					<cap-anchor-list .data=${anchorLinks}></cap-anchor-list>
 				</aside>
 				<article class="u-col-span-3">
 					<h2 id="what-data-do-we-have">What data do we have?</h2>
@@ -80,7 +79,7 @@ export class CapAboutPage extends LitElement {
 						volumes not yet in the public domain, our vendor redacted any
 						headnotes.
 					</p>
-					<h3>Harvard Law School Collection scope limits:</h3>
+					<h4>Harvard Law School Collection scope limits:</h4>
 					<p>The Harvard Law School Collection does not include:</p>
 					<ul>
 						<li>
