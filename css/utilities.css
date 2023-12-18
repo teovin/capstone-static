@@ -33,3 +33,7 @@
 .u-margin-block-start-275 {
 	margin-block-start: var(--spacing-275);
 }
+
+.u-w-fit {
+	width: fit-content;
+}
