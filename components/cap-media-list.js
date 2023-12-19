@@ -13,11 +13,14 @@ export class CapMediaList extends LitElement {
 		baseStyles,
 		css`
 			:host {
-				--color-link: var(--color-blue-300);
+				--color-link: var(--color-blue-400);
 				--color-link-hover: var(--color-gray-600);
 				--color-publisher: var(--color-gray-500);
 				--color-date: var(--color-gray-400);
 				--list-style-type: none;
+
+				font-family: var(--font-sans-text);
+				font-size: var(--font-size-175);
 			}
 
 			.mediaList {
@@ -59,6 +62,10 @@ export class CapMediaList extends LitElement {
 				--color-publisher: var(--color-yellow);
 				--color-date: var(--color-gray-200);
 				--color-link-hover: var(--color-yellow);
+			}
+
+			.mediaList--light {
+				margin-inline-start: 1.25rem;
 			}
 		`,
 	];
