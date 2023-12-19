@@ -100,7 +100,7 @@ export class CapSectionHighlight extends LitElement {
 			<div class="sectionHighlight">
 				<div class="sectionHighlight__cta">
 					<cap-decorated-header
-						icon="wedge"
+						icon="smallWedge"
 						theme="gray"
 						heading="Links & Press"
 					></cap-decorated-header>

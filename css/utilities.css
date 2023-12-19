@@ -22,12 +22,16 @@
 	background-color: var(--color-beige);
 }
 
-.u-font-size-150 {
+.u-text-size-150 {
 	font-size: var(--font-size-150);
 }
 
-.u-font-size-175 {
+.u-text-size-175 {
 	font-size: var(--font-size-175);
+}
+
+.u-text-serif {
+	font-family: var(--font-serif);
 }
 
 .u-text-white {
