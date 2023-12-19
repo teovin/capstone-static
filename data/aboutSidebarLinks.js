@@ -16,10 +16,6 @@ export const anchorLinks = [
 		url: "#fastcase-collection",
 	},
 	{
-		title: "By the numbers",
-		url: "#by-the-numbers",
-	},
-	{
 		title: "Data quality",
 		url: "#data-quality",
 	},
@@ -36,8 +32,8 @@ export const anchorLinks = [
 		url: "#press",
 	},
 	{
-		title: "Partners",
-		url: "#friends-partners",
+		title: "Friends and Partners",
+		url: "#friends-and-partners",
 	},
 	{
 		title: "Contributors",
