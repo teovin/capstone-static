@@ -2,6 +2,7 @@
 @import "colors.css";
 @import "spacing.css";
 @import "layout.css";
+@import "components.css";
 @import "utilities.css";
 
 body {
@@ -38,4 +39,45 @@ h4,
 h5,
 h6 {
 	font-family: var(--font-sans-titling);
+}
+
+h2 {
+	font-size: var(--font-size-250);
+	font-weight: 600;
+}
+
+h3 {
+	font-size: var(--font-size-200);
+}
+
+h4 {
+	font-size: var(--font-size-175);
+}
+
+p,
+ul {
+	font-family: var(--font-sans-text);
+	font-size: var(--font-size-175);
+}
+
+ul {
+	padding-inline-start: 1.8rem;
+	list-style-position: outside;
+}
+
+li {
+	list-style-type: circle;
+}
+
+a:link,
+a:visited,
+a:hover,
+a:active {
+	text-decoration: none;
+	color: var(--color-blue-400);
+
+	&:hover {
+		color: var(--color-blue-500);
+		text-decoration: underline;
+	}
 }

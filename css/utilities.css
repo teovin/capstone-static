@@ -18,6 +18,10 @@
 	background-color: var(--color-gray-500);
 }
 
+.u-bg-beige {
+	background-color: var(--color-beige);
+}
+
 .u-font-size-150 {
 	font-size: var(--font-size-150);
 }
@@ -30,8 +34,17 @@
 	color: var(--color-white);
 }
 
+.u-text-purple-200 {
+	color: var(--color-purple-200);
+}
+
 .u-margin-block-start-275 {
 	margin-block-start: var(--spacing-275);
+}
+.u-sm-hidden {
+	@media (max-width: 60rem) {
+		display: none;
+	}
 }
 
 .u-w-fit {
