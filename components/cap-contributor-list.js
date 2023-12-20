@@ -23,8 +23,8 @@ export class CapContributorList extends LitElement {
 
 			.contributorList {
 				font-family: var(--font-sans-text);
-				padding-inline-start: 1.8rem;
 				list-style-position: outside;
+				padding-inline-start: 1.8rem;
 
 				@media (min-width: 35rem) {
 					font-size: var(--font-size-175);
@@ -40,7 +40,18 @@ export class CapContributorList extends LitElement {
 				}
 			}
 
-			.contributorList__name {
+			.contributorList__link {
+				text-decoration: none;
+				color: var(--color-blue-400);
+
+				&:hover {
+					color: var(--color-blue-500);
+					text-decoration: underline;
+				}
+
+				@media (min-width: 35rem) {
+					font-size: var(--font-size-175);
+				}
 			}
 
 			.contributorList__decorator {
@@ -51,7 +62,7 @@ export class CapContributorList extends LitElement {
 
 	_getContributorMarkup(contributor) {
 		if (contributor?.url) {
-			return html`<a href=${contributor.url}
+			return html`<a class="contributorList__link" href=${contributor.url}
 				><span class="contributorList__name">${contributor.name}</span></a
 			> `;
 		} else {
@@ -61,7 +72,7 @@ export class CapContributorList extends LitElement {
 
 	render() {
 		return html`
-			<ul>
+			<ul class="contributorList">
 				${contributorLinks.map((link) => {
 					return html`
 						<li class="contributorList__item">

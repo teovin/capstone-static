@@ -23,12 +23,20 @@ export class CapMediaList extends LitElement {
 			}
 
 			.mediaList {
-				list-style-type: var(--list-style-type);
 				padding-inline: 0;
 			}
 
 			.mediaList__item {
 				margin-block-start: var(--spacing-175);
+				list-style-type: none;
+
+				@media (min-width: 35rem) {
+					font-size: 1.25rem;
+				}
+			}
+
+			.mediaList__item--bulleted {
+				list-style-type: circle;
 			}
 
 			.mediaList__link {
@@ -55,10 +63,6 @@ export class CapMediaList extends LitElement {
 				margin-inline-end: calc(var(--spacing-200) / 2);
 			}
 
-			.mediaList--bulleted {
-				--list-style-type: circle;
-			}
-
 			.mediaList--dark {
 				--color-link: var(--color-purple-200);
 				--color-publisher: var(--color-yellow);
@@ -79,14 +83,14 @@ export class CapMediaList extends LitElement {
 	}
 	render() {
 		return html`
-			<ul
-				class=${clsx("mediaList", `mediaList--${this.theme}`, {
-					"mediaList--bulleted": this.decoration === "bulleted",
-				})}
-			>
+			<ul class=${clsx("mediaList", `mediaList--${this.theme}`)}>
 				${pressLinks.map((link) => {
 					return html`
-						<li class="mediaList__item">
+						<li
+							class=${clsx("mediaList__item", {
+								"mediaList__item--bulleted": this.decoration === "bulleted",
+							})}
+						>
 							<a class="mediaList__link" href="${link.url}">${link.title}</a>
 							<span class="mediaList__publisher">${link.publisher}</span>
 							<span class="mediaList__date">${link.date}</span>
