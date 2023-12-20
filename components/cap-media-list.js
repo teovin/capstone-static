@@ -20,7 +20,10 @@ export class CapMediaList extends LitElement {
 				--list-style-type: none;
 
 				font-family: var(--font-sans-text);
-				font-size: var(--font-size-175);
+
+				@media (min-width: 35rem) {
+					font-size: var(--font-size-175);
+				}
 			}
 
 			.mediaList {
