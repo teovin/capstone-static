@@ -15,13 +15,18 @@ export const contributorLinks = [
 		url: "https://lil.law.harvard.edu/about/#clare-stanton",
 	},
 	{
+		name: "Michael Della Bitta",
+		job_title: "Engineering Manager",
+		url: "https://lil.law.harvard.edu/about/#michael-della-bitta",
+	},
+	{
 		name: "Anastasia Aizman",
 		job_title: "Designer and Lead Creative Technologist",
 		url: "https://lil.law.harvard.edu/about/#anastasia-aizman",
 	},
 	{ name: "Kendra Albert", job_title: "Research Associate" },
 	{
-		name: "Karen Beck",
+		name: "KB Beck",
 		job_title: "Manager, Historical & Special Collections",
 	},
 	{ name: "Zachary Bodnar", job_title: "Digitization Specialist" },
