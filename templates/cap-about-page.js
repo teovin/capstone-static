@@ -268,9 +268,7 @@ export class CapAboutPage extends LitElement {
 						</li>
 					</ul>
 
-					<h2 class="c-decoratedHeader" id="friends-and-partners">
-						Contributors
-					</h2>
+					<h2 class="c-decoratedHeader" id="contributors">Contributors</h2>
 					<cap-contributor-list></cap-contributor-list>
 
 					<h2 class="c-decoratedHeader" id="getting-legal-help">
