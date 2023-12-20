@@ -13,18 +13,30 @@ export class CapPageHeader extends LitElement {
 		baseStyles,
 		css`
 			.pageHeader {
-				padding-inline: calc(var(--spacing-350) * 2);
+				padding-inline: var(--spacing-150);
 				padding-block-start: var(--spacing-425);
 				padding-block-end: calc(var(--spacing-350) * 2);
+
 				margin-inline-start: 3.125rem;
+
+				@media (min-width: 35rem) {
+					padding-inline: var(--spacing-350);
+				}
+
+				@media (min-width: 65rem) {
+					padding-inline: calc(var(--spacing-350) * 2);
+				}
 			}
 			.pageHeader--darkGray {
 				color: var(--color-gray-500);
 			}
 
 			::slotted(p) {
-				font-size: var(--font-size-200);
 				padding-top: var(--spacing-200);
+
+				@media (min-width: 35rem) {
+					font-size: var(--font-size-200);
+				}
 			}
 		`,
 	];

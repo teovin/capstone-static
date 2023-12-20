@@ -57,7 +57,7 @@ export class CapDecoratedHeader extends LitElement {
 				background: url("/images/wedge.svg") no-repeat;
 				position: absolute;
 				top: 50%;
-				left: -45px;
+				left: -40px;
 				height: 44px;
 				width: 35px;
 				transform: translateY(-50%);
