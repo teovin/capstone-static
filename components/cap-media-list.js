@@ -20,10 +20,6 @@ export class CapMediaList extends LitElement {
 				--list-style-type: none;
 
 				font-family: var(--font-sans-text);
-
-				@media (min-width: 35rem) {
-					font-size: var(--font-size-175);
-				}
 			}
 
 			.mediaList {
@@ -37,13 +33,16 @@ export class CapMediaList extends LitElement {
 
 			.mediaList__link {
 				display: block;
-				font-size: var(--font-size-175);
 				text-decoration: none;
 				color: var(--color-link);
 				margin-block-end: var(--spacing-100);
 
 				&:hover {
 					color: var(--color-link-hover);
+				}
+
+				@media (min-width: 35rem) {
+					font-size: var(--font-size-175);
 				}
 			}
 
