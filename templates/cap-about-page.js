@@ -4,6 +4,7 @@ import "../components/cap-page-header.js";
 import "../components/cap-footer.js";
 import "../components/cap-anchor-list.js";
 import "../components/cap-media-list.js";
+import "../components/cap-contributor-list.js";
 import { anchorLinks } from "../data/aboutSidebarLinks.js";
 
 export class CapAboutPage extends LitElement {
@@ -266,6 +267,11 @@ export class CapAboutPage extends LitElement {
 							generously provided LIL with network services for case.law.
 						</li>
 					</ul>
+
+					<h2 class="c-decoratedHeader" id="friends-and-partners">
+						Contributors
+					</h2>
+					<cap-contributor-list></cap-contributor-list>
 
 					<h2 class="c-decoratedHeader" id="getting-legal-help">
 						Getting Legal Help
