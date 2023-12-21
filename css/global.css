@@ -1,7 +1,98 @@
 @import "typography.css";
 @import "colors.css";
 @import "spacing.css";
+@import "layout.css";
+@import "components.css";
+@import "utilities.css";
 
 body {
 	margin: 0;
+	-webkit-font-smoothing: antialiased;
+}
+
+:host * {
+	margin: 0;
+}
+
+*,
+*::before,
+*::after {
+	box-sizing: border-box;
+}
+
+p,
+h1,
+h2,
+h3,
+h4,
+h5,
+h6 {
+	overflow-wrap: break-word;
+	line-height: 1.5;
+	margin: 0;
+}
+
+h1,
+h2,
+h3,
+h4,
+h5,
+h6 {
+	font-family: var(--font-sans-titling);
+}
+
+h2 {
+	font-size: var(--font-size-200);
+	font-weight: 600;
+
+	@media (min-width: 35rem) {
+		font-size: var(--font-size-250);
+	}
+}
+
+h3 {
+	font-size: var(--font-size-175);
+
+	@media (min-width: 35rem) {
+		font-size: var(--font-size-200);
+	}
+}
+
+h4 {
+	font-size: var(--font-size-100);
+
+	@media (min-width: 35rem) {
+		font-size: var(--font-size-175);
+	}
+}
+
+p,
+ul {
+	font-family: var(--font-sans-text);
+
+	@media (min-width: 35rem) {
+		font-size: var(--font-size-175);
+	}
+}
+
+ul {
+	padding-inline-start: 1.8rem;
+	list-style-position: outside;
+}
+
+li {
+	list-style-type: circle;
+}
+
+a:link,
+a:visited,
+a:hover,
+a:active {
+	text-decoration: none;
+	color: var(--color-blue-400);
+
+	&:hover {
+		color: var(--color-blue-500);
+		text-decoration: underline;
+	}
 }

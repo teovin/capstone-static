@@ -6,14 +6,15 @@ export class CapDecoratedHeader extends LitElement {
 		icon: { type: String | undefined },
 		theme: { type: String | undefined },
 		heading: { type: String },
+		headingLevel: { type: String | undefined },
 		border: { type: String | undefined },
+		size: { type: String | undefined },
 	};
 
 	static styles = [
 		baseStyles,
 		css`
 			.heading {
-				font-size: var(--font-size-250);
 				font-weight: 600;
 				font-family: var(--font-sans-titling);
 				position: relative;
@@ -28,7 +29,19 @@ export class CapDecoratedHeader extends LitElement {
 				color: var(--color-gray-600);
 			}
 
-			.heading--wedge::before {
+			.heading--medium {
+				font-size: var(--font-size-250);
+			}
+
+			.heading--large {
+				font-size: var(--font-size-300);
+
+				@media (min-width: 65rem) {
+					font-size: var(--font-size-325);
+				}
+			}
+
+			.heading--smallWedge::before {
 				content: "";
 				background: url("/images/wedge.svg") no-repeat;
 				position: absolute;
@@ -37,22 +50,34 @@ export class CapDecoratedHeader extends LitElement {
 				height: 29px;
 				width: 20px;
 				transform: translateY(-50%);
-				color: var(--color-purple-100);
+			}
+
+			.heading--largeWedge::before {
+				content: "";
+				background: url("/images/wedge.svg") no-repeat;
+				position: absolute;
+				top: 50%;
+				left: -30px;
+				height: 29px;
+				width: 20px;
+				transform: translateY(-50%);
 			}
 		`,
 	];
 
 	constructor() {
 		super();
-		this.icon = "wedge";
+		this.icon = "smallWedge";
 		this.theme = "white";
+		this.headingLevel = "h2";
+		this.size = "medium";
 	}
 	render() {
-		return html`
-			<h2 class="heading heading--${this.icon} heading--${this.theme} ">
-				${this.heading}
-			</h2>
-		`;
+		const classNames = `heading heading--${this.icon} heading--${this.theme} heading--${this.size}`;
+
+		return this.headingLevel === "h1"
+			? html`<h1 class=${classNames}>${this.heading}</h1>`
+			: html` <h2 class=${classNames}>${this.heading}</h2>`;
 	}
 }
 

@@ -1,0 +1,41 @@
+.c-decoratedHeader {
+	font-weight: 400;
+	color: var(--color-blue-500);
+	position: relative;
+}
+
+.c-decoratedHeader::before {
+	content: "\00A7";
+	color: var(--color-yellow);
+	position: absolute;
+	font-size: 1.5rem;
+	line-height: 1.2;
+	transform: translateX(calc(-100% - 0.5rem)) translateY(5%);
+}
+
+@media screen and (min-width: 35rem) {
+	.c-decoratedHeader::before {
+		font-size: 2rem;
+		line-height: 1.5;
+	}
+}
+
+.c-article {
+	grid-column: 1 / -1;
+	background: var(--color-beige);
+	padding-inline: var(--spacing-500);
+	padding-block-start: var(--spacing-300);
+	padding-block-end: var(--spacing-550);
+
+	@media (min-width: 60rem) {
+		grid-column: 2 / -1;
+	}
+}
+
+.c-article * + * {
+	margin-block-start: var(--spacing-200);
+}
+
+.c-article h2 + * {
+	margin-block-start: var(--spacing-100);
+}
