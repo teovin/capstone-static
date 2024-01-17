@@ -3,11 +3,11 @@
 	font-weight: 200 900;
 	font-style: normal;
 	font-stretch: normal;
-	src: url("/fonts/source-serif/SourceSerif4Variable-Roman.ttf.woff2")
+	src: url("../fonts/source-serif/SourceSerif4Variable-Roman.ttf.woff2")
 			format("woff2-variations"),
-		url("/fonts/source-serif/SourceSerif4Variable-Roman.ttf.woff")
+		url("../fonts/source-serif/SourceSerif4Variable-Roman.ttf.woff")
 			format("woff-variations"),
-		url("/fonts/source-serif/SourceSerif4Variable-Roman.ttf")
+		url("../fonts/source-serif/SourceSerif4Variable-Roman.ttf")
 			format("truetype-variations");
 }
 
@@ -16,11 +16,11 @@
 	font-weight: 200 900;
 	font-style: italic;
 	font-stretch: normal;
-	src: url("/fonts/source-serif/SourceSerif4Variable-Italic.ttf.woff2")
+	src: url("../fonts/source-serif/SourceSerif4Variable-Italic.ttf.woff2")
 			format("woff2-variations"),
-		url("/fonts/source-serif/SourceSerif4Variable-Italic.ttf.woff")
+		url("../fonts/source-serif/SourceSerif4Variable-Italic.ttf.woff")
 			format("woff-variations"),
-		url("/fonts/source-serif/SourceSerif4Variable-Italic.ttf")
+		url("../fonts/source-serif/SourceSerif4Variable-Italic.ttf")
 			format("truetype-variations");
 }
 
@@ -29,10 +29,10 @@
 	font-weight: 200 900;
 	font-style: normal;
 	font-stretch: normal;
-	src: url("/fonts/source-sans-3/SourceSans3VF-Upright.ttf.woff2")
+	src: url("../fonts/source-sans-3/SourceSans3VF-Upright.ttf.woff2")
 			format("woff2"),
-		url("/fonts/SourceSans3VF-Upright.ttf.woff") format("woff"),
-		url("/fonts/SourceSans3VF-Upright.ttf") format("truetype");
+		url("../fonts/SourceSans3VF-Upright.ttf.woff") format("woff"),
+		url("../fonts/SourceSans3VF-Upright.ttf") format("truetype");
 }
 
 @font-face {
@@ -48,9 +48,9 @@
 @font-face {
 	font-display: swap;
 	font-family: "source-code";
-	src: url("/fonts/source-code-pro/sourcecodepro-it-webfont.woff2")
+	src: url("../fonts/source-code-pro/sourcecodepro-it-webfont.woff2")
 			format("woff2"),
-		url("/fonts/source-code-pro/sourcecodepro-it-webfont.woff") format("woff");
+		url("../fonts/source-code-pro/sourcecodepro-it-webfont.woff") format("woff");
 	font-weight: 400;
 	font-style: italic;
 }
@@ -58,9 +58,9 @@
 @font-face {
 	font-display: swap;
 	font-family: "source-code";
-	src: url("/fonts/source-code-pro/sourcecodepro-light-webfont.woff2")
+	src: url("../fonts/source-code-pro/sourcecodepro-light-webfont.woff2")
 			format("woff2"),
-		url("/fonts/source-code-pro/sourcecodepro-light-webfont.woff")
+		url("../fonts/source-code-pro/sourcecodepro-light-webfont.woff")
 			format("woff");
 	font-weight: 300;
 	font-style: normal;
@@ -69,9 +69,9 @@
 @font-face {
 	font-display: swap;
 	font-family: "source-code";
-	src: url("/fonts/source-code-pro/sourcecodepro-lightit-webfont.woff2")
+	src: url("../fonts/source-code-pro/sourcecodepro-lightit-webfont.woff2")
 			format("woff2"),
-		url("/fonts/source-code-pro/sourcecodepro-lightit-webfont.woff")
+		url("../fonts/source-code-pro/sourcecodepro-lightit-webfont.woff")
 			format("woff");
 	font-weight: 300;
 	font-style: italic;
@@ -80,9 +80,9 @@
 @font-face {
 	font-display: swap;
 	font-family: "source-code";
-	src: url("/fonts/source-code-pro/sourcecodepro-medium-webfont.woff2")
+	src: url("../fonts/source-code-pro/sourcecodepro-medium-webfont.woff2")
 			format("woff2"),
-		url("/fonts/source-code-pro/sourcecodepro-medium-webfont.woff")
+		url("../fonts/source-code-pro/sourcecodepro-medium-webfont.woff")
 			format("woff");
 	font-weight: 500;
 	font-style: normal;
@@ -91,9 +91,9 @@
 @font-face {
 	font-display: swap;
 	font-family: "source-code";
-	src: url("/fonts/source-code-pro/sourcecodepro-mediumit-webfont.woff2")
+	src: url("../fonts/source-code-pro/sourcecodepro-mediumit-webfont.woff2")
 			format("woff2"),
-		url("/fonts/source-code-pro/sourcecodepro-mediumit-webfont.woff")
+		url("../fonts/source-code-pro/sourcecodepro-mediumit-webfont.woff")
 			format("woff");
 	font-weight: 500;
 	font-style: italic;
@@ -102,9 +102,9 @@
 @font-face {
 	font-display: swap;
 	font-family: "source-code";
-	src: url("/fonts/source-code-pro/sourcecodepro-regular-webfont.woff2")
+	src: url("../fonts/source-code-pro/sourcecodepro-regular-webfont.woff2")
 			format("woff2"),
-		url("/fonts/source-code-pro/sourcecodepro-regular-webfont.woff")
+		url("../fonts/source-code-pro/sourcecodepro-regular-webfont.woff")
 			format("woff");
 	font-weight: 400;
 	font-style: normal;
@@ -113,9 +113,9 @@
 @font-face {
 	font-display: swap;
 	font-family: "source-code";
-	src: url("/fonts/source-code-pro/sourcecodepro-semibold-webfont.woff2")
+	src: url("../fonts/source-code-pro/sourcecodepro-semibold-webfont.woff2")
 			format("woff2"),
-		url("/fonts/source-code-pro/sourcecodepro-semibold-webfont.woff")
+		url("../fonts/source-code-pro/sourcecodepro-semibold-webfont.woff")
 			format("woff");
 	font-weight: 600;
 	font-style: normal;
@@ -124,9 +124,9 @@
 @font-face {
 	font-display: swap;
 	font-family: "source-code";
-	src: url("/fonts/source-code-pro/sourcecodepro-semiboldit-webfont.woff2")
+	src: url("../fonts/source-code-pro/sourcecodepro-semiboldit-webfont.woff2")
 			format("woff2"),
-		url("/fonts/source-code-pro/sourcecodepro-semiboldit-webfont.woff")
+		url("../fonts/source-code-pro/sourcecodepro-semiboldit-webfont.woff")
 			format("woff");
 	font-weight: 600;
 	font-style: italic;
@@ -135,7 +135,7 @@
 @font-face {
 	font-display: swap;
 	font-family: "Libre Baskerville";
-	src: url("/fonts/LibreBaskerville-Regular.woff") format("woff");
+	src: url("../fonts/LibreBaskerville-Regular.woff") format("woff");
 	font-weight: 300;
 	font-style: normal;
 }
@@ -143,8 +143,8 @@
 @font-face {
 	font-display: swap;
 	font-family: "titillium";
-	src: url("/fonts/titilliumweb-bold-webfont.woff2") format("woff2"),
-		url("/fonts/titilliumweb-bold-webfont.woff") format("woff");
+	src: url("../fonts/titilliumweb-bold-webfont.woff2") format("woff2"),
+		url("../fonts/titilliumweb-bold-webfont.woff") format("woff");
 	font-weight: 700;
 	font-style: normal;
 }
@@ -152,8 +152,8 @@
 @font-face {
 	font-display: swap;
 	font-family: "titillium";
-	src: url("/fonts/titilliumweb-semibold-webfont.woff2") format("woff2"),
-		url("/fonts/titilliumweb-semibold-webfont.woff") format("woff");
+	src: url("../fonts/titilliumweb-semibold-webfont.woff2") format("woff2"),
+		url("../fonts/titilliumweb-semibold-webfont.woff") format("woff");
 	font-weight: 600;
 	font-style: normal;
 }
@@ -161,8 +161,8 @@
 @font-face {
 	font-display: swap;
 	font-family: "titillium";
-	src: url("/fonts/titilliumweb-regular-webfont.woff2") format("woff2"),
-		url("/fonts/titilliumweb-regular-webfont.woff") format("woff");
+	src: url("../fonts/titilliumweb-regular-webfont.woff2") format("woff2"),
+		url("../fonts/titilliumweb-regular-webfont.woff") format("woff");
 	font-weight: 400;
 	font-style: normal;
 }

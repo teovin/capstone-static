@@ -43,7 +43,7 @@ export class CapDecoratedHeader extends LitElement {
 
 			.heading--smallWedge::before {
 				content: "";
-				background: url("/images/wedge.svg") no-repeat;
+				background: url("./images/wedge.svg") no-repeat;
 				position: absolute;
 				top: 50%;
 				left: -30px;
@@ -54,7 +54,7 @@ export class CapDecoratedHeader extends LitElement {
 
 			.heading--largeWedge::before {
 				content: "";
-				background: url("/images/wedge.svg") no-repeat;
+				background: url("./images/wedge.svg") no-repeat;
 				position: absolute;
 				top: 50%;
 				left: -30px;
