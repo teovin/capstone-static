@@ -9,6 +9,15 @@ import "../components/cap-gallery-item.js";
 
 import { anchorLinks } from "../data/aboutSidebarLinks.js";
 
+const testData = [
+	{
+		title: "Modeling the Caselaw Access Project",
+		description:
+			"Article by Felix B. Chang, Erin McCabe, and James Lee, 22 Nevada Law Journal (2022)",
+		link: "/test.html",
+	},
+];
+
 export class CapGalleryPage extends LitElement {
 	// Turn Shadow DOM off
 	// Generally discouraged: https://lit.dev/docs/components/shadow-dom/#implementing-createrenderroot
@@ -34,11 +43,16 @@ export class CapGalleryPage extends LitElement {
 					<cap-anchor-list .data=${anchorLinks}></cap-anchor-list>
 				</aside>
 				<article class="c-article u-bg-beige">
-					<cap-gallery-item
-						title="Modeling the Caselaw Access Project"
-						description="Article by Felix B. Chang, Erin McCabe, and James Lee, 22 Nevada Law Journal (2022)"
-						link="/test.html"
-					></cap-gallery-item>
+					<h2>Test Section</h2>
+					${testData.map((item) => {
+						return html`
+							<cap-gallery-item
+								title=${item.title}
+								description=${item.description}
+								link=${item.link}
+							></cap-gallery-item>
+						`;
+					})}
 				</article>
 			</main>
 			<cap-footer></cap-footer>
