@@ -150,7 +150,7 @@ class CapNav extends LitElement {
 				<a href="#main" class="u-skipLink">Skip to main content</a>
 
 				<nav class="nav">
-					<a href="/">
+					<a href="../">
 						<cap-logo></cap-logo>
 						<span class="u-visuallyHidden">Caselaw Access Project</span></a
 					>
