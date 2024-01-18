@@ -17,7 +17,7 @@ if __name__ == '__main__':
     import sys
 
     PORT = 5501
-    DIRECTORY = os.getcwd()
+    DIRECTORY = 'src'
 
     parser = argparse.ArgumentParser(description="A wrapper for http.server with generous CORS headers")
     parser.add_argument("port", nargs='?', type=int, default=PORT, help=f"specify alternate port (default: {PORT})")

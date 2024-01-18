@@ -200,7 +200,7 @@ class CapNav extends LitElement {
 						${navLinks.map((link) => {
 							return html`
 								<li class="nav__item" tab>
-									<a class="nav__link" href="/${link.path}">${link.name}</a>
+									<a class="nav__link" href="${link.path}">${link.name}</a>
 								</li>
 							`;
 						})}
