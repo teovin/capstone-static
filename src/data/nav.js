@@ -1,30 +1,30 @@
 export const navLinks = [
 	{
 		name: "Caselaw",
-		path: "/caselaw/",
+		path: "../caselaw/",
 	},
 	{
 		name: "Docs",
-		path: "/docs/",
+		path: "../docs/",
 	},
 	{
 		name: "Gallery",
-		path: "/gallery/",
+		path: "../gallery/",
 	},
 	{
 		name: "About",
-		path: "/about/",
+		path: "../about/",
 	},
 ];
 
 export const legalLinks = [
 	{
 		name: "Terms",
-		path: "/terms/",
+		path: "../terms/",
 	},
 	{
 		name: "Privacy",
-		path: "/privacy/",
+		path: "../privacy/",
 	},
 	{
 		name: "Accessibility",
