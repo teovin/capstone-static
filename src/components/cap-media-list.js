@@ -91,7 +91,7 @@ export class CapMediaList extends LitElement {
 								"mediaList__item--bulleted": this.decoration === "bulleted",
 							})}
 						>
-							<a class="mediaList__link" href="${link.url}">${link.title}</a>
+							<a class="mediaList__link" href="${link.url}" target="${link.target}">${link.title}</a>
 							<span class="mediaList__publisher">${link.publisher}</span>
 							<span class="mediaList__date">${link.date}</span>
 						</li>

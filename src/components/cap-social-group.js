@@ -36,6 +36,7 @@ export class CapSocialGroup extends LitElement {
 					(socialLink) => html` <a
 						class="socialGroup__iconLink"
 						href=${socialLink.path}
+						target=${socialLink.target}
 						><cap-social-icon
 							theme=${this.theme}
 							icon=${socialLink.icon}
