@@ -113,7 +113,7 @@ export const galleryItems = [
 	{
 		"pk": 7,
 		"title": "H2O",
-		"description": "H2O uses the [CAP API]({% url \"api\" %}) to provide free caselaw textbooks for anyone.",
+		"description": "H2O uses the CAP API to provide free caselaw textbooks for anyone.",
 		"section": 3,
 		"order": 1,
 		"pageUrl": "https://opencasebook.org/",
