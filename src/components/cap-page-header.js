@@ -27,7 +27,7 @@ export class CapPageHeader extends LitElement {
 					padding-inline: calc(var(--spacing-350) * 2);
 				}
 			}
-			.pageHeader--darkGray {
+			.pageHeader--black {
 				color: var(--color-gray-500);
 			}
 
@@ -43,7 +43,7 @@ export class CapPageHeader extends LitElement {
 
 	constructor() {
 		super();
-		this.theme = "light";
+		this.theme = "white";
 		this.icon = "largeWedge";
 	}
 	render() {
@@ -54,6 +54,7 @@ export class CapPageHeader extends LitElement {
 					headingLevel="h1"
 					size="large"
 					icon=${this.icon}
+					theme=${this.theme}
 				></cap-decorated-header>
 				<slot></slot>
 			</div>
