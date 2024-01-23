@@ -110,7 +110,7 @@ export default class CapJurisdictions extends LitElement {
 			<cap-caselaw-layout>
 				<header class="jurisdictions__header">
 					<cap-page-header heading="Read Caselaw" theme="black" icon="none">
-						<p class="jurisdicrions__description">
+						<p class="jurisdictions__description">
 							Browse all volumes of the Caselaw Access Project below.
 						</p>
 					</cap-page-header>
