@@ -1,4 +1,4 @@
-import { LitElement, css, html } from "../lib/lit.js";
+import { LitElement, css, html, nothing } from "../lib/lit.js";
 import { baseStyles } from "../lib/wc-base.js";
 import "./cap-arrowRight.js";
 
@@ -6,7 +6,8 @@ export class CapGalleryItem extends LitElement {
 	static properties = {
 		title: { type: String },
 		description: { type: String },
-		link: { type: String },
+		pageUrl: { type: String },
+		repoUrl: { type: String },
 		image: { type: String | undefined },
 	};
 
@@ -64,7 +65,35 @@ export class CapGalleryItem extends LitElement {
 	constructor() {
 		super();
 		this.image = "/images/gallery-defaultImage.jpg";
-	}
+	};
+
+	getPageLink() {
+		if (this.pageUrl) {
+			return html `<a class="galleryItem__iconLink" href=${this.pageUrl}>
+				<cap-arrow-right></cap-arrow-right>
+				<span class="u-visuallyHidden"
+					>Learn More About ${this.title}</span
+				></a
+			>`;
+		} else {
+			return nothing;
+		}
+	};
+
+	getRepoLink() {
+		// TODO: this wants to be a Github icon
+		if (this.repoUrl) {
+			return html `<a class="galleryItem__iconLink" href=${this.repoUrl}>
+				<cap-arrow-right></cap-arrow-right>
+				<span class="u-visuallyHidden"
+					>Source code on Github for ${this.title}</span
+				></a
+			>`;
+		} else {
+			return nothing;
+		}
+	};
+
 	render() {
 		return html`
 			<article class="galleryItem">
@@ -76,19 +105,15 @@ export class CapGalleryItem extends LitElement {
 				/>
 				<div class="galleryItem__content u-w-maxContent">
 					<h3 class="galleryItem__title">
-						<a class="galleryItem__textLink" href=${this.url}>${this.title}</a>
+						<a class="galleryItem__textLink" href=${this.pageUrl ? this.pageUrl : this.repoUrl}>${this.title}</a>
 					</h3>
 					<p class="galleryItem__description">${this.description}</p>
-					<a class="galleryItem__iconLink" href=${this.url}>
-						<cap-arrow-right></cap-arrow-right>
-						<span class="u-visuallyHidden"
-							>Learn More About ${this.title}</span
-						></a
-					>
+					${this.getPageLink()}
+					${this.getRepoLink()}
 				</div>
 			</article>
 		`;
-	}
+	};
 }
 
 customElements.define("cap-gallery-item", CapGalleryItem);
