@@ -8,7 +8,6 @@ export class CapGalleryItem extends LitElement {
 		description: { type: String },
 		pageUrl: { type: String },
 		repoUrl: { type: String },
-		mainUrl: { type: String },
 		image: { type: String | undefined },
 	};
 
@@ -66,7 +65,6 @@ export class CapGalleryItem extends LitElement {
 	constructor() {
 		super();
 		this.image = "/images/gallery-defaultImage.jpg";
-		this.mainUrl = this.pageUrl ? this.pageUrl : this.repoUrl
 	};
 
 	getPageLink() {
@@ -107,7 +105,7 @@ export class CapGalleryItem extends LitElement {
 				/>
 				<div class="galleryItem__content u-w-maxContent">
 					<h3 class="galleryItem__title">
-						<a class="galleryItem__textLink" href=${this.mainUrl}>${this.title}</a>
+						<a class="galleryItem__textLink" href=${this.pageUrl ? this.pageUrl : this.repoUrl}>${this.title}</a>
 					</h3>
 					<p class="galleryItem__description">${this.description}</p>
 					${this.getPageLink()}
