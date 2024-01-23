@@ -1,5 +1,4 @@
 import { html, LitElement } from "../lib/lit.js";
-
 import "./cap-volume.js";
 import "./cap-case.js";
 import "./cap-jurisdictions.js";
