@@ -21,11 +21,11 @@ export class CapDecoratedHeader extends LitElement {
 				line-height: 1.125;
 			}
 
-			.heading--white {
+			.heading--light {
 				color: var(--color-white);
 			}
 
-			.heading--black {
+			.heading--dark {
 				color: var(--color-gray-600);
 			}
 
@@ -68,7 +68,7 @@ export class CapDecoratedHeader extends LitElement {
 	constructor() {
 		super();
 		this.icon = "smallWedge";
-		this.theme = "white";
+		this.theme = "light";
 		this.headingLevel = "h2";
 		this.size = "medium";
 	}
