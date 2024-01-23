@@ -27,7 +27,7 @@ export class CapPageHeader extends LitElement {
 					padding-inline: calc(var(--spacing-350) * 2);
 				}
 			}
-			.pageHeader--black {
+			.pageHeader--light {
 				color: var(--color-gray-500);
 			}
 
@@ -68,7 +68,7 @@ export class CapPageHeader extends LitElement {
 
 	constructor() {
 		super();
-		this.theme = "black";
+		this.theme = "light";
 		this.icon = "largeWedge";
 	}
 	render() {
