@@ -1,6 +1,7 @@
 import { LitElement, css, html, nothing } from "../lib/lit.js";
 import { baseStyles } from "../lib/wc-base.js";
 import "./cap-arrowRight.js";
+import { githubPath } from "./cap-icons.js";
 
 export class CapGalleryItem extends LitElement {
 	static properties = {
@@ -14,8 +15,16 @@ export class CapGalleryItem extends LitElement {
 	static styles = [
 		baseStyles,
 		css`
+			svg {
+				fill: var(--color-gray-500);
+			}
+			svg:hover {
+				fill: var(--color-yellow);
+			}
+
 			.galleryItem {
 				display: flex;
+				margin-block-start: var(--spacing-400);
 			}
 
 			.galleryItem__image {
@@ -46,8 +55,12 @@ export class CapGalleryItem extends LitElement {
 				}
 			}
 
+			.galleryItem__iconLinkGroup {
+				display: flex;
+			}
+
 			.galleryItem__iconLink {
-				display: block;
+				margin-inline-end: 0.5rem;
 			}
 
 			.galleryItem__content {
@@ -65,26 +78,31 @@ export class CapGalleryItem extends LitElement {
 	constructor() {
 		super();
 		this.image = "/images/gallery-defaultImage.jpg";
-	};
+	}
 
 	getPageLink() {
 		if (this.pageUrl) {
-			return html `<a class="galleryItem__iconLink" href=${this.pageUrl}>
+			return html`<a class="galleryItem__iconLink" href=${this.pageUrl}>
 				<cap-arrow-right></cap-arrow-right>
-				<span class="u-visuallyHidden"
-					>Learn More About ${this.title}</span
-				></a
+				<span class="u-visuallyHidden">Learn More About ${this.title}</span></a
 			>`;
 		} else {
 			return nothing;
 		}
-	};
+	}
 
 	getRepoLink() {
-		// TODO: this wants to be a Github icon
 		if (this.repoUrl) {
-			return html `<a class="galleryItem__iconLink" href=${this.repoUrl}>
-				<cap-arrow-right></cap-arrow-right>
+			return html`<a class="galleryItem__iconLink" href=${this.repoUrl}>
+				<svg
+					width="28"
+					height="28"
+					viewBox="0 0 32 32"
+					fill="currentColor"
+					xmlns="http://www.w3.org/2000/svg"
+				>
+					${githubPath}
+				</svg>
 				<span class="u-visuallyHidden"
 					>Source code on Github for ${this.title}</span
 				></a
@@ -92,7 +110,7 @@ export class CapGalleryItem extends LitElement {
 		} else {
 			return nothing;
 		}
-	};
+	}
 
 	render() {
 		return html`
@@ -105,15 +123,20 @@ export class CapGalleryItem extends LitElement {
 				/>
 				<div class="galleryItem__content u-w-maxContent">
 					<h3 class="galleryItem__title">
-						<a class="galleryItem__textLink" href=${this.pageUrl ? this.pageUrl : this.repoUrl}>${this.title}</a>
+						<a
+							class="galleryItem__textLink"
+							href=${this.pageUrl ? this.pageUrl : this.repoUrl}
+							>${this.title}</a
+						>
 					</h3>
 					<p class="galleryItem__description">${this.description}</p>
-					${this.getPageLink()}
-					${this.getRepoLink()}
+					<div class="galleryItem__iconLinkGroup">
+						${this.getPageLink()} ${this.getRepoLink()}
+					</div>
 				</div>
 			</article>
 		`;
-	};
+	}
 }
 
 customElements.define("cap-gallery-item", CapGalleryItem);
