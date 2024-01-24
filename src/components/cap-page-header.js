@@ -27,8 +27,20 @@ export class CapPageHeader extends LitElement {
 					padding-inline: calc(var(--spacing-350) * 2);
 				}
 			}
-			.pageHeader--darkGray {
+			.pageHeader--light {
 				color: var(--color-gray-500);
+			}
+
+			.pageHeader__heading {
+				font-size: var(--font-size-300);
+
+				@media (min-width: 65rem) {
+					font-size: var(--font-size-325);
+				}
+
+				font-weight: 600;
+				font-family: var(--font-sans-titling);
+				line-height: 1.125;
 			}
 
 			::slotted(p) {
@@ -41,6 +53,19 @@ export class CapPageHeader extends LitElement {
 		`,
 	];
 
+	getHeader() {
+		if (this.icon === "none") {
+			return html`<h1 class="pageHeader__heading">${this.heading}</h1>`;
+		}
+
+		return html`<cap-decorated-header
+			heading=${this.heading}
+			headingLevel="h1"
+			size="large"
+			icon=${this.icon}
+		></cap-decorated-header>`;
+	}
+
 	constructor() {
 		super();
 		this.theme = "light";
@@ -49,12 +74,7 @@ export class CapPageHeader extends LitElement {
 	render() {
 		return html`
 			<div class="pageHeader pageHeader--${this.theme} ">
-				<cap-decorated-header
-					heading=${this.heading}
-					headingLevel="h1"
-					size="large"
-					icon=${this.icon}
-				></cap-decorated-header>
+				${this.getHeader()}
 				<slot></slot>
 			</div>
 		`;
