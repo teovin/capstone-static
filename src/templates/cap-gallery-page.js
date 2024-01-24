@@ -7,9 +7,7 @@ import "../components/cap-media-list.js";
 import "../components/cap-contributor-list.js";
 import "../components/cap-gallery-item.js";
 
-import { anchorLinks } from "../data/aboutSidebarLinks.js";
 import { gallerySections, galleryItems } from "../data/gallery.js";
-
 
 export class CapGalleryPage extends LitElement {
 	// Turn Shadow DOM off
@@ -24,21 +22,23 @@ export class CapGalleryPage extends LitElement {
 		});
 	}
 
-	getSectionLinks(){
+	getSectionLinks() {
 		return this.getSections().map((section) => {
 			return {
-				"title": section.title,
-				"url": `#${section.titleSlug}`
-			}
+				title: section.title,
+				url: `#${section.titleSlug}`,
+			};
 		});
 	}
 
-	getItemsForSection(section){
-		return galleryItems.filter((item) => {
-			return item.section == section.pk;
-		}).sort((a, b) => {
-			return a.order - b.order;
-		});
+	getItemsForSection(section) {
+		return galleryItems
+			.filter((item) => {
+				return item.section == section.pk;
+			})
+			.sort((a, b) => {
+				return a.order - b.order;
+			});
 	}
 
 	render() {
@@ -58,7 +58,9 @@ export class CapGalleryPage extends LitElement {
 				${this.getSections().map((section) => {
 					return html`
 						<article class="c-article u-bg-beige">
-							<h2 id="${section.titleSlug}">${section.title}</h2>
+							<h2 class="c-decoratedHeader" id="${section.titleSlug}">
+								${section.title}
+							</h2>
 							${this.getItemsForSection(section).map((item) => {
 								return html`
 									<cap-gallery-item
