@@ -12,6 +12,26 @@ export const fetchJurisdictionsData = async (callback) => {
 	callback(jurisdictions);
 };
 
+export const fetchJurisdictionSideBarLinks = async (callback) => {
+	const url = `${window.BUCKET_ROOT}/ReportersMetadata.json`;
+	const data = await fetchJson(url);
+	const jurisdictions = [];
+	const anchorLinks = [];
+	data.forEach((element) => {
+		const jurisdiction = element.jurisdictions[0].name_long;
+		if (jurisdictions.indexOf(jurisdiction) == -1) {
+			jurisdictions.push(jurisdiction);
+			const jurisdictionData = {
+				title: element.jurisdictions[0].name_long,
+				url: createId(element.jurisdictions[0].name_long),
+			};
+			anchorLinks.push(jurisdictionData);
+		}
+	});
+	anchorLinks.sort((a, b) => (a.title > b.title ? 1 : -1));
+	callback(anchorLinks);
+};
+
 export const fetchReporterData = async (reporter, callback) => {
 	const url = `${window.BUCKET_ROOT}/${reporter}/ReporterMetadata.json`;
 	callback(await fetchJson(url));
@@ -62,3 +82,7 @@ const fetchJson = async (url) => {
 	const response = await fetch(url);
 	return await response.json();
 };
+
+function createId(str) {
+	return `#${str.toLowerCase().replace(/\s/g, "-")}`;
+}
