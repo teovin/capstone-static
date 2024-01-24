@@ -1,10 +1,24 @@
-import { html, LitElement } from "../lib/lit.js";
+import { html, css, LitElement } from "../lib/lit.js";
+
 import "./cap-volume.js";
 import "./cap-case.js";
 import "./cap-jurisdictions.js";
 import "./cap-reporter.js";
 
 export default class CapContentRouter extends LitElement {
+	static styles = [
+		css`
+			cap-case {
+				display: block;
+				flex: 0 0 58.33333%;
+				max-width: 58.33333%;
+				margin: auto;
+				padding-top: 2.5rem;
+				padding-bottom: 3rem;
+			}
+		`
+	];
+
 	render() {
 		const searchParams = new URLSearchParams(window.location.search);
 		const reporter = searchParams.get("reporter");

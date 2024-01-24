@@ -2,6 +2,7 @@
 	--color-white: #ffffff;
 	--color-beige: #f7f6f2;
 
+	--color-gray-000: #979797;
 	--color-gray-100: #f7f7f9;
 	--color-gray-200: #ced4da;
 	--color-gray-300: #6c757d;
@@ -22,6 +23,8 @@
 	--color-purple-100: #b3a7fd;
 	--color-purple-200: #e878ff;
 	--color-purple-300: #4830fd;
+
+	--color-pink-000: #fff1f8;
 
 	--color-gradient: linear-gradient(
 		45deg,
