@@ -24,7 +24,11 @@ export class CapGalleryItem extends LitElement {
 
 			.galleryItem {
 				display: flex;
-				margin-block-start: var(--spacing-400);
+				margin-block-start: var(--spacing-200);
+
+				@media (min-width: 35rem) {
+					margin-block-start: var(--spacing-400);
+				}
 			}
 
 			.galleryItem__image {
@@ -70,7 +74,11 @@ export class CapGalleryItem extends LitElement {
 			}
 
 			.galleryItem__content > * + * {
-				margin-block-start: var(--spacing-200);
+				margin-block-start: var(--spacing-100);
+
+				@media (min-width: 35rem) {
+					margin-block-start: var(--spacing-200);
+				}
 			}
 		`,
 	];
