@@ -28,7 +28,7 @@ export class CapAboutPage extends LitElement {
 						</p>
 					</cap-page-header>
 				</header>
-				<aside class="u-w-fit u-sm-hidden">
+				<aside class="u-sm-hidden">
 					<cap-anchor-list .data=${anchorLinks}></cap-anchor-list>
 				</aside>
 				<article class="c-article u-bg-beige">

@@ -52,7 +52,7 @@ export class CapGalleryPage extends LitElement {
 						</p>
 					</cap-page-header>
 				</header>
-				<aside class="u-w-fit u-sm-hidden">
+				<aside class="u-sm-hidden">
 					<cap-anchor-list .data=${this.getSectionLinks()}></cap-anchor-list>
 				</aside>
 				${this.getSections().map((section) => {
