@@ -96,3 +96,14 @@ a:active {
 		text-decoration: underline;
 	}
 }
+
+.u-text-white a:link,
+.u-text-white a:visited,
+.u-text-whit a:hover,
+.u-text-white a:active {
+	color: var(--color-purple-200);
+
+	&:hover {
+		filter: brightness(0.75);
+	}
+}
