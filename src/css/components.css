@@ -32,8 +32,16 @@
 	}
 }
 
+.c-article + .c-article {
+	padding-block-start: 0;
+}
+
 .c-article * + * {
-	margin-block-start: var(--spacing-200);
+	margin-block-start: var(--spacing-100);
+
+	@media (min-width: 35rem) {
+		margin-block-start: var(--spacing-200);
+	}
 }
 
 .c-article h2 + * {

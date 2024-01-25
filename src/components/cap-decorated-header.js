@@ -30,11 +30,15 @@ export class CapDecoratedHeader extends LitElement {
 			}
 
 			.heading--medium {
-				font-size: var(--font-size-250);
+				font-size: var(--font-size-150);
+
+				@media (min-width: 35rem) {
+					font-size: var(--font-size-250);
+				}
 			}
 
 			.heading--large {
-				font-size: var(--font-size-300);
+				font-size: var(--font-size-275);
 
 				@media (min-width: 65rem) {
 					font-size: var(--font-size-325);
