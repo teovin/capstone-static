@@ -3,6 +3,7 @@ import { fetchJurisdictionsData } from "../lib/data.js";
 import { baseStyles } from "../lib/wc-base.js";
 import "../components/cap-page-header.js";
 import "../components/cap-caselaw-layout.js";
+import "../components/cap-anchor-list.js";
 
 export default class CapJurisdictions extends LitElement {
 	static properties = {
@@ -133,6 +134,19 @@ export default class CapJurisdictions extends LitElement {
 			.replace(/[^\w-]+/g, "");
 	}
 
+	getJurisdictionNames() {
+		return Object.keys(this.jurisdictionsData).sort();
+	}
+
+	getJurisdictionNameLinks() {
+		return this.getJurisdictionNames().map((jurisdiction) => {
+			return {
+				title: jurisdiction,
+				url: `#${this.slugify(jurisdiction)}`,
+			};
+		});
+	}
+
 	render() {
 		return html`
 			<cap-caselaw-layout>
@@ -143,6 +157,11 @@ export default class CapJurisdictions extends LitElement {
 						</p>
 					</cap-page-header>
 				</header>
+				<aside class="u-w-fit u-sm-hidden">
+					<cap-anchor-list
+						.data=${this.getJurisdictionNameLinks()}
+					></cap-anchor-list>
+				</aside>
 				<div class="jurisdictions__main">
 					${Object.keys(this.jurisdictionsData)
 						.sort()
