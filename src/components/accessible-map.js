@@ -62,7 +62,7 @@ export class AccessibleMap extends LitElement {
 
 		const futureState = this._getFutureState({ key: keyName, currentState });
 		const futureStateElement = this.shadowRoot.querySelector(
-			`.map__link--${futureState}`
+			`.map__link--${futureState}`,
 		);
 		futureStateElement.focus();
 		this.activeState = futureState;
@@ -102,7 +102,7 @@ export class AccessibleMap extends LitElement {
 				<a data-abbreviation=${abbreviation} @focus="${this._handlePointerEvent}"  href="https://tinykitelab.com" class="map__link map__link--${abbreviation}" aria-labelledby=${abbreviation}>
 					<path data-abbreviation=${abbreviation} @mouseover="${this._handlePointerEvent}" class="map__path" d=${mapData[abbreviation].path} stroke-width="0.5" stroke="currentColor" />
 				</a>
-			</g>`
+			</g>`,
 				)}
 			</svg>
 		`;

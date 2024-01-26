@@ -26,13 +26,13 @@ export default class CapVolume extends LitElement {
 		fetchCasesList(
 			this.reporter,
 			this.volume,
-			(data) => (this.casesData = data)
+			(data) => (this.casesData = data),
 		);
 		fetchReporterData(this.reporter, (data) => (this.reporterData = data));
 		fetchVolumeData(
 			this.reporter,
 			this.volume,
-			(data) => (this.volumeData = data)
+			(data) => (this.volumeData = data),
 		);
 	}
 
@@ -57,7 +57,7 @@ export default class CapVolume extends LitElement {
 								${c.citations.filter((c) => c.type == "official")[0].cite}
 								(${c.decision_date.substring(0, 4)})
 							</a>
-						</li>`
+						</li>`,
 				)}
 			</ul>
 		`;

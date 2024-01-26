@@ -174,17 +174,18 @@ export default class CapJurisdictions extends LitElement {
 									<h2 class="jurisdiction__heading">${jurisdiction}</h2>
 									<ul class="jurisdiction__reporterList">
 										${this.jurisdictionsData[jurisdiction].map(
-											(reporter) => html`<li>
-												<a
-													class="jurisdiction__link"
-													href="/caselaw/?reporter=${reporter.slug}"
-													>${reporter.short_name}</a
-												>: ${reporter.full_name}
-												(${reporter.start_year}-${reporter.end_year})
-											</li>`
+											(reporter) =>
+												html`<li>
+													<a
+														class="jurisdiction__link"
+														href="/caselaw/?reporter=${reporter.slug}"
+														>${reporter.short_name}</a
+													>: ${reporter.full_name}
+													(${reporter.start_year}-${reporter.end_year})
+												</li>`,
 										)}
 									</ul>
-								</article>`
+								</article>`,
 						)}
 				</div>
 			</cap-caselaw-layout>

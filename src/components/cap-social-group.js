@@ -33,14 +33,13 @@ export class CapSocialGroup extends LitElement {
 		return html`
 			<ul class="socialGroup">
 				${socialLinks.map(
-					(socialLink) => html` <a
-						class="socialGroup__iconLink"
-						href=${socialLink.path}
-						><cap-social-icon
-							theme=${this.theme}
-							icon=${socialLink.icon}
-						></cap-social-icon
-					></a>`
+					(socialLink) =>
+						html` <a class="socialGroup__iconLink" href=${socialLink.path}
+							><cap-social-icon
+								theme=${this.theme}
+								icon=${socialLink.icon}
+							></cap-social-icon
+						></a>`,
 				)}
 			</ul>
 		`;

@@ -39,7 +39,7 @@ export default class CapReporter extends LitElement {
 										.reporter}&volume=${v.volume_number}"
 									>${v.volume_number}</a
 								>
-							</li>`
+							</li>`,
 					)}
 			</ul>
 		`;
