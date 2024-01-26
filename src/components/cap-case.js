@@ -23,14 +23,14 @@ export default class CapCase extends LitElement {
 			this.reporter,
 			this.volume,
 			this.case,
-			(data) => (this.caseBody = data)
+			(data) => (this.caseBody = data),
 		);
 
 		fetchCaseMetadata(
 			this.reporter,
 			this.volume,
 			this.case,
-			(data) => (this.caseMetadata = data)
+			(data) => (this.caseMetadata = data),
 		);
 	}
 

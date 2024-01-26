@@ -96,14 +96,14 @@ class CapNav extends LitElement {
 
 	_handleCloseAnimation() {
 		this.shadowRoot.querySelector(
-			".nav__mobileMenuPath--middle"
+			".nav__mobileMenuPath--middle",
 		).style.opacity = "1";
 
 		this.shadowRoot.querySelector(".nav__mobileMenuPath--top").style.transform =
 			"unset";
 
 		this.shadowRoot.querySelector(
-			".nav__mobileMenuPath--bottom"
+			".nav__mobileMenuPath--bottom",
 		).style.transform = "unset";
 
 		this.shadowRoot.querySelector(".nav__mobileMenuIcon").style.transform =
@@ -112,14 +112,14 @@ class CapNav extends LitElement {
 
 	_handleOpenAnimation() {
 		this.shadowRoot.querySelector(
-			".nav__mobileMenuPath--middle"
+			".nav__mobileMenuPath--middle",
 		).style.opacity = "0";
 
 		this.shadowRoot.querySelector(".nav__mobileMenuPath--top").style.transform =
 			"rotate(45deg)";
 
 		this.shadowRoot.querySelector(
-			".nav__mobileMenuPath--bottom"
+			".nav__mobileMenuPath--bottom",
 		).style.transform = "rotate(-45deg)";
 
 		this.shadowRoot.querySelector(".nav__mobileMenuIcon").style.transform =

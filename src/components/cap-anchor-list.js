@@ -41,12 +41,11 @@ export class CapAnchorList extends LitElement {
 		return html`
 			<ul class="anchorList">
 				${this.data.map(
-					(link) =>
-						html`
-							<li>
-								<a class="anchorList__link" href="${link.url}">${link.title}</a>
-							</li>
-						`
+					(link) => html`
+						<li>
+							<a class="anchorList__link" href="${link.url}">${link.title}</a>
+						</li>
+					`,
 				)}
 			</ul>
 		`;
