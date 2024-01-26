@@ -1,5 +1,6 @@
 import { LitElement, html, css } from "../lib/lit.js";
 import { fetchVolumesData, fetchReporterData } from "../lib/data.js";
+import { baseStyles } from "../lib/wc-base.js";
 
 export default class CapReporter extends LitElement {
 	static properties = {
@@ -14,6 +15,70 @@ export default class CapReporter extends LitElement {
 		this.reporterData = {};
 	}
 
+	static styles = [
+		baseStyles,
+
+		css`
+			p,
+			ul {
+				font-family: var(--font-sans-text);
+
+				@media (min-width: 35rem) {
+					font-size: var(--font-size-175);
+				}
+			}
+
+			ul {
+				padding: 0;
+			}
+
+			li {
+				list-style-type: none;
+			}
+
+			a:link,
+			a:visited,
+			a:hover,
+			a:active {
+				text-decoration: none;
+				color: var(--color-blue-400);
+
+				&:hover {
+					color: var(--color-blue-500);
+					text-decoration: underline;
+				}
+			}
+
+			.reporters__main {
+				grid-column: 1 / -1;
+				padding-inline: var(--spacing-500);
+				padding-block-start: var(--spacing-300);
+				padding-block-end: var(--spacing-550);
+
+				@media (min-width: 60rem) {
+					grid-column: 1 / -1;
+				}
+			}
+
+			.reporter__heading {
+				font-weight: 600;
+				font-size: var(--font-size-250);
+				position: relative;
+			}
+
+			.reporter__subHeading {
+
+			}
+
+			.reporter__volumeList {
+				margin-block-start: var(--spacing-100);
+			}
+
+			.reporter__link {
+				font-weight: 600;
+			}
+		`
+	]
 	connectedCallback() {
 		super.connectedCallback();
 		fetchVolumesData(this.reporter, (data) => (this.volumesData = data));
@@ -22,26 +87,30 @@ export default class CapReporter extends LitElement {
 
 	render() {
 		return html`
-			<h1>${this.reporterData.short_name}</h1>
-			<h2>
-				${this.reporterData.full_name}
-				(${this.reporterData.start_year}-${this.reporterData.end_year})
-			</h2>
-			Volume number:
-			<ul>
-				${this.volumesData
-					.sort((a, b) => a.volume_number - b.volume_number)
-					.map(
-						(v) =>
-							html`<li>
-								<a
-									href="/caselaw/?reporter=${this
-										.reporter}&volume=${v.volume_number}"
-									>${v.volume_number}</a
-								>
-							</li>`
-					)}
-			</ul>
+		<cap-caselaw-layout>
+			<div class="reporters__main">
+				<h1 class="reporter__heading">${this.reporterData.short_name}</h1>
+				<h2 class="reporter__subHeading">
+					${this.reporterData.full_name}
+					(${this.reporterData.start_year}-${this.reporterData.end_year})
+				</h2>
+				<strong>Volume number:</strong>
+				<ul class="reporter__volumeList">
+					${this.volumesData
+						.sort((a, b) => a.volume_number - b.volume_number)
+						.map(
+							(v) =>
+								html`<li>
+									<a
+										href="/caselaw/?reporter=${this
+											.reporter}&volume=${v.volume_number}"
+										>${v.volume_number}</a
+									>
+								</li>`
+						)}
+				</ul>
+				</div>
+			<cap-caselaw-layout>
 		`;
 	}
 }
