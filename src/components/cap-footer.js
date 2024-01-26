@@ -109,15 +109,16 @@ export class CapFooter extends LitElement {
 						(link) =>
 							html`<li>
 								<a class="footer__textLink" href="${link.path}">${link.name}</a>
-							</li>`
+							</li>`,
 					)}
 				</ul>
 
 				<ul class="footer__list footer__navLinks">
 					${navLinks.map(
-						(link) => html` <li>
-							<a class="footer__textLink" href="${link.path}">${link.name}</a>
-						</li>`
+						(link) =>
+							html` <li>
+								<a class="footer__textLink" href="${link.path}">${link.name}</a>
+							</li>`,
 					)}
 				</ul>
 

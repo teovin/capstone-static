@@ -27,7 +27,7 @@ export class CapMap extends LitElement {
 	// Fetching this for now, in case we move the file to S3
 	async fetchCaselawMapData() {
 		const response = await fetch(
-			"http://127.0.0.1:5501/data/caselawMapDictionary.json"
+			"http://127.0.0.1:5501/data/caselawMapDictionary.json",
 		);
 		const jsonResponse = await response.json();
 		this.caselawData = jsonResponse;

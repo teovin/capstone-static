@@ -37,7 +37,7 @@ export const fetchCaselawBody = async (
 	reporter,
 	volume,
 	caseName,
-	callback
+	callback,
 ) => {
 	// TODO this is a hack to get around the fact that we don't have the case ordinal yet.
 	// See: ENG-522, ENG-523, ENG-533, and ENG-558
@@ -50,7 +50,7 @@ export const fetchCaseMetadata = async (
 	reporter,
 	volume,
 	caseName,
-	callback
+	callback,
 ) => {
 	// TODO this is a hack to get around the fact that we don't have the case ordinal yet.
 	// See: ENG-522, ENG-523, ENG-533, and ENG-558
