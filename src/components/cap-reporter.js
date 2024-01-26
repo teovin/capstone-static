@@ -22,6 +22,7 @@ export default class CapReporter extends LitElement {
 			p,
 			ul {
 				font-family: var(--font-sans-text);
+				display: inline;
 
 				@media (min-width: 35rem) {
 					font-size: var(--font-size-175);
@@ -34,6 +35,7 @@ export default class CapReporter extends LitElement {
 
 			li {
 				list-style-type: none;
+				display: inline;
 			}
 
 			a:link,
@@ -67,7 +69,10 @@ export default class CapReporter extends LitElement {
 			}
 
 			.reporter__subHeading {
-
+				font-size: var(--font-size-175);
+				margin-top: 0;
+				margin-bottom: 1rem;
+				font-weight: 500;
 			}
 
 			.reporter__volumeList {
@@ -75,6 +80,10 @@ export default class CapReporter extends LitElement {
 			}
 
 			.reporter__link {
+				font-weight: 600;
+			}
+
+			.list__title {
 				font-weight: 600;
 			}
 		`
@@ -94,8 +103,8 @@ export default class CapReporter extends LitElement {
 					${this.reporterData.full_name}
 					(${this.reporterData.start_year}-${this.reporterData.end_year})
 				</h2>
-				<strong>Volume number:</strong>
 				<ul class="reporter__volumeList">
+					<p class="list__title">Volume number:</p>
 					${this.volumesData
 						.sort((a, b) => a.volume_number - b.volume_number)
 						.map(
