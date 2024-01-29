@@ -98,11 +98,13 @@ export default class CapReporter extends LitElement {
 		return html`
 			<cap-caselaw-layout>
 				<div class="reporters__main">
-					<h1 class="reporter__heading">${this.reporterData.short_name}</h1>
-					<h2 class="reporter__subHeading">
-						${this.reporterData.full_name}
-						(${this.reporterData.start_year}-${this.reporterData.end_year})
-					</h2>
+					<hgroup>
+						<h1 class="reporter__heading">${this.reporterData.short_name}</h1>
+						<p class="reporter__subHeading">
+							${this.reporterData.full_name}
+							(${this.reporterData.start_year}-${this.reporterData.end_year}).
+						</p>
+					</hgroup>
 					<ul class="reporter__volumeList">
 						<p class="list__title">Volume number:</p>
 						${this.volumesData
