@@ -368,7 +368,6 @@ export default class CapCase extends LitElement {
 		window.requestAnimationFrame(doNothing);
 		window.requestAnimationFrame(rewriteLinks);
 		return html`
-			<link href="/css/case.css" rel="stylesheet" />
 			<div class="case-container">
 				<div class="case-header">
 					<h1>Case's Full Citation</h1>
