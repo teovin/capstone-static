@@ -1,7 +1,7 @@
 <!doctype html>
 <html lang="en">
 	<head>
-		<title>Caselaw | Caselaw Access Project</title>
+		<title>404 Not Found | Caselaw Access Project</title>
 		<meta charset="utf-8" />
 		<meta name="viewport" content="width=device-width, initial-scale=1" />
 		<meta name="robots" content="noindex" />
@@ -14,59 +14,70 @@
 		<meta property="og:site_name" content="Caselaw Access Projects" />
 
 		<link href="/css/global.css" rel="stylesheet" />
-		<script type="module" src="/components/cap-content-router.js"></script>
-		<script type="module" src="/components/cap-footer.js"></script>
 		<script type="module" src="/components/cap-nav.js"></script>
-		<script>
-			window.BUCKET_ROOT = "https://cap-redacted-demo.lil.tools";
-		</script>
+		<script type="module" src="/components/cap-page-header.js"></script>
+		<script type="module" src="/components/cap-footer.js"></script>
 
 		<link
 			rel="apple-touch-icon"
 			sizes="152x152"
-			href="../images/favicon/apple-touch-icon.png"
+			href="/images/favicon/apple-touch-icon.png"
 		/>
 		<link
 			rel="icon"
 			type="image/png"
 			sizes="192x192"
-			href="../images/favicon/android-chrome-144x144.png"
+			href="/images/favicon/android-chrome-144x144.png"
 		/>
 		<link
 			rel="icon"
 			type="image/png"
 			sizes="96x96"
-			href="../images/favicon/favicon.ico"
+			href="/images/favicon/favicon.ico"
 		/>
 		<link
 			rel="icon"
 			type="image/png"
 			sizes="32x32"
-			href="../images/favicon/favicon-32x32.png"
+			href="/images/favicon/favicon-32x32.png"
 		/>
 		<link
 			rel="icon"
 			type="image/png"
 			sizes="16x16"
-			href="../images/favicon/favicon-16x16.png"
+			href="/images/favicon/favicon-16x16.png"
 		/>
 		<link
 			rel="mask-icon"
-			href="../images/favicon/safari-pinned-tab.svg"
+			href="/images/favicon/safari-pinned-tab.svg"
 			color="#0075FF"
 		/>
 		<meta name="msapplication-TileColor" content="#2b5797" />
 		<meta
 			name="msapplication-TileImage"
-			content="../images/favicon/mstile-150x150.png"
+			content="/images/favicon/mstile-150x150.png"
 		/>
 		<meta name="theme-color" content="#ffffff" />
 	</head>
 	<body>
 		<cap-nav></cap-nav>
-		<main id="main">
-			<cap-content-router></cap-content-router>
-			<cap-footer></cap-footer>
+		<main id="main" class="l-interiorPage">
+			<header class="u-bg-gray-500 u-col-span-full">
+				<cap-page-header heading="Hmm... can't find that.">
+					<p class="u-text-white u-text-serif">
+						Maybe the last borrower didn't return that link.
+					</p>
+					<p class="u-text-white u-text-serif">
+						If you got here through our site or an article we host, please let
+						us know at
+						<a class="u-link-purple" href="mailto:info@case.law"
+							>info@case.law</a
+						>
+						so we can fix it.
+					</p>
+				</cap-page-header>
+			</header>
 		</main>
+		<cap-footer></cap-footer>
 	</body>
 </html>

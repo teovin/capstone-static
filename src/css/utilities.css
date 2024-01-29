@@ -42,9 +42,21 @@
 	color: var(--color-purple-200);
 }
 
+.u-link-purple:link,
+.u-link-purple:hover,
+.u-link-purple:visited,
+.u-link-purple:active {
+	color: var(--color-purple-200);
+	&:hover {
+		color: var(--color-purple-200);
+		filter: brightness(0.75);
+	}
+}
+
 .u-margin-block-start-275 {
 	margin-block-start: var(--spacing-275);
 }
+
 .u-sm-hidden {
 	@media (max-width: 60rem) {
 		display: none;
