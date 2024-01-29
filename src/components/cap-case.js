@@ -46,7 +46,7 @@ export default class CapCase extends LitElement {
 
 			.case-header {
 				font-size: 0.9em;
-				font-family: "Libre Baskerville", "Baskerville", serif;
+				font-family: var(--font-serif-titling);
 				text-align: center;
 				padding: 2em 2em 0;
 			}
@@ -63,7 +63,7 @@ export default class CapCase extends LitElement {
 			}
 
 			.case-header > h1 {
-				font-family: "Libre Baskerville", "Baskerville", serif;
+				font-family: var(--font-serif-titling);
 				font-weight: 700;
 				font-size: 1.3em;
 				line-height: 1.4em;
@@ -246,7 +246,7 @@ export default class CapCase extends LitElement {
 			.opinion:before {
 				content: "Opinion";
 				font-weight: bold;
-				font-family: "Libre Baskerville", "Baskerville", serif;
+				font-family: var(--font-serif-titling);
 			}
 
 			.opinion > p {
