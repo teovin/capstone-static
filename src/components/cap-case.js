@@ -57,7 +57,7 @@ export default class CapCase extends LitElement {
 				}
 
 				.case-header::after {
-					content: '*';
+					content: "*";
 					color: var(--color-gray-000);
 				}
 			}
@@ -71,7 +71,8 @@ export default class CapCase extends LitElement {
 				margin: 0;
 			}
 
-			.case-header .decision-date, .case-header .court-name {
+			.case-header .decision-date,
+			.case-header .court-name {
 				line-height: 1.4em;
 			}
 
@@ -92,12 +93,12 @@ export default class CapCase extends LitElement {
 				max-width: 66.66667%;
 				margin-left: 16.66667%;
 				font-family: var(--font-serif);
-				text-align: center
+				text-align: center;
 			}
 
 			.metadata .case-name .case-name-v {
 				display: block;
-				margin: .5em;
+				margin: 0.5em;
 				font-style: italic;
 			}
 
@@ -111,7 +112,8 @@ export default class CapCase extends LitElement {
 				padding-top: 1em;
 			}
 
-			.casebody section, .casebody article {
+			.casebody section,
+			.casebody article {
 				flex: 0 0 83.33333%;
 				max-width: 83.33333%;
 				margin: auto;
@@ -142,14 +144,15 @@ export default class CapCase extends LitElement {
 			.casebody blockquote {
 				font-family: var(--font-serif);
 				margin-left: 0;
-				padding: .5rem 1rem .5rem 1rem;
+				padding: 0.5rem 1rem 0.5rem 1rem;
 				border-left: 0.5rem solid var(--color-gray-000);
 				color: var(--color-blue-500);
 				font-size: 0.875rem;
 				line-height: 1.5;
 			}
 
-			.head-matter > *, .opinion > * {
+			.head-matter > *,
+			.opinion > * {
 				position: relative;
 			}
 
@@ -159,15 +162,30 @@ export default class CapCase extends LitElement {
 				line-height: 1.5;
 			}
 
-			section.head-matter p.summary, section.head-matter p.history, section.head-matter p.headnotes, section.head-matter p.disposition, section.head-matter p.syllabus, section.head-matter p.attorneys, section.head-matter aside.summary, section.head-matter aside.history, section.head-matter aside.headnotes, section.head-matter aside.disposition, section.head-matter aside.syllabus, section.head-matter aside.attorneys {
+			section.head-matter p.summary,
+			section.head-matter p.history,
+			section.head-matter p.headnotes,
+			section.head-matter p.disposition,
+			section.head-matter p.syllabus,
+			section.head-matter p.attorneys,
+			section.head-matter aside.summary,
+			section.head-matter aside.history,
+			section.head-matter aside.headnotes,
+			section.head-matter aside.disposition,
+			section.head-matter aside.syllabus,
+			section.head-matter aside.attorneys {
 				margin-bottom: 0;
 				margin-top: 0;
 				background-color: var(--color-gray-100);
 				padding: 0rem 2rem 1rem 2rem;
 			}
 
-			section.head-matter :not(.headnotes) + .headnotes:before, section.head-matter :not(.summary) + .summary:before, section.head-matter :not(.history) + .history:before,
-			section.head-matter :not(.syllabus) + .syllabus:before, section.head-matter :not(.disposition) + .disposition:before, section.head-matter :not(.attorneys) + .attorneys:before {
+			section.head-matter :not(.headnotes) + .headnotes:before,
+			section.head-matter :not(.summary) + .summary:before,
+			section.head-matter :not(.history) + .history:before,
+			section.head-matter :not(.syllabus) + .syllabus:before,
+			section.head-matter :not(.disposition) + .disposition:before,
+			section.head-matter :not(.attorneys) + .attorneys:before {
 				padding-left: 0;
 				font-family: var(--font-sans-titling);
 				font-weight: bold;
@@ -195,8 +213,12 @@ export default class CapCase extends LitElement {
 				content: "Head Matter Footnotes";
 			}
 
-			section.head-matter :not(.headnotes) + .headnotes, section.head-matter :not(.summary) + .summary, section.head-matter :not(.history) + .history,
-			section.head-matter :not(.syllabus) + .syllabus, section.head-matter :not(.disposition) + .disposition, section.head-matter :not(.attorneys) + .attorneys,
+			section.head-matter :not(.headnotes) + .headnotes,
+			section.head-matter :not(.summary) + .summary,
+			section.head-matter :not(.history) + .history,
+			section.head-matter :not(.syllabus) + .syllabus,
+			section.head-matter :not(.disposition) + .disposition,
+			section.head-matter :not(.attorneys) + .attorneys,
 			section.head-matter :not(.footnote) + .footnote {
 				margin-top: 1rem;
 				padding-bottom: 1rem;
@@ -214,17 +236,21 @@ export default class CapCase extends LitElement {
 				padding: 0rem 2rem 1rem 2rem;
 			}
 
-			section.head-matter .footnote > p, section.head-matter footnote > blockquote {
-				padding-bottom: .5em;
+			section.head-matter .footnote > p,
+			section.head-matter footnote > blockquote {
+				padding-bottom: 0.5em;
 				margin-bottom: 0;
 			}
 
 			/* hidden, because this information is otherwise displayed on the page */
-			.parties, .docketnumber, .decisiondate {
+			.parties,
+			.docketnumber,
+			.decisiondate {
 				display: none;
 			}
 
-			.attorneys, .judges {
+			.attorneys,
+			.judges {
 				text-align: left;
 				font-size: 1.25rem;
 			}
@@ -258,8 +284,9 @@ export default class CapCase extends LitElement {
 				margin-bottom: 5px;
 				color: var(--color-purple-200);
 				vertical-align: super;
-				font-size: .75rem;
-				font-weight: bold; }
+				font-size: 0.75rem;
+				font-weight: bold;
+			}
 
 			.footnote {
 				font-size: 0.875rem;
@@ -269,19 +296,20 @@ export default class CapCase extends LitElement {
 				position: relative;
 			}
 
-			.footnote > p, .footnote > blockquote {
-				margin-bottom: .5em;
+			.footnote > p,
+			.footnote > blockquote {
+				margin-bottom: 0.5em;
 				margin-top: 0;
 			}
 
 			.footnote > a {
 				position: absolute;
-				left: .5rem;
+				left: 0.5rem;
 				border-bottom: 0;
 				font-weight: 700;
 				color: var(--color-purple-200);
 				font-family: var(--font-serif);
-				font-size: .75rem;
+				font-size: 0.75rem;
 			}
 
 			.footnote:target {
@@ -295,8 +323,8 @@ export default class CapCase extends LitElement {
 
 			.page-label {
 				color: var(--color-gray-000);
-				font-size: .8em;
-				padding: .4em;
+				font-size: 0.8em;
+				padding: 0.4em;
 				font-style: italic;
 			}
 
@@ -309,8 +337,8 @@ export default class CapCase extends LitElement {
 				padding-right: 1em;
 				font-size: 1.2rem;
 			}
-		`
-	]
+		`,
+	];
 
 	constructor() {
 		super();
@@ -336,7 +364,7 @@ export default class CapCase extends LitElement {
 	}
 
 	getDocketNumber() {
-		if (true){
+		if (true) {
 			return html`
 				<span>&middot;</span>
 				<span class="docket-number">Docket Number</span>
@@ -377,9 +405,7 @@ export default class CapCase extends LitElement {
 						<span class="court-name">Court Name</span>
 						${this.getDocketNumber()}
 					</div>
-					 <div class="citations">
-						Citation, Citation, Citation
-					</div>
+					<div class="citations">Citation, Citation, Citation</div>
 				</div>
 				<div class="metadata">
 					<div class="case-name">

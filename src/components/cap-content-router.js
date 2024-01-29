@@ -16,7 +16,7 @@ export default class CapContentRouter extends LitElement {
 				padding-top: 2.5rem;
 				padding-bottom: 3rem;
 			}
-		`
+		`,
 	];
 
 	render() {
