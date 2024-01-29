@@ -56,40 +56,46 @@ export const galleryItems = [
 	// INTERNAL
 	//
 	{
-		"pk": 1,
-		"title": "Wordclouds",
-		"description": "Graphics showcasing the most-used words in California caselaw each year between 1852 and 2015.",
-		"section": 2,
-		"order": 5,
-		"pageUrl": "https://perma.cc/72GM-3BRZ",
-		"repoUrl": "https://github.com/harvard-lil/cap-examples-old/blob/master/make_wordclouds.py"
+		pk: 1,
+		title: "Wordclouds",
+		description:
+			"Graphics showcasing the most-used words in California caselaw each year between 1852 and 2015.",
+		section: 2,
+		order: 5,
+		pageUrl: "https://perma.cc/72GM-3BRZ",
+		repoUrl:
+			"https://github.com/harvard-lil/cap-examples-old/blob/master/make_wordclouds.py",
 	},
 	{
-		"pk": 2,
-		"title": "Witchcraft in Caselaw",
-		"description": "See all instances of \"witchcraft\" charted out on the U.S. map.",
-		"section": 2,
-		"order": 3,
-		"pageUrl": "https://perma.cc/Y2GZ-535C",
-		"repoUrl": "https://github.com/harvard-lil/cap-examples/blob/master/api_wordsearch/wordsearch.py"
+		pk: 2,
+		title: "Witchcraft in Caselaw",
+		description:
+			'See all instances of "witchcraft" charted out on the U.S. map.',
+		section: 2,
+		order: 3,
+		pageUrl: "https://perma.cc/Y2GZ-535C",
+		repoUrl:
+			"https://github.com/harvard-lil/cap-examples/blob/master/api_wordsearch/wordsearch.py",
 	},
 	{
-		"pk": 3,
-		"title": "Limericks",
-		"description": "Generate rhymes using caselaw!",
-		"section": 2,
-		"order": 10,
-		"pageUrl": "https://perma.cc/KK7N-U23P",
-		"repoUrl": "https://github.com/harvard-lil/cap-examples-old/blob/master/generate_limerick.py"
+		pk: 3,
+		title: "Limericks",
+		description: "Generate rhymes using caselaw!",
+		section: 2,
+		order: 10,
+		pageUrl: "https://perma.cc/KK7N-U23P",
+		repoUrl:
+			"https://github.com/harvard-lil/cap-examples-old/blob/master/generate_limerick.py",
 	},
 	{
-		"pk": 31,
-		"title": "Cite Grid",
-		"description": "Cite Grid uses our citation graph data to visualize how states and other jurisdictions tend to cite to each other.",
-		"section": 3,
-		"order": 2,
-		"pageUrl": "https://perma.cc/5GMX-VHBA",
-		"repoUrl": null
+		pk: 31,
+		title: "Cite Grid",
+		description:
+			"Cite Grid uses our citation graph data to visualize how states and other jurisdictions tend to cite to each other.",
+		section: 3,
+		order: 2,
+		pageUrl: "https://perma.cc/5GMX-VHBA",
+		repoUrl: null,
 	},
 	//
 	// EXTERNAL
