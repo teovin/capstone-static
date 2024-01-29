@@ -71,16 +71,15 @@ export default class CapVolume extends LitElement {
 				font-weight: 600;
 				font-size: var(--font-size-250);
 				position: relative;
-				margin-bottom: .5rem;
+				margin-bottom: 0.5rem;
 			}
 
 			.volume__caseList {
 				margin-block-start: var(--spacing-100);
 				display: block;
 			}
-		`
-	]
-
+		`,
+	];
 
 	connectedCallback() {
 		super.connectedCallback();
@@ -103,11 +102,13 @@ export default class CapVolume extends LitElement {
 			<cap-caselaw-layout>
 				<div class="volumes__main">
 					<hgroup>
-						<h1 class="volume__heading">${this.volume} ${this.reporterData.short_name}</h1>
+						<h1 class="volume__heading">
+							${this.volume} ${this.reporterData.short_name}
+						</h1>
 						<p>
 							${this.reporterData.full_name}
-							(${this.reporterData.start_year}-${this.reporterData.end_year}) volume
-							${this.volume}.
+							(${this.reporterData.start_year}-${this.reporterData.end_year})
+							volume ${this.volume}.
 						</p>
 					</hgroup>
 					<ul class="volume__caseList">
