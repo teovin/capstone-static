@@ -367,9 +367,14 @@ export default class CapCase extends LitElement {
 		const date = new Date(str);
 		return date.getFullYear();
 	}
-	formatDate(str) {
-		const date = new Date(str);
-		return `${date.toLocaleString("en-us", { month: "short", day: "numeric", year: "numeric" })}`;
+
+	formatDate(dateStr) {
+		const date = new Date(dateStr);
+		const formatOptions = { timeZone: "UTC", year: "numeric" };
+		if (dateStr.length > 4) formatOptions.month = "short";
+		if (dateStr.length > 7) formatOptions.day = "numeric";
+
+		return date.toLocaleDateString(undefined, formatOptions);
 	}
 
 	createCitationsString(caseCitations) {
