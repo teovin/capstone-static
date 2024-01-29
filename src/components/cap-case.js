@@ -363,15 +363,21 @@ export default class CapCase extends LitElement {
 		);
 	}
 
-	getDocketNumber() {
-		if (true) {
-			return html`
-				<span>&middot;</span>
-				<span class="docket-number">Docket Number</span>
-			`;
-		} else {
-			return nothing;
-		}
+	getYearFromDate(str) {
+		const date = new Date(str);
+		return date.getFullYear();
+	}
+	formatDate(str) {
+		const date = new Date(str);
+		return `${date.toLocaleString("en-us", { month: "short", day: "numeric", year: "numeric" })}`;
+	}
+
+	createCitationsString(caseCitations) {
+		return caseCitations.map((citation) => citation.cite).join(", ");
+	}
+
+	createCaseHeaderHeader(caseMetadata) {
+		return `${caseMetadata.name_abbreviation}, ${this.createCitationsString(caseMetadata.citations)} (${this.getYearFromDate(caseMetadata.decision_date)})`;
 	}
 
 	render() {
@@ -398,21 +404,22 @@ export default class CapCase extends LitElement {
 		return html`
 			<div class="case-container">
 				<div class="case-header">
-					<h1>Case's Full Citation</h1>
+					<h1>${this.createCaseHeaderHeader(this.caseMetadata)}</h1>
 					<div>
-						<span class="decision-date">Formatted Decision Date</span>
+						<span class="decision-date"
+							>${this.formatDate(this.caseMetadata.decision_date)}</span
+						>
 						<span>&middot;</span>
-						<span class="court-name">Court Name</span>
-						${this.getDocketNumber()}
+						<span class="court-name">${this.caseMetadata.court.name}</span>
+						<span>&middot;</span>
+						<span class="court-name">${this.caseMetadata.docket_number}</span>
 					</div>
-					<div class="citations">Citation, Citation, Citation</div>
+					<div class="citations">
+						${this.createCitationsString(this.caseMetadata.citations)}
+					</div>
 				</div>
 				<div class="metadata">
-					<div class="case-name">
-						SOMEBODY
-						<span class="case-name-v">v.</span>
-						SOMEBODY ELSE
-					</div>
+					<div class="case-name">${this.caseMetadata.name}</div>
 				</div>
 				<!--section.casebody -->
 				${unsafeHTML(this.caseBody)}
