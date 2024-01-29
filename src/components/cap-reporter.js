@@ -77,6 +77,7 @@ export default class CapReporter extends LitElement {
 
 			.reporter__volumeList {
 				margin-block-start: var(--spacing-100);
+				display: block;
 			}
 
 			.reporter__link {
