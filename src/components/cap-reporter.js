@@ -66,6 +66,7 @@ export default class CapReporter extends LitElement {
 				font-weight: 600;
 				font-size: var(--font-size-250);
 				position: relative;
+				margin-bottom: .5rem;
 			}
 
 			.reporter__subHeading {
@@ -78,10 +79,6 @@ export default class CapReporter extends LitElement {
 			.reporter__volumeList {
 				margin-block-start: var(--spacing-100);
 				display: block;
-			}
-
-			.reporter__link {
-				font-weight: 600;
 			}
 
 			.list__title {
