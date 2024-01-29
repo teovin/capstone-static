@@ -38,6 +38,7 @@ export default class CapVolume extends LitElement {
 
 	render() {
 		//todo this will need to be updated to deal with multiple cases on the same page
+		window.document.title = `Volume: ${this.reporterData.short_name} volume ${this.volume} | Caselaw Access Project`;
 		return html`
 			<h1>${this.volume} ${this.reporterData.short_name}</h1>
 			<h2>
