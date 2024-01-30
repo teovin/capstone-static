@@ -64,11 +64,11 @@ export const fetchMapData = async (callback) => {
 	const jurisdictions = {};
 	data.forEach((element) => {
 		jurisdictions[element.slug] = {
-			"case_count": element.case_count,
-			"volume_count": element.volume_count,
-			"reporter_count": element.reporter_count,
-			"page_count": element.page_count
-		}
+			case_count: element.case_count,
+			volume_count: element.volume_count,
+			reporter_count: element.reporter_count,
+			page_count: element.page_count,
+		};
 	});
 	callback(jurisdictions);
 };

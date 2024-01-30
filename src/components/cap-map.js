@@ -22,9 +22,7 @@ export class CapMap extends LitElement {
 
 	connectedCallback() {
 		super.connectedCallback();
-		fetchMapData (
-			(data) => (this.caselawData = data),
-		);
+		fetchMapData((data) => (this.caselawData = data));
 	}
 
 	static styles = [
