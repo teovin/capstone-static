@@ -382,7 +382,11 @@ export default class CapCase extends LitElement {
 	}
 
 	createCaseHeaderHeader(caseMetadata) {
-		return `${caseMetadata.name_abbreviation}, ${this.createCitationsString(caseMetadata.citations)} (${this.getYearFromDate(caseMetadata.decision_date)})`;
+		let decisionYear = "";
+		if (caseMetadata.decision_date) {
+			decisionYear = this.getYearFromDate(caseMetadata.decision_date);
+		}
+		return `${caseMetadata.name_abbreviation}, ${this.createCitationsString(caseMetadata.citations)} (${decisionYear})`;
 	}
 
 	render() {
@@ -411,10 +415,15 @@ export default class CapCase extends LitElement {
 				<div class="case-header">
 					<h1>${this.createCaseHeaderHeader(this.caseMetadata)}</h1>
 					<div>
-						<span class="decision-date"
-							>${this.formatDate(this.caseMetadata.decision_date)}</span
-						>
-						<span>&middot;</span>
+						${this.caseMetadata.decision_date
+							? html`
+									<span class="decision-date"
+										>${this.formatDate(this.caseMetadata.decision_date)}</span
+									>
+									<span>&middot;</span>
+								`
+							: nothing}
+
 						<span class="court-name">${this.caseMetadata.court.name}</span>
 						<span>&middot;</span>
 						<span class="court-name">${this.caseMetadata.docket_number}</span>
