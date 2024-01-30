@@ -386,7 +386,29 @@ export default class CapCase extends LitElement {
 		if (caseMetadata.decision_date) {
 			decisionYear = this.getYearFromDate(caseMetadata.decision_date);
 		}
-		return `${caseMetadata.name_abbreviation}, ${this.createCitationsString(caseMetadata.citations)} (${decisionYear})`;
+		return `${caseMetadata.name_abbreviation}, ${this.createCitationsString(caseMetadata.citations)} ${decisionYear ? "(" + decisionYear + ")" : ""}`;
+	}
+
+	getDecisionDate(decisionDate) {
+		if (decisionDate) {
+			return html`
+				<span class="decision-date">${this.formatDate(decisionDate)}</span>
+				<span>&middot;</span>
+			`;
+		} else {
+			return nothing;
+		}
+	}
+
+	getDocketNumber(docketNumber) {
+		if (docketNumber) {
+			return html`
+				<span>&middot;</span>
+				<span class="docket-number">${docketNumber}</span>
+			`;
+		} else {
+			return nothing;
+		}
 	}
 
 	render() {
@@ -415,18 +437,9 @@ export default class CapCase extends LitElement {
 				<div class="case-header">
 					<h1>${this.createCaseHeaderHeader(this.caseMetadata)}</h1>
 					<div>
-						${this.caseMetadata.decision_date
-							? html`
-									<span class="decision-date"
-										>${this.formatDate(this.caseMetadata.decision_date)}</span
-									>
-									<span>&middot;</span>
-								`
-							: nothing}
-
+						${this.getDecisionDate(this.caseMetadata.decision_date)}
 						<span class="court-name">${this.caseMetadata.court.name}</span>
-						<span>&middot;</span>
-						<span class="court-name">${this.caseMetadata.docket_number}</span>
+						${this.getDocketNumber(this.caseMetadata.docket_number)}
 					</div>
 					<div class="citations">
 						${this.createCitationsString(this.caseMetadata.citations)}
