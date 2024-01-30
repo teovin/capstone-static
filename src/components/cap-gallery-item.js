@@ -124,7 +124,7 @@ export class CapGalleryItem extends LitElement {
 			<article class="galleryItem">
 				<img
 					class="galleryItem__image"
-					src="/images/${this.image ? this.image : 'gallery-defaultImage.jpg'}"
+					src="/images/${this.image ? this.image : "gallery-defaultImage.jpg"}"
 					height="120"
 					width="120"
 					loading="lazy"
