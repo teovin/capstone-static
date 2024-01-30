@@ -94,13 +94,12 @@ li {
 
 a:link,
 a:visited,
-a:hover,
 a:active {
 	text-decoration: none;
 	color: var(--color-blue-400);
+}
 
-	&:hover {
-		color: var(--color-blue-500);
-		text-decoration: underline;
-	}
+a:hover {
+	color: var(--color-blue-500);
+	text-decoration: underline;
 }
