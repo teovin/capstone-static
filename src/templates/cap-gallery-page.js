@@ -68,6 +68,7 @@ export class CapGalleryPage extends LitElement {
 										description=${item.description}
 										pageUrl=${item.pageUrl}
 										repoUrl=${item.repoUrl}
+										image=${item.image}
 									></cap-gallery-item>
 								`;
 							})}

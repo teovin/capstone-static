@@ -85,7 +85,6 @@ export class CapGalleryItem extends LitElement {
 
 	constructor() {
 		super();
-		this.image = "/images/gallery-defaultImage.jpg";
 	}
 
 	getPageLink() {
@@ -125,9 +124,10 @@ export class CapGalleryItem extends LitElement {
 			<article class="galleryItem">
 				<img
 					class="galleryItem__image"
-					src=${this.image}
+					src="/images/${this.image ? this.image : 'gallery-defaultImage.jpg'}"
 					height="120"
 					width="120"
+					loading="lazy"
 				/>
 				<div class="galleryItem__content u-w-maxContent">
 					<h3 class="galleryItem__title">

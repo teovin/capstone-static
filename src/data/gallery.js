@@ -65,6 +65,7 @@ export const galleryItems = [
 		pageUrl: "https://perma.cc/72GM-3BRZ",
 		repoUrl:
 			"https://github.com/harvard-lil/cap-examples-old/blob/master/make_wordclouds.py",
+		image: "gallery-image-01.png",
 	},
 	{
 		pk: 2,
@@ -76,6 +77,7 @@ export const galleryItems = [
 		pageUrl: "https://perma.cc/Y2GZ-535C",
 		repoUrl:
 			"https://github.com/harvard-lil/cap-examples/blob/master/api_wordsearch/wordsearch.py",
+		image: "gallery-image-02.png",
 	},
 	{
 		pk: 3,
@@ -86,6 +88,7 @@ export const galleryItems = [
 		pageUrl: "https://perma.cc/KK7N-U23P",
 		repoUrl:
 			"https://github.com/harvard-lil/cap-examples-old/blob/master/generate_limerick.py",
+		image: "gallery-image-03.png",
 	},
 	{
 		pk: 31,
@@ -96,6 +99,7 @@ export const galleryItems = [
 		order: 2,
 		pageUrl: "https://perma.cc/5GMX-VHBA",
 		repoUrl: null,
+		image: "gallery-image-31.png",
 	},
 	//
 	// EXTERNAL
@@ -108,6 +112,7 @@ export const galleryItems = [
 		order: 20,
 		pageUrl: "http://www.gavelfury.com/",
 		repoUrl: null,
+		image: "gallery-image-04.png",
 	},
 	{
 		pk: 5,
@@ -118,6 +123,7 @@ export const galleryItems = [
 		order: 4,
 		pageUrl: null,
 		repoUrl: "https://github.com/harvard-lil/cap-examples",
+		image: "gallery-image-05.png",
 	},
 	{
 		pk: 7,
@@ -128,6 +134,7 @@ export const galleryItems = [
 		order: 1,
 		pageUrl: "https://opencasebook.org/",
 		repoUrl: "https://github.com/harvard-lil/h2o",
+		image: "gallery-image-07.png",
 	},
 	{
 		pk: 9,
@@ -137,6 +144,7 @@ export const galleryItems = [
 		order: 10,
 		pageUrl: "https://colors.lil.tools/",
 		repoUrl: "https://github.com/harvard-lil/colors",
+		image: "gallery-image-09.png",
 	},
 	{
 		pk: 10,
@@ -146,6 +154,7 @@ export const galleryItems = [
 		order: 4,
 		pageUrl: "https://law-journals.herokuapp.com",
 		repoUrl: "https://github.com/LeRoi/law_journal_citator",
+		image: "gallery-image-10.png",
 	},
 	{
 		pk: 11,
@@ -157,6 +166,7 @@ export const galleryItems = [
 		pageUrl:
 			"https://lil.law.harvard.edu/blog/2018/08/24/telling-stories-with-cap-data-the-prolific-mr-cartwright/",
 		repoUrl: null,
+		image: "gallery-image-11.png",
 	},
 	{
 		pk: 12,
@@ -168,6 +178,7 @@ export const galleryItems = [
 		pageUrl:
 			"https://www.youtube.com/playlist?list=PL5bjwZ2MwNlLK4F5a1BKPaDzW1ROU90M7",
 		repoUrl: null,
+		image: "gallery-image-12.png",
 	},
 	{
 		pk: 13,
@@ -179,6 +190,7 @@ export const galleryItems = [
 		order: 22,
 		pageUrl: "https://dl.acm.org/doi/10.1145/3322640.3326736",
 		repoUrl: null,
+		image: "gallery-image-13.png",
 	},
 	{
 		pk: 14,
@@ -190,6 +202,7 @@ export const galleryItems = [
 		pageUrl:
 			"https://lil.law.harvard.edu/blog/2019/07/09/teaching-data-science-for-lawyers-with-caselaw-access-project-data/",
 		repoUrl: null,
+		image: "gallery-image-14.png",
 	},
 	{
 		pk: 15,
@@ -202,6 +215,7 @@ export const galleryItems = [
 		pageUrl:
 			"https://bostonresearchcenter.org/projects_files/nulawlab/cap/index.html",
 		repoUrl: null,
+		image: "gallery-image-15.png",
 	},
 	{
 		pk: 16,
@@ -212,6 +226,7 @@ export const galleryItems = [
 		order: 5,
 		pageUrl: "https://lil.law.harvard.edu/blog/2019/09/17/nelson-guest/",
 		repoUrl: null,
+		image: "gallery-image-16.png",
 	},
 	{
 		pk: 17,
@@ -224,6 +239,7 @@ export const galleryItems = [
 			"https://lil.law.harvard.edu/blog/2019/08/26/cap-code-share-get-judges/",
 		repoUrl:
 			"https://github.com/harvard-lil/cap-examples/blob/master/get_judges/get_judges.ipynb",
+		image: "gallery-image-17.png",
 	},
 	{
 		pk: 18,
@@ -235,6 +251,7 @@ export const galleryItems = [
 		pageUrl:
 			"https://lil.law.harvard.edu/blog/2019/08/14/tutorial-retrieve-cases-by-citation-with-cap-case-browser/",
 		repoUrl: null,
+		image: "gallery-image-18.png",
 	},
 	{
 		pk: 19,
@@ -246,6 +263,7 @@ export const galleryItems = [
 		pageUrl:
 			"https://lil.law.harvard.edu/blog/2019/08/05/tutorial-return-cases-from-100-years-ago-today-with-the-cap-api/",
 		repoUrl: null,
+		image: "gallery-image-19.png",
 	},
 	{
 		pk: 20,
@@ -258,6 +276,7 @@ export const galleryItems = [
 		pageUrl:
 			"https://lil.law.harvard.edu/blog/2019/10/03/creating-a-data-analysis-workspace-with-voyant-and-the-cap-api/",
 		repoUrl: null,
+		image: "gallery-image-20.png",
 	},
 	{
 		pk: 21,
@@ -268,6 +287,7 @@ export const galleryItems = [
 		order: 3,
 		pageUrl: "https://constitution.congress.gov",
 		repoUrl: null,
+		image: "gallery-image-21.png",
 	},
 	{
 		pk: 22,
@@ -277,6 +297,7 @@ export const galleryItems = [
 		order: 5,
 		pageUrl: "https://papers.ssrn.com/sol3/papers.cfm?abstract_id=3460962",
 		repoUrl: null,
+		image: "gallery-image-22.png",
 	},
 	{
 		pk: 23,
@@ -289,6 +310,7 @@ export const galleryItems = [
 			"https://lil.law.harvard.edu/blog/2020/03/26/cap-code-share-caselaw-access-project-api-to-csv/",
 		repoUrl:
 			"https://github.com/harvard-lil/cap-examples/blob/master/api_to_csv/api_to_csv.py",
+		image: "gallery-image-23.png",
 	},
 	{
 		pk: 24,
@@ -301,6 +323,7 @@ export const galleryItems = [
 		pageUrl:
 			"https://lil.law.harvard.edu/blog/2019/11/14/guest-post-is-the-us-supreme-court-in-lockstep-with-congress-when-it-comes-to-abortion/",
 		repoUrl: null,
+		image: "gallery-image-24.png",
 	},
 	{
 		pk: 25,
@@ -311,6 +334,7 @@ export const galleryItems = [
 		pageUrl:
 			"https://lil.law.harvard.edu/blog/2019/10/22/guest-post-creating-a-case-recommendation-system-using-gensims-doc2vec/",
 		repoUrl: "https://github.com/minnaf/Case_Recommendation_System",
+		image: "gallery-image-25.png",
 	},
 	{
 		pk: 26,
@@ -321,6 +345,7 @@ export const galleryItems = [
 		order: 1,
 		pageUrl: "https://visualizer.joaomarinotti.com/",
 		repoUrl: null,
+		image: "gallery-image-26.png",
 	},
 	{
 		pk: 27,
@@ -331,6 +356,7 @@ export const galleryItems = [
 		order: 5,
 		pageUrl: "https://www.buzzycite.com/about",
 		repoUrl: null,
+		image: "gallery-image-27.png",
 	},
 	{
 		pk: 28,
@@ -342,6 +368,7 @@ export const galleryItems = [
 		pageUrl:
 			"https://lil.law.harvard.edu/blog/2020/05/29/data-science-for-case-law-a-course-collaboration/",
 		repoUrl: null,
+		image: "gallery-image-28.png",
 	},
 	{
 		pk: 30,
@@ -352,6 +379,7 @@ export const galleryItems = [
 		order: 2,
 		pageUrl: "http://www.citingslavery.org/",
 		repoUrl: null,
+		image: "gallery-image-30.png",
 	},
 	{
 		pk: 32,
@@ -363,6 +391,7 @@ export const galleryItems = [
 		pageUrl:
 			"https://papers.ssrn.com/sol3/papers.cfm?abstract_id=3529257&dgcid=ejournal_htmlemail_antitrust:antitrust:law:policy:ejournal_abstractlink",
 		repoUrl: null,
+		image: "gallery-image-32.png",
 	},
 	{
 		pk: 33,
@@ -373,6 +402,7 @@ export const galleryItems = [
 		order: 6,
 		pageUrl: "https://papers.ssrn.com/sol3/papers.cfm?abstract_id=3620587",
 		repoUrl: null,
+		image: "gallery-image-33.png",
 	},
 	{
 		pk: 36,
@@ -626,6 +656,7 @@ export const galleryItems = [
 		order: 10,
 		pageUrl: "https://raindrum.github.io/citeurl/",
 		repoUrl: "https://github.com/raindrum/citeurl/",
+		image: "gallery-image-59.png",
 	},
 	{
 		pk: 60,
