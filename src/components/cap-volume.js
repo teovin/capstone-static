@@ -49,11 +49,11 @@ export default class CapVolume extends LitElement {
 			a:active {
 				text-decoration: none;
 				color: var(--color-blue-400);
+			}
 
-				&:hover {
-					color: var(--color-blue-500);
-					text-decoration: underline;
-				}
+			a:hover {
+				color: var(--color-blue-500);
+				text-decoration: underline;
 			}
 
 			.volumes__main {
@@ -71,7 +71,14 @@ export default class CapVolume extends LitElement {
 				font-weight: 600;
 				font-size: var(--font-size-250);
 				position: relative;
-				margin-bottom: 0.5rem;
+				margin-block-end: var(--spacing-75);
+			}
+
+			.volume__subHeading {
+				font-size: var(--font-size-175);
+				margin-block-start: var(--spacing-0);
+				margin-block-end: var(--spacing-150);
+				font-weight: 500;
 			}
 
 			.volume__caseList {
@@ -105,7 +112,7 @@ export default class CapVolume extends LitElement {
 						<h1 class="volume__heading">
 							${this.volume} ${this.reporterData.short_name}
 						</h1>
-						<p>
+						<p class="volume__subHeading">
 							${this.reporterData.full_name}
 							(${this.reporterData.start_year}-${this.reporterData.end_year})
 							volume ${this.volume}.

@@ -44,11 +44,11 @@ export default class CapReporter extends LitElement {
 			a:active {
 				text-decoration: none;
 				color: var(--color-blue-400);
+			}
 
-				&:hover {
-					color: var(--color-blue-500);
-					text-decoration: underline;
-				}
+			a:hover {
+				color: var(--color-blue-500);
+				text-decoration: underline;
 			}
 
 			.reporters__main {
@@ -66,13 +66,13 @@ export default class CapReporter extends LitElement {
 				font-weight: 600;
 				font-size: var(--font-size-250);
 				position: relative;
-				margin-bottom: 0.5rem;
+				margin-block-end: var(--spacing-75);
 			}
 
 			.reporter__subHeading {
 				font-size: var(--font-size-175);
-				margin-top: 0;
-				margin-bottom: 1rem;
+				margin-block-start: var(--spacing-0);
+				margin-block-end: var(--spacing-150);
 				font-weight: 500;
 			}
 
