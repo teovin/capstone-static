@@ -6,6 +6,7 @@ import {
 	mapData,
 	nationalCaselawStats,
 } from "../data/map.js";
+import { fetchMapData } from "../lib/data.js";
 
 export class CapMap extends LitElement {
 	static properties = {
@@ -21,16 +22,9 @@ export class CapMap extends LitElement {
 
 	connectedCallback() {
 		super.connectedCallback();
-		this.fetchCaselawMapData();
-	}
-
-	// Fetching this for now, in case we move the file to S3
-	async fetchCaselawMapData() {
-		const response = await fetch(
-			"http://127.0.0.1:5501/data/caselawMapDictionary.json",
+		fetchMapData (
+			(data) => (this.caselawData = data),
 		);
-		const jsonResponse = await response.json();
-		this.caselawData = jsonResponse;
 	}
 
 	static styles = [

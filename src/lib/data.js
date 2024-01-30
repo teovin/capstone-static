@@ -58,6 +58,21 @@ export const fetchCaseMetadata = async (
 	callback(await fetchJson(url));
 };
 
+export const fetchMapData = async (callback) => {
+	const url = `${window.BUCKET_ROOT}/JurisdictionsMetadata.json`;
+	const data = await fetchJson(url);
+	const jurisdictions = {};
+	data.forEach((element) => {
+		jurisdictions[element.slug] = {
+			"case_count": element.case_count,
+			"volume_count": element.volume_count,
+			"reporter_count": element.reporter_count,
+			"page_count": element.page_count
+		}
+	});
+	callback(jurisdictions);
+};
+
 const fetchJson = async (url) => {
 	const response = await fetch(url);
 	return await response.json();
