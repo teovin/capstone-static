@@ -71,18 +71,16 @@ export default class CapVolume extends LitElement {
 				font-weight: 600;
 				font-size: var(--font-size-250);
 				position: relative;
-				margin-block-end: var(--spacing-75);
 			}
 
 			.volume__subHeading {
 				font-size: var(--font-size-175);
 				margin-block-start: var(--spacing-0);
-				margin-block-end: var(--spacing-150);
 				font-weight: 500;
 			}
 
 			.volume__caseList {
-				margin-block-start: var(--spacing-100);
+				margin-block-start: var(--spacing-150);
 				display: block;
 			}
 		`,
