@@ -432,6 +432,7 @@ export default class CapCase extends LitElement {
 		};
 		window.requestAnimationFrame(doNothing);
 		window.requestAnimationFrame(rewriteLinks);
+		window.document.title = `${this.createCaseHeaderHeader(this.caseMetadata)} | Caselaw Access Project`;
 		return html`
 			<div class="case-container">
 				<div class="case-header">

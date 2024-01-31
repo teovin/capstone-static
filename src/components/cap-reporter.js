@@ -96,6 +96,7 @@ export default class CapReporter extends LitElement {
 	}
 
 	render() {
+		window.document.title = `Reporter: ${this.reporterData.short_name} | Caselaw Access Project`;
 		return html`
 			<cap-caselaw-layout>
 				<div class="reporters__main">
