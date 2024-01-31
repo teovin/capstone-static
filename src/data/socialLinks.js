@@ -12,6 +12,6 @@ export const socialLinks = [
 	{
 		name: "Email",
 		icon: "mail",
-		path: "/contact",
+		path: "mailto:info@case.law",
 	},
 ];
