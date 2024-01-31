@@ -20,8 +20,8 @@ export class CapDocsPage extends LitElement {
 					<cap-page-header heading="Documentation">
 						<p class="u-text-white u-text-serif">
 							Welcome to the Caselaw Access Project Documentation. Here you'll
-							find some documentation about our project, organization, data,
-							applications, services, and site.
+							find some documentation about our project, organization, data, and
+							site.
 						</p>
 					</cap-page-header>
 				</header>
