@@ -363,11 +363,48 @@ export default class CapCase extends LitElement {
 		);
 	}
 
-	getDocketNumber() {
-		if (true) {
+	getYearFromDate(str) {
+		const date = new Date(str);
+		return date.getFullYear();
+	}
+
+	formatDate(dateStr) {
+		const date = new Date(dateStr);
+		const formatOptions = { timeZone: "UTC", year: "numeric" };
+		if (dateStr.length > 4) formatOptions.month = "short";
+		if (dateStr.length > 7) formatOptions.day = "numeric";
+
+		return date.toLocaleDateString(undefined, formatOptions);
+	}
+
+	createCitationsString(caseCitations) {
+		return caseCitations?.map((citation) => citation.cite).join(", ");
+	}
+
+	createCaseHeaderHeader(caseMetadata) {
+		let decisionYear = "";
+		if (caseMetadata.decision_date) {
+			decisionYear = this.getYearFromDate(caseMetadata.decision_date);
+		}
+		return `${caseMetadata.name_abbreviation}, ${this.createCitationsString(caseMetadata.citations)} ${decisionYear ? "(" + decisionYear + ")" : ""}`;
+	}
+
+	getDecisionDate(decisionDate) {
+		if (decisionDate) {
+			return html`
+				<span class="decision-date">${this.formatDate(decisionDate)}</span>
+				<span>&middot;</span>
+			`;
+		} else {
+			return nothing;
+		}
+	}
+
+	getDocketNumber(docketNumber) {
+		if (docketNumber) {
 			return html`
 				<span>&middot;</span>
-				<span class="docket-number">Docket Number</span>
+				<span class="docket-number">${docketNumber}</span>
 			`;
 		} else {
 			return nothing;
@@ -398,21 +435,18 @@ export default class CapCase extends LitElement {
 		return html`
 			<div class="case-container">
 				<div class="case-header">
-					<h1>Case's Full Citation</h1>
+					<h1>${this.createCaseHeaderHeader(this.caseMetadata)}</h1>
 					<div>
-						<span class="decision-date">Formatted Decision Date</span>
-						<span>&middot;</span>
-						<span class="court-name">Court Name</span>
-						${this.getDocketNumber()}
+						${this.getDecisionDate(this.caseMetadata.decision_date)}
+						<span class="court-name">${this.caseMetadata.court?.name}</span>
+						${this.getDocketNumber(this.caseMetadata.docket_number)}
 					</div>
-					<div class="citations">Citation, Citation, Citation</div>
+					<div class="citations">
+						${this.createCitationsString(this.caseMetadata.citations)}
+					</div>
 				</div>
 				<div class="metadata">
-					<div class="case-name">
-						SOMEBODY
-						<span class="case-name-v">v.</span>
-						SOMEBODY ELSE
-					</div>
+					<div class="case-name">${this.caseMetadata.name}</div>
 				</div>
 				<!--section.casebody -->
 				${unsafeHTML(this.caseBody)}
