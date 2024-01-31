@@ -3,8 +3,7 @@ import "../components/cap-nav.js";
 import "../components/cap-page-header.js";
 import "../components/cap-footer.js";
 import "../components/cap-anchor-list.js";
-import "../components/cap-media-list.js";
-import "../components/cap-contributor-list.js";
+import { anchorLinks } from "../data/docsSidebarLinks.js";
 
 export class CapDocsPage extends LitElement {
 	// Turn Shadow DOM off
@@ -26,6 +25,23 @@ export class CapDocsPage extends LitElement {
 						</p>
 					</cap-page-header>
 				</header>
+                <aside class="u-sm-hidden">
+					<cap-anchor-list .data=${anchorLinks}></cap-anchor-list>
+				</aside>
+                <article class="c-article u-bg-beige">
+					<h2 class="c-decoratedHeader" id="accessing-data">
+						Accessing Data
+					</h2>
+					<p>
+						[We will put some documentation content about accessing data here.]
+					</p>
+                    <h2 class="c-decoratedHeader" id="bulk-downloads">
+						Bulk Downloads
+					</h2>
+					<p>
+						[We will put some documentation content about bulk downloads here.]
+					</p>
+                </article>
 			</main>
 			<cap-footer></cap-footer>
 		`;
