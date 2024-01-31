@@ -378,7 +378,7 @@ export default class CapCase extends LitElement {
 	}
 
 	createCitationsString(caseCitations) {
-		return caseCitations.map((citation) => citation.cite).join(", ");
+		return caseCitations?.map((citation) => citation.cite).join(", ");
 	}
 
 	createCaseHeaderHeader(caseMetadata) {
@@ -438,7 +438,7 @@ export default class CapCase extends LitElement {
 					<h1>${this.createCaseHeaderHeader(this.caseMetadata)}</h1>
 					<div>
 						${this.getDecisionDate(this.caseMetadata.decision_date)}
-						<span class="court-name">${this.caseMetadata.court.name}</span>
+						<span class="court-name">${this.caseMetadata.court?.name}</span>
 						${this.getDocketNumber(this.caseMetadata.docket_number)}
 					</div>
 					<div class="citations">
