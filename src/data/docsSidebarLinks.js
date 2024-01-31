@@ -7,4 +7,4 @@ export const anchorLinks = [
 		title: "Bulk Downloads",
 		url: "#bulk-downloads",
 	},
-]
+];

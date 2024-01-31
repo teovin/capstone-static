@@ -19,29 +19,25 @@ export class CapDocsPage extends LitElement {
 				<header class="u-bg-gray-500 u-col-span-full">
 					<cap-page-header heading="Documentation">
 						<p class="u-text-white u-text-serif">
-							Welcome to the Caselaw Access Project Documentation.
-                            Here you'll find some documentation about our project,
-                            organization, data, applications, services, and site.
+							Welcome to the Caselaw Access Project Documentation. Here you'll
+							find some documentation about our project, organization, data,
+							applications, services, and site.
 						</p>
 					</cap-page-header>
 				</header>
-                <aside class="u-sm-hidden">
+				<aside class="u-sm-hidden">
 					<cap-anchor-list .data=${anchorLinks}></cap-anchor-list>
 				</aside>
-                <article class="c-article u-bg-beige">
-					<h2 class="c-decoratedHeader" id="accessing-data">
-						Accessing Data
-					</h2>
+				<article class="c-article u-bg-beige">
+					<h2 class="c-decoratedHeader" id="accessing-data">Accessing Data</h2>
 					<p>
 						[We will put some documentation content about accessing data here.]
 					</p>
-                    <h2 class="c-decoratedHeader" id="bulk-downloads">
-						Bulk Downloads
-					</h2>
+					<h2 class="c-decoratedHeader" id="bulk-downloads">Bulk Downloads</h2>
 					<p>
 						[We will put some documentation content about bulk downloads here.]
 					</p>
-                </article>
+				</article>
 			</main>
 			<cap-footer></cap-footer>
 		`;
