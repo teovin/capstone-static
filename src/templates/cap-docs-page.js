@@ -33,9 +33,9 @@ export class CapDocsPage extends LitElement {
 					<p>
 						The CAP website offers a basic interface for interacting with the
 						cases in our repository. To access reporters by jurisdiction, visit
-						our <a href="/caselaw">Caselaw</a> page and select the
-						jurisdiction of interest. The reporters included in that
-						jurisdiction will be listed there.
+						our <a href="/caselaw">Caselaw</a> page and select the jurisdiction
+						of interest. The reporters included in that jurisdiction will be
+						listed there.
 					</p>
 					<p>
 						To access volumes by reporter, select the reporter from the Caselaw
