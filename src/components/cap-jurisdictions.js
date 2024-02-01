@@ -108,6 +108,11 @@ export default class CapJurisdictions extends LitElement {
 		window.addEventListener("hashchange", this.handleHashChange.bind(this));
 	}
 
+	updated() {
+		// if a person navigates directly to a URL with a hash, handle it on load
+		this.handleHashChange();
+	}
+
 	disconnectedCallback() {
 		super.disconnectedCallback();
 		window.removeEventListener("hashchange", this.handleHashChange.bind(this));
@@ -122,9 +127,11 @@ export default class CapJurisdictions extends LitElement {
 	*/
 	handleHashChange() {
 		const hash = window.location.hash.substring(1); // remove the '#'
-		const element = this.shadowRoot.getElementById(hash);
-		if (element) {
-			element.scrollIntoView();
+		if (hash) {
+			const element = this.shadowRoot.getElementById(hash);
+			if (element) {
+				element.scrollIntoView();
+			}
 		}
 	}
 
