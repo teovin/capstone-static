@@ -3,8 +3,10 @@ import {
 	fetchCasesList,
 	fetchReporterData,
 	fetchVolumeData,
+	getBreadcrumbLinks,
 } from "../lib/data.js";
 import { baseStyles } from "../lib/wc-base.js";
+import "./cap-breadcrumb.js";
 
 export default class CapVolume extends LitElement {
 	static properties = {
@@ -61,25 +63,25 @@ export default class CapVolume extends LitElement {
 				padding-inline: var(--spacing-500);
 				padding-block-start: var(--spacing-400);
 				padding-block-end: var(--spacing-550);
-				}
+			}
 
 			.volume__headingGroup {
 				margin-block-start: var(--spacing-100);
 			}
 
-			.volumes__heading {
+			.volume__heading {
 				font-weight: 600;
 				font-size: var(--font-size-250);
 				position: relative;
 			}
 
-			.volumes__subHeading {
+			.volume__subHeading {
 				font-size: var(--font-size-175);
 				margin-block-start: var(--spacing-0);
 				font-weight: 500;
 			}
 
-			.volumes__caseList {
+			.volume__caseList {
 				margin-block-start: var(--spacing-150);
 				display: block;
 			}
@@ -107,6 +109,9 @@ export default class CapVolume extends LitElement {
 		return html`
 			<cap-caselaw-layout>
 				<div class="volume__main">
+					<cap-breadcrumb
+						.navItems=${getBreadcrumbLinks(this.reporterData, this.volume)}
+					></cap-breadcrumb>
 					<hgroup class="volume__headingGroup">
 						<h1 class="volume__heading">
 							${this.volume} ${this.reporterData.short_name}

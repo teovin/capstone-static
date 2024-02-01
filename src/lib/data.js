@@ -62,3 +62,22 @@ const fetchJson = async (url) => {
 	const response = await fetch(url);
 	return await response.json();
 };
+
+export const getBreadcrumbLinks = (reporterData, volume) => {
+	const reporterLink = {
+		url: `/caselaw/?reporter=${reporterData.slug}`,
+		name: `Reporter ${reporterData.short_name}`,
+	};
+
+	if (volume) {
+		return [
+			reporterLink,
+			{
+				url: `/caselaw/?reporter=${reporterData.slug}&volume=${volume}`,
+				name: `Volume ${volume}`,
+			},
+		];
+	}
+
+	return [reporterLink];
+};

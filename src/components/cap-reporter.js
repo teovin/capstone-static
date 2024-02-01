@@ -1,6 +1,11 @@
 import { LitElement, html, css } from "../lib/lit.js";
-import { fetchVolumesData, fetchReporterData } from "../lib/data.js";
+import {
+	fetchVolumesData,
+	fetchReporterData,
+	getBreadcrumbLinks,
+} from "../lib/data.js";
 import { baseStyles } from "../lib/wc-base.js";
+import "./cap-breadcrumb.js";
 
 export default class CapReporter extends LitElement {
 	static properties = {
@@ -56,7 +61,7 @@ export default class CapReporter extends LitElement {
 				padding-inline: var(--spacing-500);
 				padding-block-start: var(--spacing-400);
 				padding-block-end: var(--spacing-550);
-				}
+			}
 
 			.reporter__headingGroup {
 				margin-block-start: var(--spacing-100);
@@ -94,6 +99,9 @@ export default class CapReporter extends LitElement {
 		return html`
 			<cap-caselaw-layout>
 				<div class="reporters__main">
+					<cap-breadcrumb
+						.navItems=${getBreadcrumbLinks(this.reporterData)}
+					></cap-breadcrumb>
 					<hgroup class="reporter__headingGroup">
 						<h1 class="reporter__heading">${this.reporterData.short_name}</h1>
 						<p class="reporter__subHeading">
