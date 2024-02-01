@@ -7,6 +7,7 @@ import {
 	nationalCaselawStats,
 } from "../data/map.js";
 import { fetchMapData } from "../lib/data.js";
+import { slugify } from "../lib/slugify.js";
 
 export class CapMap extends LitElement {
 	static properties = {
@@ -141,6 +142,14 @@ export class CapMap extends LitElement {
 		}
 	}
 
+	getAbbreviationAndSlugifiedNames() {
+		const mapping = {};
+		for (const [abbr, data] of Object.entries(this.caselawData)) {
+			mapping[abbr] = slugify(data.name_long);
+		}
+		return mapping;
+	}
+
 	render() {
 		return html`
 			<div class="mapRegion">
@@ -208,6 +217,7 @@ export class CapMap extends LitElement {
 						height="432"
 						.data=${mapData}
 						.abbreviations=${mapAbbreviations}
+						.abbreviationsAndSlugifiedNames=${this.getAbbreviationAndSlugifiedNames()}
 						@map-update=${this._onMapUpdate}
 					></accessible-map>
 				</div>

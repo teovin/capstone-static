@@ -7,6 +7,7 @@ export class AccessibleMap extends LitElement {
 	static properties = {
 		data: { type: Object },
 		abbreviations: { type: Array },
+		abbreviationsAndSlugifiedNames: { type: Object },
 		width: { type: Number },
 		height: { type: Number },
 	};
@@ -99,7 +100,7 @@ export class AccessibleMap extends LitElement {
 					(abbreviation) =>
 						svg`<g class="map__group">
 				<title id=${abbreviation}>${mapData[abbreviation].name}</title>
-				<a data-abbreviation=${abbreviation} @focus="${this._handlePointerEvent}"  href="/caselaw/?reporter=${abbreviation}" class="map__link map__link--${abbreviation}" aria-labelledby=${abbreviation}>
+				<a data-abbreviation=${abbreviation} @focus="${this._handlePointerEvent}"  href="/caselaw/#${this.abbreviationsAndSlugifiedNames[abbreviation]}" class="map__link map__link--${abbreviation}" aria-labelledby=${abbreviation}>
 					<path data-abbreviation=${abbreviation} @mouseover="${this._handlePointerEvent}" class="map__path" d=${mapData[abbreviation].path} stroke-width="0.5" stroke="currentColor" />
 				</a>
 			</g>`,

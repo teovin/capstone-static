@@ -1,6 +1,7 @@
 import { LitElement, html, css } from "../lib/lit.js";
 import { fetchJurisdictionsData } from "../lib/data.js";
 import { baseStyles } from "../lib/wc-base.js";
+import { slugify } from "../lib/slugify.js";
 import "../components/cap-page-header.js";
 import "../components/cap-caselaw-layout.js";
 import "../components/cap-anchor-list.js";
@@ -127,13 +128,6 @@ export default class CapJurisdictions extends LitElement {
 		}
 	}
 
-	slugify(str) {
-		return str
-			.toLowerCase()
-			.replace(/ /g, "-")
-			.replace(/[^\w-]+/g, "");
-	}
-
 	getJurisdictionNames() {
 		return Object.keys(this.jurisdictionsData).sort();
 	}
@@ -142,7 +136,7 @@ export default class CapJurisdictions extends LitElement {
 		return this.getJurisdictionNames().map((jurisdiction) => {
 			return {
 				title: jurisdiction,
-				url: `#${this.slugify(jurisdiction)}`,
+				url: `#${slugify(jurisdiction)}`,
 			};
 		});
 	}
@@ -169,7 +163,7 @@ export default class CapJurisdictions extends LitElement {
 							(jurisdiction) =>
 								html`<article
 									class="jurisdiction"
-									id="${this.slugify(jurisdiction)}"
+									id="${slugify(jurisdiction)}"
 								>
 									<h2 class="jurisdiction__heading">${jurisdiction}</h2>
 									<ul class="jurisdiction__reporterList">

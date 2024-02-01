@@ -68,6 +68,7 @@ export const fetchMapData = async (callback) => {
 			volume_count: element.volume_count,
 			reporter_count: element.reporter_count,
 			page_count: element.page_count,
+			name_long: element.name_long,
 		};
 	});
 	callback(jurisdictions);
