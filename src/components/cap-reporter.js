@@ -56,7 +56,7 @@ export default class CapReporter extends LitElement {
 				text-decoration: underline;
 			}
 
-			.reporters__main {
+			.reporter {
 				grid-column: 1 / -1;
 				padding-inline: var(--spacing-500);
 				padding-block-start: var(--spacing-400);
@@ -98,7 +98,7 @@ export default class CapReporter extends LitElement {
 		window.document.title = `Reporter: ${this.reporterData.short_name} | Caselaw Access Project`;
 		return html`
 			<cap-caselaw-layout>
-				<div class="reporters__main">
+				<div class="reporter">
 					<cap-breadcrumb
 						.navItems=${getBreadcrumbLinks(this.reporterData)}
 					></cap-breadcrumb>
