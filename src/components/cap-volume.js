@@ -56,30 +56,30 @@ export default class CapVolume extends LitElement {
 				text-decoration: underline;
 			}
 
-			.volumes__main {
+			.volume__main {
 				grid-column: 1 / -1;
 				padding-inline: var(--spacing-500);
-				padding-block-start: var(--spacing-300);
+				padding-block-start: var(--spacing-400);
 				padding-block-end: var(--spacing-550);
-
-				@media (min-width: 60rem) {
-					grid-column: 1 / -1;
 				}
+
+			.volume__headingGroup {
+				margin-block-start: var(--spacing-100);
 			}
 
-			.volume__heading {
+			.volumes__heading {
 				font-weight: 600;
 				font-size: var(--font-size-250);
 				position: relative;
 			}
 
-			.volume__subHeading {
+			.volumes__subHeading {
 				font-size: var(--font-size-175);
 				margin-block-start: var(--spacing-0);
 				font-weight: 500;
 			}
 
-			.volume__caseList {
+			.volumes__caseList {
 				margin-block-start: var(--spacing-150);
 				display: block;
 			}
@@ -106,8 +106,8 @@ export default class CapVolume extends LitElement {
 		window.document.title = `Volume: ${this.reporterData.short_name} volume ${this.volume} | Caselaw Access Project`;
 		return html`
 			<cap-caselaw-layout>
-				<div class="volumes__main">
-					<hgroup>
+				<div class="volume__main">
+					<hgroup class="volume__headingGroup">
 						<h1 class="volume__heading">
 							${this.volume} ${this.reporterData.short_name}
 						</h1>
