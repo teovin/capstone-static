@@ -63,7 +63,7 @@ export class CapBreadcrumb extends LitElement {
 
 	render() {
 		return html`
-			<nav aria-label="Breadcrumb" class="breadcrumb">
+			<nav aria-label="breadcrumbs" class="breadcrumb">
 				<ol class="list">
 					<li class="list__item">
 						<a href="/"> Home</a>
