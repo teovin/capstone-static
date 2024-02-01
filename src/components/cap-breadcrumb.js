@@ -1,5 +1,6 @@
 import { LitElement, html, css, nothing } from "../lib/lit.js";
 import { baseStyles } from "../lib/wc-base.js";
+import clsx from "../lib/clsx.js";
 
 export class CapBreadcrumb extends LitElement {
 	static properties = {
@@ -9,6 +10,18 @@ export class CapBreadcrumb extends LitElement {
 	static styles = [
 		baseStyles,
 		css`
+			a:link,
+			a:visited,
+			a:hover,
+			a:active {
+				text-decoration: none;
+				color: var(--color-blue-400);
+			}
+
+			a:hover {
+				text-decoration: underline;
+			}
+
 			.breadcrumb {
 				font-family: var(--font-sans-text);
 				font-size: var(--font-size-100);
@@ -24,34 +37,17 @@ export class CapBreadcrumb extends LitElement {
 			}
 
 			.list__item {
-				display: flex;
-				align-items: center;
 				margin-inline-end: var(--spacing-75);
+				font-size: var(--font-size-100);
 			}
 
-			.list__item:not(:last-child)::after {
-				content: "";
-				display: block;
-				height: 0.8125rem;
-				width: 0.3125rem;
-				background: url('data:image/svg+xml,<svg width="5" height="13" viewBox="0 0 5 13" fill="none" xmlns="http://www.w3.org/2000/svg"><path d="M0.139893 12.2401L3.87789 0.0600586H4.71789L0.979893 12.2401H0.139893Z" fill="%236C757D"/></svg>');
+			.list__item--current {
+				font-weight: 600;
+			}
+
+			.list__divider {
 				margin-inline-start: var(--spacing-75);
-			}
-
-			a:link,
-			a:visited,
-			a:hover,
-			a:active {
-				text-decoration: none;
-				color: var(--color-blue-400);
-			}
-
-			a:hover {
-				text-decoration: underline;
-			}
-
-			.breadcrumb [aria-current] {
-				color: var(--color-gray-500);
+				color: var(--color-gray-300);
 			}
 		`,
 	];
@@ -67,23 +63,28 @@ export class CapBreadcrumb extends LitElement {
 				<ol class="list">
 					<li class="list__item">
 						<a href="/"> Home</a>
+						<span class="list__divider" aria-hidden="true">/</span>
 					</li>
 					<li class="list__item">
-						<a href="/caselaw"> Caselaw </a>
+						<a href="/caselaw"> Caselaw</a>
+						<span class="list__divider" aria-hidden="true">/</span>
 					</li>
-					${this.navItems.map(
-						(navItem, index) =>
-							html`<li class="list__item">
-								<a
-									href=${navItem.url}
-									aria-current=${index + 1 === this.navItems.length
-										? "page"
-										: nothing}
-								>
-									${navItem.name}
-								</a>
-							</li>`,
-					)}
+					${this.navItems.map((navItem, index) => {
+						const isCurrent = index + 1 === this.navItems.length;
+						return html`<li
+							class=${clsx("list__item", { "list__item--current": isCurrent })}
+						>
+							<a
+								href=${navItem.url}
+								aria-current=${isCurrent ? "page" : nothing}
+							>
+								${navItem.name}
+							</a>
+							${isCurrent
+								? nothing
+								: html`<span class="list__divider" aria-hidden="true">/</span>`}
+						</li>`;
+					})}
 				</ol>
 			</nav>
 		`;
