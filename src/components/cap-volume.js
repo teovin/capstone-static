@@ -58,7 +58,7 @@ export default class CapVolume extends LitElement {
 				text-decoration: underline;
 			}
 
-			.volume__main {
+			.volume {
 				grid-column: 1 / -1;
 				padding-inline: var(--spacing-500);
 				padding-block-start: var(--spacing-400);
@@ -108,7 +108,7 @@ export default class CapVolume extends LitElement {
 		window.document.title = `Volume: ${this.reporterData.short_name} volume ${this.volume} | Caselaw Access Project`;
 		return html`
 			<cap-caselaw-layout>
-				<div class="volume__main">
+				<div class="volume">
 					<cap-breadcrumb
 						.navItems=${getBreadcrumbLinks(this.reporterData, this.volume)}
 					></cap-breadcrumb>
