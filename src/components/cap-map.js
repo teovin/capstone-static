@@ -6,6 +6,8 @@ import {
 	mapData,
 	nationalCaselawStats,
 } from "../data/map.js";
+import { fetchMapData } from "../lib/data.js";
+import { slugify } from "../lib/slugify.js";
 
 export class CapMap extends LitElement {
 	static properties = {
@@ -21,16 +23,7 @@ export class CapMap extends LitElement {
 
 	connectedCallback() {
 		super.connectedCallback();
-		this.fetchCaselawMapData();
-	}
-
-	// Fetching this for now, in case we move the file to S3
-	async fetchCaselawMapData() {
-		const response = await fetch(
-			"http://127.0.0.1:5501/data/caselawMapDictionary.json",
-		);
-		const jsonResponse = await response.json();
-		this.caselawData = jsonResponse;
+		fetchMapData((data) => (this.caselawData = data));
 	}
 
 	static styles = [
@@ -149,6 +142,14 @@ export class CapMap extends LitElement {
 		}
 	}
 
+	getAbbreviationAndSlugifiedNames() {
+		const mapping = {};
+		for (const [abbr, data] of Object.entries(this.caselawData)) {
+			mapping[abbr] = slugify(data.name_long);
+		}
+		return mapping;
+	}
+
 	render() {
 		return html`
 			<div class="mapRegion">
@@ -216,6 +217,7 @@ export class CapMap extends LitElement {
 						height="432"
 						.data=${mapData}
 						.abbreviations=${mapAbbreviations}
+						.abbreviationsAndSlugifiedNames=${this.getAbbreviationAndSlugifiedNames()}
 						@map-update=${this._onMapUpdate}
 					></accessible-map>
 				</div>

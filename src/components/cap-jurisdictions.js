@@ -1,6 +1,7 @@
 import { LitElement, html, css } from "../lib/lit.js";
 import { fetchJurisdictionsData } from "../lib/data.js";
 import { baseStyles } from "../lib/wc-base.js";
+import { slugify } from "../lib/slugify.js";
 import "../components/cap-page-header.js";
 import "../components/cap-caselaw-layout.js";
 import "../components/cap-anchor-list.js";
@@ -107,6 +108,11 @@ export default class CapJurisdictions extends LitElement {
 		window.addEventListener("hashchange", this.handleHashChange.bind(this));
 	}
 
+	updated() {
+		// if a person navigates directly to a URL with a hash, handle it on load
+		this.handleHashChange();
+	}
+
 	disconnectedCallback() {
 		super.disconnectedCallback();
 		window.removeEventListener("hashchange", this.handleHashChange.bind(this));
@@ -121,17 +127,12 @@ export default class CapJurisdictions extends LitElement {
 	*/
 	handleHashChange() {
 		const hash = window.location.hash.substring(1); // remove the '#'
-		const element = this.shadowRoot.getElementById(hash);
-		if (element) {
-			element.scrollIntoView();
+		if (hash) {
+			const element = this.shadowRoot.getElementById(hash);
+			if (element) {
+				element.scrollIntoView();
+			}
 		}
-	}
-
-	slugify(str) {
-		return str
-			.toLowerCase()
-			.replace(/ /g, "-")
-			.replace(/[^\w-]+/g, "");
 	}
 
 	getJurisdictionNames() {
@@ -142,7 +143,7 @@ export default class CapJurisdictions extends LitElement {
 		return this.getJurisdictionNames().map((jurisdiction) => {
 			return {
 				title: jurisdiction,
-				url: `#${this.slugify(jurisdiction)}`,
+				url: `#${slugify(jurisdiction)}`,
 			};
 		});
 	}
@@ -169,7 +170,7 @@ export default class CapJurisdictions extends LitElement {
 							(jurisdiction) =>
 								html`<article
 									class="jurisdiction"
-									id="${this.slugify(jurisdiction)}"
+									id="${slugify(jurisdiction)}"
 								>
 									<h2 class="jurisdiction__heading">${jurisdiction}</h2>
 									<ul class="jurisdiction__reporterList">
