@@ -130,7 +130,9 @@ export default class CapJurisdictions extends LitElement {
 		if (hash) {
 			const element = this.shadowRoot.getElementById(hash);
 			if (element) {
+				element.tabIndex = -1;
 				element.scrollIntoView();
+				element.focus();
 			}
 		}
 	}
