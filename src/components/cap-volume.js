@@ -92,18 +92,21 @@ export default class CapVolume extends LitElement {
 	connectedCallback() {
 		super.connectedCallback();
 		fetchOr404(
-			() => fetchCasesList(
-				this.reporter,
-				this.volume,
-				(data) => (this.casesData = data),
-			),
-			() => fetchReporterData(this.reporter, (data) => (this.reporterData = data)),
-			() => fetchVolumeData(
-				this.reporter,
-				this.volume,
-				(data) => (this.volumeData = data),
-			)
-		)
+			() =>
+				fetchCasesList(
+					this.reporter,
+					this.volume,
+					(data) => (this.casesData = data),
+				),
+			() =>
+				fetchReporterData(this.reporter, (data) => (this.reporterData = data)),
+			() =>
+				fetchVolumeData(
+					this.reporter,
+					this.volume,
+					(data) => (this.volumeData = data),
+				),
+		);
 	}
 
 	render() {

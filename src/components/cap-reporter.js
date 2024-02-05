@@ -92,9 +92,11 @@ export default class CapReporter extends LitElement {
 	connectedCallback() {
 		super.connectedCallback();
 		fetchOr404(
-			() => fetchVolumesData(this.reporter, (data) => (this.volumesData = data)),
-			() => fetchReporterData(this.reporter, (data) => (this.reporterData = data))
-		)
+			() =>
+				fetchVolumesData(this.reporter, (data) => (this.volumesData = data)),
+			() =>
+				fetchReporterData(this.reporter, (data) => (this.reporterData = data)),
+		);
 	}
 
 	render() {

@@ -24,7 +24,7 @@ export const fetchVolumesData = async (reporter, callback) => {
 
 export const fetchVolumeData = async (reporter, volume, callback) => {
 	const url = `${window.BUCKET_ROOT}/${reporter}/${volume}/VolumeMetadata.json`;
-	callback(await fetchJson(url))
+	callback(await fetchJson(url));
 };
 
 export const fetchCasesList = async (reporter, volume, callback) => {

@@ -355,19 +355,21 @@ export default class CapCase extends LitElement {
 	connectedCallback() {
 		super.connectedCallback();
 		fetchOr404(
-			() => fetchCaselawBody(
-				this.reporter,
-				this.volume,
-				this.case,
-				(data) => (this.caseBody = data),
-			),
-			() => fetchCaseMetadata(
-				this.reporter,
-				this.volume,
-				this.case,
-				(data) => (this.caseMetadata = data),
-			)
-		)
+			() =>
+				fetchCaselawBody(
+					this.reporter,
+					this.volume,
+					this.case,
+					(data) => (this.caseBody = data),
+				),
+			() =>
+				fetchCaseMetadata(
+					this.reporter,
+					this.volume,
+					this.case,
+					(data) => (this.caseMetadata = data),
+				),
+		);
 	}
 
 	getYearFromDate(str) {
