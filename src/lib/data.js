@@ -59,6 +59,9 @@ export const fetchCaselawBody = async (
 ) => {
 	const url = `${window.BUCKET_ROOT}/${reporter}/${volume}/html/${caseName}.html`;
 	const response = await fetch(url);
+	if (!response.ok) {
+		throw new Error("Fetch failed.");
+	}
 	callback(await response.text());
 };
 
@@ -90,6 +93,9 @@ export const fetchMapData = async (callback) => {
 
 const fetchJson = async (url) => {
 	const response = await fetch(url);
+	if (!response.ok) {
+		throw new Error("Fetch failed.");
+	}
 	return await response.json();
 };
 
