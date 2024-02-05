@@ -4,6 +4,7 @@ import {
 	fetchReporterData,
 	getBreadcrumbLinks,
 } from "../lib/data.js";
+import { fetchOr404 } from "../lib/fetchOr404.js";
 import { baseStyles } from "../lib/wc-base.js";
 import "./cap-breadcrumb.js";
 
@@ -90,8 +91,10 @@ export default class CapReporter extends LitElement {
 	];
 	connectedCallback() {
 		super.connectedCallback();
-		fetchVolumesData(this.reporter, (data) => (this.volumesData = data));
-		fetchReporterData(this.reporter, (data) => (this.reporterData = data));
+		fetchOr404(
+			() => fetchVolumesData(this.reporter, (data) => (this.volumesData = data)),
+			() => fetchReporterData(this.reporter, (data) => (this.reporterData = data))
+		)
 	}
 
 	render() {

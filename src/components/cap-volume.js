@@ -5,6 +5,7 @@ import {
 	fetchVolumeData,
 	getBreadcrumbLinks,
 } from "../lib/data.js";
+import { fetchOr404 } from "../lib/fetchOr404.js";
 import { baseStyles } from "../lib/wc-base.js";
 import "./cap-breadcrumb.js";
 
@@ -90,17 +91,19 @@ export default class CapVolume extends LitElement {
 
 	connectedCallback() {
 		super.connectedCallback();
-		fetchCasesList(
-			this.reporter,
-			this.volume,
-			(data) => (this.casesData = data),
-		);
-		fetchReporterData(this.reporter, (data) => (this.reporterData = data));
-		fetchVolumeData(
-			this.reporter,
-			this.volume,
-			(data) => (this.volumeData = data),
-		);
+		fetchOr404(
+			() => fetchCasesList(
+				this.reporter,
+				this.volume,
+				(data) => (this.casesData = data),
+			),
+			() => fetchReporterData(this.reporter, (data) => (this.reporterData = data)),
+			() => fetchVolumeData(
+				this.reporter,
+				this.volume,
+				(data) => (this.volumeData = data),
+			)
+		)
 	}
 
 	render() {
