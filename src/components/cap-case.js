@@ -58,7 +58,7 @@ export default class CapCase extends LitElement {
 
 				.case-header::after {
 					content: "*";
-					color: var(--color-gray-000);
+					color: var(--color-gray-300);
 				}
 			}
 
@@ -145,7 +145,7 @@ export default class CapCase extends LitElement {
 				font-family: var(--font-serif);
 				margin-left: 0;
 				padding: 0.5rem 1rem 0.5rem 1rem;
-				border-left: 0.5rem solid var(--color-gray-000);
+				border-left: 0.5rem solid var(--color-gray-300);
 				color: var(--color-blue-500);
 				font-size: 0.875rem;
 				line-height: 1.5;
@@ -189,7 +189,7 @@ export default class CapCase extends LitElement {
 				padding-left: 0;
 				font-family: var(--font-sans-titling);
 				font-weight: bold;
-				color: var(--color-gray-000);
+				color: var(--color-gray-300);
 				word-break: break-all;
 				text-align: left;
 				font-size: 1rem;
@@ -203,7 +203,7 @@ export default class CapCase extends LitElement {
 				padding-left: 0;
 				font-family: var(--font-sans-titling);
 				font-weight: bold;
-				color: var(--color-gray-000);
+				color: var(--color-gray-300);
 				word-break: break-all;
 				text-align: left;
 				font-size: 1rem;
@@ -322,7 +322,7 @@ export default class CapCase extends LitElement {
 			}
 
 			.page-label {
-				color: var(--color-gray-000);
+				color: var(--color-gray-300);
 				font-size: 0.8em;
 				padding: 0.4em;
 				font-style: italic;
