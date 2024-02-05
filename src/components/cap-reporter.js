@@ -1,6 +1,11 @@
 import { LitElement, html, css } from "../lib/lit.js";
-import { fetchVolumesData, fetchReporterData } from "../lib/data.js";
+import {
+	fetchVolumesData,
+	fetchReporterData,
+	getBreadcrumbLinks,
+} from "../lib/data.js";
 import { baseStyles } from "../lib/wc-base.js";
+import "./cap-breadcrumb.js";
 
 export default class CapReporter extends LitElement {
 	static properties = {
@@ -51,15 +56,15 @@ export default class CapReporter extends LitElement {
 				text-decoration: underline;
 			}
 
-			.reporters__main {
+			.reporter {
 				grid-column: 1 / -1;
 				padding-inline: var(--spacing-500);
-				padding-block-start: var(--spacing-300);
+				padding-block-start: var(--spacing-400);
 				padding-block-end: var(--spacing-550);
+			}
 
-				@media (min-width: 60rem) {
-					grid-column: 1 / -1;
-				}
+			.reporter__headingGroup {
+				margin-block-start: var(--spacing-100);
 			}
 
 			.reporter__heading {
@@ -70,7 +75,6 @@ export default class CapReporter extends LitElement {
 
 			.reporter__subHeading {
 				font-size: var(--font-size-175);
-				margin-block-start: var(--spacing-0);
 				font-weight: 500;
 			}
 
@@ -79,7 +83,7 @@ export default class CapReporter extends LitElement {
 				display: block;
 			}
 
-			.list__title {
+			.reporter__volumeTitle {
 				font-weight: 600;
 			}
 		`,
@@ -94,8 +98,11 @@ export default class CapReporter extends LitElement {
 		window.document.title = `Reporter: ${this.reporterData.short_name} | Caselaw Access Project`;
 		return html`
 			<cap-caselaw-layout>
-				<div class="reporters__main">
-					<hgroup>
+				<div class="reporter">
+					<cap-breadcrumb
+						.navItems=${getBreadcrumbLinks(this.reporterData)}
+					></cap-breadcrumb>
+					<hgroup class="reporter__headingGroup">
 						<h1 class="reporter__heading">${this.reporterData.short_name}</h1>
 						<p class="reporter__subHeading">
 							${this.reporterData.full_name}
@@ -103,7 +110,7 @@ export default class CapReporter extends LitElement {
 						</p>
 					</hgroup>
 					<ul class="reporter__volumeList">
-						<p class="list__title">Volume number:</p>
+						<p class="reporter__volumeTitle">Volume number:</p>
 						${this.volumesData
 							.sort((a, b) => a.volume_number - b.volume_number)
 							.map(
