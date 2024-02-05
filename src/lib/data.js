@@ -30,7 +30,26 @@ export const fetchVolumeData = async (reporter, volume, callback) => {
 
 export const fetchCasesList = async (reporter, volume, callback) => {
 	const url = `${window.BUCKET_ROOT}/${reporter}/${volume}/CasesMetadata.json`;
-	callback(await fetchJson(url));
+	const rawJson = await fetchJson(url);
+
+	// This sets the ordinal property on each case to the order in which it appears on the page.
+	// Usually 1 because there's only one case starting on a page.
+	const combined = new Map();
+	rawJson.forEach((element) => {
+		if (combined.has(element.first_page)) {
+			combined.get(element.first_page).push(element);
+		} else {
+			combined.set(element.first_page, [element]);
+		}
+	});
+	for (const key of combined.keys()) {
+		let index = 0;
+		for (const element of combined.get(key)) {
+			index += 1;
+			element.ordinal = index;
+		}
+	}
+	callback(rawJson);
 };
 
 export const fetchCaselawBody = async (
@@ -39,9 +58,7 @@ export const fetchCaselawBody = async (
 	caseName,
 	callback,
 ) => {
-	// TODO this is a hack to get around the fact that we don't have the case ordinal yet.
-	// See: ENG-522, ENG-523, ENG-533, and ENG-558
-	const url = `${window.BUCKET_ROOT}/${reporter}/${volume}/html/${caseName}-01.html`;
+	const url = `${window.BUCKET_ROOT}/${reporter}/${volume}/html/${caseName}.html`;
 	const response = await fetch(url);
 	callback(await response.text());
 };
@@ -52,10 +69,8 @@ export const fetchCaseMetadata = async (
 	caseName,
 	callback,
 ) => {
-	// TODO this is a hack to get around the fact that we don't have the case ordinal yet.
-	// See: ENG-522, ENG-523, ENG-533, and ENG-558
-	const url = `${window.BUCKET_ROOT}/${reporter}/${volume}/cases/${caseName}-01.json`;
-	callback(await fetchJson(url));
+	const url = `${window.BUCKET_ROOT}/${reporter}/${volume}/cases/${caseName}.json`;
+	callback(await fetchJson(url)); //here return {} if it didn't fetch
 };
 
 export const fetchMapData = async (callback) => {
