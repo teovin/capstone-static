@@ -6,6 +6,8 @@ import {
 	fetchCasesList,
 } from "../lib/data.js";
 
+import { fetchOr404 } from "../lib/fetchOr404.js";
+
 export default class CapCase extends LitElement {
 	static properties = {
 		caseBody: { attribute: false },
@@ -352,18 +354,21 @@ export default class CapCase extends LitElement {
 
 	connectedCallback() {
 		super.connectedCallback();
-		fetchCaselawBody(
-			this.reporter,
-			this.volume,
-			this.case,
-			(data) => (this.caseBody = data),
-		);
-
-		fetchCaseMetadata(
-			this.reporter,
-			this.volume,
-			this.case,
-			(data) => (this.caseMetadata = data),
+		fetchOr404(
+			() =>
+				fetchCaselawBody(
+					this.reporter,
+					this.volume,
+					this.case,
+					(data) => (this.caseBody = data),
+				),
+			() =>
+				fetchCaseMetadata(
+					this.reporter,
+					this.volume,
+					this.case,
+					(data) => (this.caseMetadata = data),
+				),
 		);
 	}
 
