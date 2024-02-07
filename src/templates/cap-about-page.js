@@ -1,4 +1,5 @@
-import { LitElement, html } from "../lib/lit.js";
+import { LitElement, html, css } from "../lib/lit.js";
+import { baseStyles } from "../lib/wc-base.js";
 import "../components/cap-nav.js";
 import "../components/cap-page-header.js";
 import "../components/cap-footer.js";
@@ -8,19 +9,109 @@ import "../components/cap-contributor-list.js";
 import { anchorLinks } from "../data/aboutSidebarLinks.js";
 
 export class CapAboutPage extends LitElement {
-	// Turn Shadow DOM off
-	// Generally discouraged: https://lit.dev/docs/components/shadow-dom/#implementing-createrenderroot
-	createRenderRoot() {
-		return this;
+	static properties = {};
+
+	constructor() {
+		super();
+	}
+
+	static styles = [
+		baseStyles,
+		css`
+
+		.interiorPage__main {
+			display: grid;
+			grid-template-columns: repeat(4, 1fr);
+
+			@media (min-width: 65rem) {
+				max-width: 80%;
+				margin-inline: auto;
+				box-shadow: 0 0 27px 0 rgba(222, 222, 230, 0.46);
+			}
+		}
+
+		.interiorPage__header {
+			background-color: var(--color-gray-500);
+			grid-column: 1 / -1;
+		}
+
+		.intPage__description {
+			color: var(--color-white);
+			font-family: var(--font-serif);
+		}
+
+		interiorPage__aside {
+			@media (max-width: 60rem) {
+				display: none;
+			}
+		}
+
+		interiorPage__article {
+			grid-column: 1 / -1;
+			background: var(--color-beige);
+			padding-inline: var(--spacing-500);
+			padding-block-start: var(--spacing-300);
+			padding-block-end: var(--spacing-550);
+			background-color: var(--color-beige);
+
+			@media (min-width: 60rem) {
+				grid-column: 2 / -1;
+			}
+		}
+
+		interiorPage__article * + * {
+			margin-block-start: var(--spacing-100);
+
+			@media (min-width: 35rem) {
+				margin-block-start: var(--spacing-200);
+			}
+		}
+
+		interiorPage__article h2 + * {
+			margin-block-start: var(--spacing-100);
+		}
+		`
+	]
+
+	connectedCallback() {
+		super.connectedCallback();
+		window.addEventListener("hashchange", this.handleHashChange.bind(this));
+	}
+
+	updated() {
+		// if a person navigates directly to a URL with a hash, handle it on load
+		this.handleHashChange();
+	}
+
+	disconnectedCallback() {
+		super.disconnectedCallback();
+		window.removeEventListener("hashchange", this.handleHashChange.bind(this));
+	}
+
+	/*
+	 In order to preserve encapsulation in the shadow DOM, we need to recreate
+	 the ability to navigate to the anchor tags for each link.
+	 Potentially we could have rendered to the window's DOM, but that will be
+	 potentially problematic when we have to render case HTML, so I started
+	 using this pattern here.
+	*/
+	handleHashChange() {
+		const hash = window.location.hash.substring(1); // remove the '#'
+		if (hash) {
+			const element = this.shadowRoot.getElementById(hash);
+			if (element) {
+				element.scrollIntoView();
+			}
+		}
 	}
 
 	render() {
 		return html`
 			<cap-nav></cap-nav>
-			<main id="main" class="l-interiorPage">
-				<header class="u-bg-gray-500 u-col-span-full">
+			<main id="main" class="interiorPage__main">
+				<header class="interiorPage__header">
 					<cap-page-header heading="About">
-						<p class="u-text-white u-text-serif">
+						<p class="intPage__description">
 							The Caselaw Access Project (“CAP”) expands public access to U.S.
 							law. Our goal is to make all published U.S. court decisions freely
 							available to the public online, in a consistent format, digitized
@@ -28,10 +119,10 @@ export class CapAboutPage extends LitElement {
 						</p>
 					</cap-page-header>
 				</header>
-				<aside class="u-sm-hidden">
+				<aside class="interiorPage__aside">
 					<cap-anchor-list .data=${anchorLinks}></cap-anchor-list>
 				</aside>
-				<article class="c-article u-bg-beige">
+				<article class="interiorPage__article">
 					<h2 class="c-decoratedHeader" id="what-data-do-we-have">
 						What data do we have?
 					</h2>
