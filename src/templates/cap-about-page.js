@@ -18,127 +18,127 @@ export class CapAboutPage extends LitElement {
 	static styles = [
 		baseStyles,
 		css`
-		p,
-		ul {
-			font-family: var(--font-sans-text);
+			p,
+			ul {
+				font-family: var(--font-sans-text);
 
-			@media (min-width: 35rem) {
-				font-size: var(--font-size-175);
+				@media (min-width: 35rem) {
+					font-size: var(--font-size-175);
+				}
 			}
-		}
 
-		ul {
-			padding-inline-start: 1.8rem;
-			list-style-position: outside;
-		}
-
-		li {
-			list-style-type: circle;
-		}
-
-		h2 {
-			font-size: var(--font-size-200);
-			font-weight: 600;
-
-			@media (min-width: 35rem) {
-				font-size: var(--font-size-250);
+			ul {
+				padding-inline-start: 1.8rem;
+				list-style-position: outside;
 			}
-		}
 
-		h3 {
-			font-size: var(--font-size-175);
+			li {
+				list-style-type: circle;
+			}
 
-			@media (min-width: 35rem) {
+			h2 {
 				font-size: var(--font-size-200);
+				font-weight: 600;
+
+				@media (min-width: 35rem) {
+					font-size: var(--font-size-250);
+				}
 			}
-		}
 
-		h4 {
-			font-size: var(--font-size-100);
-
-			@media (min-width: 35rem) {
+			h3 {
 				font-size: var(--font-size-175);
+
+				@media (min-width: 35rem) {
+					font-size: var(--font-size-200);
+				}
 			}
-		}
 
-		a:link,
-		a:visited,
-		a:active {
-			text-decoration: none;
-			color: var(--color-blue-400);
-		}
+			h4 {
+				font-size: var(--font-size-100);
 
-		a:hover {
-			color: var(--color-blue-500);
-			text-decoration: underline;
-		}
-
-		.interiorPage__main {
-			display: grid;
-			grid-template-columns: repeat(4, 1fr);
-
-			@media (min-width: 65rem) {
-				max-width: 80%;
-				margin-inline: auto;
-				box-shadow: 0 0 27px 0 rgba(222, 222, 230, 0.46);
+				@media (min-width: 35rem) {
+					font-size: var(--font-size-175);
+				}
 			}
-		}
 
-		.interiorPage__header {
-			background-color: var(--color-gray-500);
-			grid-column: 1 / -1;
-		}
-
-		.intPage__description {
-			color: var(--color-white);
-			font-family: var(--font-serif);
-		}
-
-		interiorPage__aside {
-			@media (max-width: 60rem) {
-				display: none;
+			a:link,
+			a:visited,
+			a:active {
+				text-decoration: none;
+				color: var(--color-blue-400);
 			}
-		}
 
-		.interiorPage__article {
-			grid-column: 1 / -1;
-			background-color: var(--color-beige);
-			padding-inline: var(--spacing-500);
-			padding-block-start: var(--spacing-300);
-			padding-block-end: var(--spacing-550);
-
-			@media (min-width: 60rem) {
-				grid-column: 2 / -1;
+			a:hover {
+				color: var(--color-blue-500);
+				text-decoration: underline;
 			}
-		}
 
-		.interiorPage__decorator {
-			font-weight: 400;
-			color: var(--color-blue-500);
-			position: relative;
-		}
+			.interiorPage__main {
+				display: grid;
+				grid-template-columns: repeat(4, 1fr);
 
-		.interiorPage__decorator::before {
-			content: "§";
-			color: var(--color-yellow);
-			position: absolute;
-			font-size: 1.5rem;
-			line-height: 1.2;
-			transform: translateX(calc(-100% - 0.5rem)) translateY(5%);
-		}
+				@media (min-width: 65rem) {
+					max-width: 80%;
+					margin-inline: auto;
+					box-shadow: 0 0 27px 0 rgba(222, 222, 230, 0.46);
+				}
+			}
 
-		@media screen and (min-width: 35rem) {
+			.interiorPage__header {
+				background-color: var(--color-gray-500);
+				grid-column: 1 / -1;
+			}
+
+			.intPage__description {
+				color: var(--color-white);
+				font-family: var(--font-serif);
+			}
+
+			interiorPage__aside {
+				@media (max-width: 60rem) {
+					display: none;
+				}
+			}
+
+			.interiorPage__article {
+				grid-column: 1 / -1;
+				background-color: var(--color-beige);
+				padding-inline: var(--spacing-500);
+				padding-block-start: var(--spacing-300);
+				padding-block-end: var(--spacing-550);
+
+				@media (min-width: 60rem) {
+					grid-column: 2 / -1;
+				}
+			}
+
+			.interiorPage__decorator {
+				font-weight: 400;
+				color: var(--color-blue-500);
+				position: relative;
+			}
+
 			.interiorPage__decorator::before {
-				font-size: 2rem;
-				line-height: 1.5;
+				content: "§";
+				color: var(--color-yellow);
+				position: absolute;
+				font-size: 1.5rem;
+				line-height: 1.2;
+				transform: translateX(calc(-100% - 0.5rem)) translateY(5%);
 			}
-		}
 
-		.interiorPage__purple {
-			color: var(--color-purple-200);
-		}
-		`
-	]
+			@media screen and (min-width: 35rem) {
+				.interiorPage__decorator::before {
+					font-size: 2rem;
+					line-height: 1.5;
+				}
+			}
+
+			.interiorPage__purple {
+				color: var(--color-purple-200);
+			}
+		`,
+	];
 
 	connectedCallback() {
 		super.connectedCallback();
@@ -216,7 +216,9 @@ export class CapAboutPage extends LitElement {
 						We also offer PDFs with selectable OCR text for each case published
 						up to 2018.
 					</p>
-					<h2 class="interiorPage__decorator" id="data-sources">Data sources</h2>
+					<h2 class="interiorPage__decorator" id="data-sources">
+						Data sources
+					</h2>
 					<h3>Harvard Law School Collection</h3>
 					<p>
 						We created CAP's initial collection by digitizing roughly 40 million
@@ -305,7 +307,9 @@ export class CapAboutPage extends LitElement {
 						<li>Copyrighted material such as headnotes.</li>
 					</ul>
 
-					<h2 class="interiorPage__decorator" id="data-quality">Data quality</h2>
+					<h2 class="interiorPage__decorator" id="data-quality">
+						Data quality
+					</h2>
 					<p>
 						Harvard Law School Collection data is generated by OCR from page
 						scans, using ABBYY FineReader. Case metadata, such as the party
@@ -313,7 +317,9 @@ export class CapAboutPage extends LitElement {
 						Case text and general head matter has been generated by machine OCR
 						and has not received human review.
 					</p>
-					<h2 class="interiorPage__decorator" id="data-citation">Data citation</h2>
+					<h2 class="interiorPage__decorator" id="data-citation">
+						Data citation
+					</h2>
 					<p>
 						Data made available through the Caselaw Access Project API and bulk
 						download service is citable. View our suggested citation in these
@@ -330,7 +336,8 @@ export class CapAboutPage extends LitElement {
 						Access Project.&quot; 2018, [url].
 					</p>
 					<p>
-						<strong class="interiorPage__purple">Chicago / Turabian</strong><br />
+						<strong class="interiorPage__purple">Chicago / Turabian</strong
+						><br />
 						Caselaw Access Project. &quot;Caselaw Access Project.&quot; Last
 						modified [date], [url].
 					</p>
@@ -390,7 +397,9 @@ export class CapAboutPage extends LitElement {
 						</li>
 					</ul>
 
-					<h2 class="interiorPage__decorator" id="contributors">Contributors</h2>
+					<h2 class="interiorPage__decorator" id="contributors">
+						Contributors
+					</h2>
 					<cap-contributor-list></cap-contributor-list>
 
 					<h2 class="interiorPage__decorator" id="getting-legal-help">
