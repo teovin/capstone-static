@@ -44,9 +44,9 @@
 	font-style: italic;
 	font-stretch: normal;
 	src:
-		url("WOFF2/VAR/SourceSans3VF-Italic.ttf.woff2") format("woff2"),
-		url("WOFF/VAR/SourceSans3VF-Italic.ttf.woff") format("woff"),
-		url("VAR/SourceSans3VF-Italic.ttf") format("truetype");
+		url("../fonts/source-sans-3/SourceSans3VF-Italic.ttf.woff2") format("woff2"),
+		url("../fonts/source-sans-3/SourceSans3VF-Italic.ttf.woff") format("woff"),
+		url("../fonts/source-sans-3/SourceSans3VF-Italic.ttf") format("truetype");
 }
 
 @font-face {
