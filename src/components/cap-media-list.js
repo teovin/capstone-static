@@ -54,6 +54,15 @@ export class CapMediaList extends LitElement {
 				}
 			}
 
+			.mediaList__link--light {
+				text-decoration: none;
+
+				&:hover {
+					--color-link-hover: var(--color-blue-500);
+					text-decoration: underline;
+				}
+			}
+
 			.mediaList__date {
 				color: var(--color-date);
 			}
@@ -91,7 +100,14 @@ export class CapMediaList extends LitElement {
 								"mediaList__item--bulleted": this.decoration === "bulleted",
 							})}
 						>
-							<a class="mediaList__link" href="${link.url}">${link.title}</a>
+							<a
+								class=${clsx(
+									"mediaList__link",
+									`mediaList__link--${this.theme}`,
+								)}
+								href="${link.url}"
+								>${link.title}</a
+							>
 							<span class="mediaList__publisher">${link.publisher}</span>
 							<span class="mediaList__date">${link.date}</span>
 						</li>
