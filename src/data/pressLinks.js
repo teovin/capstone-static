@@ -31,4 +31,23 @@ export const pressLinks = [
 		date: "October 31, 2018",
 		url: "https://www.techdirt.com/2018/10/31/harvard-opens-up-massive-caselaw-access-project/",
 	},
+	{
+		title: "Caselaw Access Project launches API and bulk data service",
+		publisher: "Harvard Law Today",
+		date: "October 31, 2018",
+		url: "https://today.law.harvard.edu/caselaw-access-project-launches-api-and-bulk-data-service/",
+	},
+	{
+		title:
+			"Caselaw Access Project gives free access to 360 years of American court cases",
+		publisher: "ABA Journal",
+		date: "October 30, 2018",
+		url: "http://www.abajournal.com/news/article/caselaw_access_project_gives_free_access_to_360_years_of_american_court_cas",
+	},
+	{
+		title: "Harvard Law Library Readies Trove of Decisions for Digital Age",
+		publisher: "The New York Times ",
+		date: "October 28, 2015",
+		url: "http://www.nytimes.com/2015/10/29/us/harvard-law-library-sacrifices-a-trove-for-the-sake-of-a-free-database.html",
+	},
 ];
