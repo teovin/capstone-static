@@ -1,4 +1,5 @@
-import { LitElement, html, css } from "../lib/lit.js";
+import { LitElement, html, css, nothing } from "../lib/lit.js";
+import { isEmpty } from "../lib/isEmpty.js";
 import { fetchJurisdictionsData } from "../lib/data.js";
 import { baseStyles } from "../lib/wc-base.js";
 import { slugify } from "../lib/slugify.js";
@@ -151,48 +152,52 @@ export default class CapJurisdictions extends LitElement {
 	}
 
 	render() {
-		return html`
-			<cap-caselaw-layout>
-				<header class="jurisdictions__header">
-					<cap-page-header heading="Read Caselaw" theme="light" icon="none">
-						<p class="jurisdictions__description">
-							Browse all volumes of the Caselaw Access Project below.
-						</p>
-					</cap-page-header>
-				</header>
-				<aside class="u-w-fit u-sm-hidden">
-					<cap-anchor-list
-						.data=${this.getJurisdictionNameLinks()}
-					></cap-anchor-list>
-				</aside>
-				<div class="jurisdictions__main">
-					${Object.keys(this.jurisdictionsData)
-						.sort()
-						.map(
-							(jurisdiction) =>
-								html`<article
-									class="jurisdiction"
-									id="${slugify(jurisdiction)}"
-								>
-									<h2 class="jurisdiction__heading">${jurisdiction}</h2>
-									<ul class="jurisdiction__reporterList">
-										${this.jurisdictionsData[jurisdiction].map(
-											(reporter) =>
-												html`<li>
-													<a
-														class="jurisdiction__link"
-														href="/caselaw/?reporter=${reporter.slug}"
-														>${reporter.short_name}</a
-													>: ${reporter.full_name}
-													(${reporter.start_year}-${reporter.end_year})
-												</li>`,
-										)}
-									</ul>
-								</article>`,
-						)}
-				</div>
-			</cap-caselaw-layout>
-		`;
+		if (!isEmpty(this.jurisdictionsData)) {
+			return html`
+				<cap-caselaw-layout>
+					<header class="jurisdictions__header">
+						<cap-page-header heading="Read Caselaw" theme="light" icon="none">
+							<p class="jurisdictions__description">
+								Browse all volumes of the Caselaw Access Project below.
+							</p>
+						</cap-page-header>
+					</header>
+					<aside class="u-w-fit u-sm-hidden">
+						<cap-anchor-list
+							.data=${this.getJurisdictionNameLinks()}
+						></cap-anchor-list>
+					</aside>
+					<div class="jurisdictions__main">
+						${Object.keys(this.jurisdictionsData)
+							.sort()
+							.map(
+								(jurisdiction) =>
+									html`<article
+										class="jurisdiction"
+										id="${slugify(jurisdiction)}"
+									>
+										<h2 class="jurisdiction__heading">${jurisdiction}</h2>
+										<ul class="jurisdiction__reporterList">
+											${this.jurisdictionsData[jurisdiction].map(
+												(reporter) =>
+													html`<li>
+														<a
+															class="jurisdiction__link"
+															href="/caselaw/?reporter=${reporter.slug}"
+															>${reporter.short_name}</a
+														>: ${reporter.full_name}
+														(${reporter.start_year}-${reporter.end_year})
+													</li>`,
+											)}
+										</ul>
+									</article>`,
+							)}
+					</div>
+				</cap-caselaw-layout>
+			`;
+		} else {
+			return nothing;
+		}
 	}
 }
 
