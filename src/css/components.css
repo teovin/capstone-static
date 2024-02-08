@@ -47,8 +47,3 @@
 .c-article h2 + * {
 	margin-block-start: var(--spacing-100);
 }
-
-.c-tall {
-	display: block;
-	min-height: 100vh;
-}
