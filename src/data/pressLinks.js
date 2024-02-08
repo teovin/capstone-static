@@ -46,7 +46,7 @@ export const pressLinks = [
 	},
 	{
 		title: "Harvard Law Library Readies Trove of Decisions for Digital Age",
-		publisher: "The New York Times ",
+		publisher: "The New York Times",
 		date: "October 28, 2015",
 		url: "http://www.nytimes.com/2015/10/29/us/harvard-law-library-sacrifices-a-trove-for-the-sake-of-a-free-database.html",
 	},
