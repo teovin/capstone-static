@@ -1,12 +1,12 @@
 import { LitElement, html, css } from "../lib/lit.js";
 import { baseStyles } from "../lib/wc-base.js";
-import { pressLinks } from "../data/pressLinks.js";
 import clsx from "../lib/clsx.js";
 
 export class CapMediaList extends LitElement {
 	static properties = {
 		decoration: { type: String | undefined },
 		theme: { type: String | undefined },
+		data: { type: Array },
 	};
 
 	static styles = [
@@ -89,11 +89,12 @@ export class CapMediaList extends LitElement {
 		super();
 		this.theme = "light";
 		this.decoration = "bulleted";
+		this.data = [];
 	}
 	render() {
 		return html`
 			<ul class=${clsx("mediaList", `mediaList--${this.theme}`)}>
-				${pressLinks.map((link) => {
+				${this.data.map((link) => {
 					return html`
 						<li
 							class=${clsx("mediaList__item", {
