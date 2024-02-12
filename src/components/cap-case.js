@@ -6,6 +6,9 @@ import {
 	fetchCasesList,
 } from "../lib/data.js";
 
+import { isEmpty } from "../lib/isEmpty.js";
+import { fetchOr404 } from "../lib/fetchOr404.js";
+
 export default class CapCase extends LitElement {
 	static properties = {
 		caseBody: { attribute: false },
@@ -352,18 +355,21 @@ export default class CapCase extends LitElement {
 
 	connectedCallback() {
 		super.connectedCallback();
-		fetchCaselawBody(
-			this.reporter,
-			this.volume,
-			this.case,
-			(data) => (this.caseBody = data),
-		);
-
-		fetchCaseMetadata(
-			this.reporter,
-			this.volume,
-			this.case,
-			(data) => (this.caseMetadata = data),
+		fetchOr404(
+			() =>
+				fetchCaselawBody(
+					this.reporter,
+					this.volume,
+					this.case,
+					(data) => (this.caseBody = data),
+				),
+			() =>
+				fetchCaseMetadata(
+					this.reporter,
+					this.volume,
+					this.case,
+					(data) => (this.caseMetadata = data),
+				),
 		);
 	}
 
@@ -512,39 +518,44 @@ export default class CapCase extends LitElement {
 	};
 
 	render() {
-		/*
-		This render method uses requestAnimationFrame to alter the links in
-		the shadow DOM once it's been rendered to change the logical links
-		to cited cases in the archived html to links to the presentation
-		layer version of the case.
-		*/
+		if (!isEmpty(this.caseBody) && !isEmpty(this.caseMetadata)) {
+			window.document.title = `${this.createCaseHeaderHeader(this.caseMetadata)} | Caselaw Access Project`;
 
-		// Skip the first frame which is the shadow DOM render
-		window.requestAnimationFrame(this.doNothing);
-		// Rewrite the links on the second frame
-		window.document.title = `${this.createCaseHeaderHeader(this.caseMetadata)} | Caselaw Access Project`;
-		window.requestAnimationFrame(this.rewriteLinks);
+			/*
+			This render method uses requestAnimationFrame to alter the links in
+			the shadow DOM once it's been rendered to change the logical links
+			to cited cases in the archived html to links to the presentation
+			layer version of the case.
+			*/
 
-		return html`
-			<div class="case-container">
-				<div class="case-header">
-					<h1>${this.createCaseHeaderHeader(this.caseMetadata)}</h1>
-					<div>
-						${this.getDecisionDate(this.caseMetadata.decision_date)}
-						<span class="court-name">${this.caseMetadata.court?.name}</span>
-						${this.getDocketNumber(this.caseMetadata.docket_number)}
+			// Skip the first frame which is the shadow DOM render
+			window.requestAnimationFrame(this.doNothing);
+			// Rewrite the links on the second frame
+			window.requestAnimationFrame(this.rewriteLinks);
+
+			return html`
+				<div class="case-container">
+					<div class="case-header">
+						<h1>${this.createCaseHeaderHeader(this.caseMetadata)}</h1>
+						<div>
+							${this.getDecisionDate(this.caseMetadata.decision_date)}
+							<span class="court-name">${this.caseMetadata.court?.name}</span>
+							${this.getDocketNumber(this.caseMetadata.docket_number)}
+						</div>
+						<div class="citations">
+							${this.createCitationsString(this.caseMetadata.citations)}
+						</div>
 					</div>
-					<div class="citations">
-						${this.createCitationsString(this.caseMetadata.citations)}
+					<div class="metadata">
+						<div class="case-name">${this.caseMetadata.name}</div>
 					</div>
+					<!--section.casebody -->
+					${unsafeHTML(this.caseBody)}
 				</div>
-				<div class="metadata">
-					<div class="case-name">${this.caseMetadata.name}</div>
-				</div>
-				<!--section.casebody -->
-				${unsafeHTML(this.caseBody)}
-			</div>
-		`;
+			`;
+		} else {
+			return nothing;
+		}
 	}
 }
 

@@ -89,4 +89,10 @@ export const baseStyles = css`
 	.u-w-maxContent {
 		max-width: 41rem;
 	}
+
+	.u-sm-hidden {
+		@media (max-width: 60rem) {
+			display: none;
+		}
+	}
 `;

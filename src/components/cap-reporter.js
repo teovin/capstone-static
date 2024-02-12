@@ -1,9 +1,11 @@
-import { LitElement, html, css } from "../lib/lit.js";
+import { LitElement, html, css, nothing } from "../lib/lit.js";
 import {
 	fetchVolumesData,
 	fetchReporterData,
 	getBreadcrumbLinks,
 } from "../lib/data.js";
+import { isEmpty } from "../lib/isEmpty.js";
+import { fetchOr404 } from "../lib/fetchOr404.js";
 import { baseStyles } from "../lib/wc-base.js";
 import "./cap-breadcrumb.js";
 
@@ -90,44 +92,52 @@ export default class CapReporter extends LitElement {
 	];
 	connectedCallback() {
 		super.connectedCallback();
-		fetchVolumesData(this.reporter, (data) => (this.volumesData = data));
-		fetchReporterData(this.reporter, (data) => (this.reporterData = data));
+		fetchOr404(
+			() =>
+				fetchVolumesData(this.reporter, (data) => (this.volumesData = data)),
+			() =>
+				fetchReporterData(this.reporter, (data) => (this.reporterData = data)),
+		);
 	}
 
 	render() {
-		window.document.title = `Reporter: ${this.reporterData.short_name} | Caselaw Access Project`;
-		return html`
-			<cap-caselaw-layout>
-				<div class="reporter">
-					<cap-breadcrumb
-						.navItems=${getBreadcrumbLinks(this.reporterData)}
-					></cap-breadcrumb>
-					<hgroup class="reporter__headingGroup">
-						<h1 class="reporter__heading">${this.reporterData.short_name}</h1>
-						<p class="reporter__subHeading">
-							${this.reporterData.full_name}
-							(${this.reporterData.start_year}-${this.reporterData.end_year}).
-						</p>
-					</hgroup>
-					<ul class="reporter__volumeList">
-						<p class="reporter__volumeTitle">Volume number:</p>
-						${this.volumesData
-							.sort((a, b) => a.volume_number - b.volume_number)
-							.map(
-								(v) =>
-									html`<li>
-										<a
-											href="/caselaw/?reporter=${this
-												.reporter}&volume=${v.volume_number}"
-											>${v.volume_number}</a
-										>
-									</li>`,
-							)}
-					</ul>
-				</div>
-				<cap-caselaw-layout> </cap-caselaw-layout
-			></cap-caselaw-layout>
-		`;
+		if (!isEmpty(this.volumesData) && !isEmpty(this.reporterData)) {
+			window.document.title = `Reporter: ${this.reporterData.short_name} | Caselaw Access Project`;
+			return html`
+				<cap-caselaw-layout>
+					<div class="reporter">
+						<cap-breadcrumb
+							.navItems=${getBreadcrumbLinks(this.reporterData)}
+						></cap-breadcrumb>
+						<hgroup class="reporter__headingGroup">
+							<h1 class="reporter__heading">${this.reporterData.short_name}</h1>
+							<p class="reporter__subHeading">
+								${this.reporterData.full_name}
+								(${this.reporterData.start_year}-${this.reporterData.end_year}).
+							</p>
+						</hgroup>
+						<ul class="reporter__volumeList">
+							<p class="reporter__volumeTitle">Volume number:</p>
+							${this.volumesData
+								.sort((a, b) => a.volume_number - b.volume_number)
+								.map(
+									(v) =>
+										html`<li>
+											<a
+												href="/caselaw/?reporter=${this
+													.reporter}&volume=${v.volume_number}"
+												>${v.volume_number}</a
+											>
+										</li>`,
+								)}
+						</ul>
+					</div>
+					<cap-caselaw-layout> </cap-caselaw-layout
+				></cap-caselaw-layout>
+			`;
+		} else {
+			return nothing;
+		}
 	}
 }
 

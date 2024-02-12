@@ -24,8 +24,7 @@ export const fetchVolumesData = async (reporter, callback) => {
 
 export const fetchVolumeData = async (reporter, volume, callback) => {
 	const url = `${window.BUCKET_ROOT}/${reporter}/${volume}/VolumeMetadata.json`;
-	const response = await fetch(url);
-	callback(await response.json());
+	callback(await fetchJson(url));
 };
 
 export const fetchCasesList = async (reporter, volume, callback) => {
@@ -60,6 +59,9 @@ export const fetchCaselawBody = async (
 ) => {
 	const url = `${window.BUCKET_ROOT}/${reporter}/${volume}/html/${caseName}.html`;
 	const response = await fetch(url);
+	if (!response.ok) {
+		throw new Error("Fetch failed.");
+	}
 	callback(await response.text());
 };
 
@@ -91,6 +93,9 @@ export const fetchMapData = async (callback) => {
 
 const fetchJson = async (url) => {
 	const response = await fetch(url);
+	if (!response.ok) {
+		throw new Error("Fetch failed.");
+	}
 	return await response.json();
 };
 

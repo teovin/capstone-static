@@ -117,7 +117,7 @@ export class CapSectionHighlight extends LitElement {
 					<cap-media-list
 						theme="dark"
 						decoration="none"
-						.data=${pressLinks}
+						.data=${pressLinks.slice(0, 5)}
 					></cap-media-list>
 				</div>
 

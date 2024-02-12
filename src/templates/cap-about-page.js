@@ -5,6 +5,7 @@ import "../components/cap-page-header.js";
 import "../components/cap-footer.js";
 import "../components/cap-anchor-list.js";
 import "../components/cap-media-list.js";
+import { pressLinks } from "../data/pressLinks.js";
 import "../components/cap-contributor-list.js";
 import { anchorLinks } from "../data/aboutSidebarLinks.js";
 
@@ -370,7 +371,7 @@ export class CapAboutPage extends LitElement {
 						</strong>
 					</p>
 					<h2 class="interiorMain__decorator" id="press">Press</h2>
-					<cap-media-list></cap-media-list>
+					<cap-media-list .data=${pressLinks}></cap-media-list>
 
 					<h2 class="interiorMain__decorator" id="friends-and-partners">
 						Friends and Partners

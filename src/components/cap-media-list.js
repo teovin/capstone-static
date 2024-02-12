@@ -1,12 +1,12 @@
 import { LitElement, html, css } from "../lib/lit.js";
 import { baseStyles } from "../lib/wc-base.js";
-import { pressLinks } from "../data/pressLinks.js";
 import clsx from "../lib/clsx.js";
 
 export class CapMediaList extends LitElement {
 	static properties = {
 		decoration: { type: String | undefined },
 		theme: { type: String | undefined },
+		data: { type: Array },
 	};
 
 	static styles = [
@@ -54,6 +54,15 @@ export class CapMediaList extends LitElement {
 				}
 			}
 
+			.mediaList__link--light {
+				text-decoration: none;
+
+				&:hover {
+					--color-link-hover: var(--color-blue-500);
+					text-decoration: underline;
+				}
+			}
+
 			.mediaList__date {
 				color: var(--color-date);
 			}
@@ -80,18 +89,26 @@ export class CapMediaList extends LitElement {
 		super();
 		this.theme = "light";
 		this.decoration = "bulleted";
+		this.data = [];
 	}
 	render() {
 		return html`
 			<ul class=${clsx("mediaList", `mediaList--${this.theme}`)}>
-				${pressLinks.map((link) => {
+				${this.data.map((link) => {
 					return html`
 						<li
 							class=${clsx("mediaList__item", {
 								"mediaList__item--bulleted": this.decoration === "bulleted",
 							})}
 						>
-							<a class="mediaList__link" href="${link.url}">${link.title}</a>
+							<a
+								class=${clsx(
+									"mediaList__link",
+									`mediaList__link--${this.theme}`,
+								)}
+								href="${link.url}"
+								>${link.title}</a
+							>
 							<span class="mediaList__publisher">${link.publisher}</span>
 							<span class="mediaList__date">${link.date}</span>
 						</li>
