@@ -7,6 +7,10 @@ import { pressLinks } from "../data/pressLinks.js";
 export class CapSectionHighlight extends LitElement {
 	static properties = {};
 
+	constructor() {
+		super();
+	}
+
 	static styles = [
 		baseStyles,
 		css`
@@ -92,9 +96,6 @@ export class CapSectionHighlight extends LitElement {
 		`,
 	];
 
-	constructor() {
-		super();
-	}
 	render() {
 		return html`
 			<div class="sectionHighlight">
@@ -106,7 +107,7 @@ export class CapSectionHighlight extends LitElement {
 					></cap-decorated-header>
 
 					<p class="sectionHighlight__text">See the full list:</p>
-					<a class="sectionHighlight__button" href="/press">Press</a>
+					<a class="sectionHighlight__button" href="/about/#press">Press</a>
 				</div>
 
 				<div class="sectionHighlight__main">
@@ -116,7 +117,7 @@ export class CapSectionHighlight extends LitElement {
 					<cap-media-list
 						theme="dark"
 						decoration="none"
-						.data=${pressLinks}
+						.data=${pressLinks.slice(0, 5)}
 					></cap-media-list>
 				</div>
 

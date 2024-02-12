@@ -1,26 +1,201 @@
-import { LitElement, html } from "../lib/lit.js";
+import { LitElement, html, css } from "../lib/lit.js";
+import { baseStyles } from "../lib/wc-base.js";
 import "../components/cap-nav.js";
 import "../components/cap-page-header.js";
 import "../components/cap-footer.js";
 import "../components/cap-anchor-list.js";
 import "../components/cap-media-list.js";
+import { pressLinks } from "../data/pressLinks.js";
 import "../components/cap-contributor-list.js";
 import { anchorLinks } from "../data/aboutSidebarLinks.js";
 
 export class CapAboutPage extends LitElement {
-	// Turn Shadow DOM off
-	// Generally discouraged: https://lit.dev/docs/components/shadow-dom/#implementing-createrenderroot
-	createRenderRoot() {
-		return this;
+	static properties = {};
+
+	constructor() {
+		super();
+	}
+
+	static styles = [
+		baseStyles,
+		css`
+			p,
+			ul {
+				font-family: var(--font-sans-text);
+
+				@media (min-width: 35rem) {
+					font-size: var(--font-size-175);
+				}
+			}
+
+			ul {
+				padding-inline-start: 1.8rem;
+				list-style-position: outside;
+			}
+
+			li {
+				list-style-type: circle;
+			}
+
+			h2 {
+				font-size: var(--font-size-200);
+				font-weight: 600;
+
+				@media (min-width: 35rem) {
+					font-size: var(--font-size-250);
+				}
+			}
+
+			h3 {
+				font-size: var(--font-size-175);
+
+				@media (min-width: 35rem) {
+					font-size: var(--font-size-200);
+				}
+			}
+
+			h4 {
+				font-size: var(--font-size-100);
+
+				@media (min-width: 35rem) {
+					font-size: var(--font-size-175);
+				}
+			}
+
+			a:link,
+			a:visited,
+			a:active {
+				text-decoration: none;
+				color: var(--color-blue-400);
+			}
+
+			a:hover {
+				color: var(--color-blue-500);
+				text-decoration: underline;
+			}
+
+			.interiorMain {
+				display: grid;
+				grid-template-columns: repeat(4, 1fr);
+
+				@media (min-width: 65rem) {
+					max-width: 80%;
+					margin-inline: auto;
+					box-shadow: 0 0 27px 0 rgba(222, 222, 230, 0.46);
+				}
+			}
+
+			.interiorMain__header {
+				background-color: var(--color-gray-500);
+				grid-column: 1 / -1;
+			}
+
+			.interiorMain__description {
+				color: var(--color-white);
+				font-family: var(--font-serif);
+			}
+
+			.interiorMain__aside {
+				@media (max-width: 60rem) {
+					display: none;
+				}
+			}
+
+			.interiorMain__article {
+				grid-column: 1 / -1;
+				background-color: var(--color-beige);
+				padding-inline: var(--spacing-500);
+				padding-block-start: var(--spacing-300);
+				padding-block-end: var(--spacing-550);
+
+				@media (min-width: 60rem) {
+					grid-column: 2 / -1;
+				}
+			}
+
+			.interiorMain__article + .interiorMain__article {
+				padding-block-start: 0;
+			}
+
+			.interiorMain__article * + * {
+				margin-block-start: var(--spacing-100);
+
+				@media (min-width: 35rem) {
+					margin-block-start: var(--spacing-200);
+				}
+			}
+
+			.interiorMain__decorator + * {
+				margin-block-start: var(--spacing-100);
+			}
+
+			.interiorMain__decorator {
+				font-weight: 400;
+				color: var(--color-blue-500);
+				position: relative;
+			}
+
+			.interiorMain__decorator::before {
+				content: "§";
+				color: var(--color-yellow);
+				position: absolute;
+				font-size: 1.5rem;
+				line-height: 1.2;
+				transform: translateX(calc(-100% - 0.5rem)) translateY(5%);
+			}
+
+			@media screen and (min-width: 35rem) {
+				.interiorMain__decorator::before {
+					font-size: 2rem;
+					line-height: 1.5;
+				}
+			}
+
+			.interiorMain__emphasis {
+				color: var(--color-purple-200);
+			}
+		`,
+	];
+
+	connectedCallback() {
+		super.connectedCallback();
+		window.addEventListener("hashchange", this.handleHashChange.bind(this));
+	}
+
+	updated() {
+		// if a person navigates directly to a URL with a hash, handle it on load
+		this.handleHashChange();
+	}
+
+	disconnectedCallback() {
+		super.disconnectedCallback();
+		window.removeEventListener("hashchange", this.handleHashChange.bind(this));
+	}
+
+	/*
+	 In order to preserve encapsulation in the shadow DOM, we need to recreate
+	 the ability to navigate to the anchor tags for each link.
+	 Potentially we could have rendered to the window's DOM, but that will be
+	 potentially problematic when we have to render case HTML, so I started
+	 using this pattern here.
+	*/
+	handleHashChange() {
+		const hash = window.location.hash.substring(1); // remove the '#'
+		if (hash) {
+			const element = this.shadowRoot.getElementById(hash);
+			if (element) {
+				element.scrollIntoView();
+			}
+		}
 	}
 
 	render() {
 		return html`
 			<cap-nav></cap-nav>
-			<main id="main" class="l-interiorPage">
-				<header class="u-bg-gray-500 u-col-span-full">
+			<main id="main" class="interiorMain">
+				<header class="interiorMain__header">
 					<cap-page-header heading="About">
-						<p class="u-text-white u-text-serif">
+						<p class="interiorMain__description">
 							The Caselaw Access Project (“CAP”) expands public access to U.S.
 							law. Our goal is to make all published U.S. court decisions freely
 							available to the public online, in a consistent format, digitized
@@ -28,11 +203,11 @@ export class CapAboutPage extends LitElement {
 						</p>
 					</cap-page-header>
 				</header>
-				<aside class="u-sm-hidden">
+				<aside class="interiorMain__aside">
 					<cap-anchor-list .data=${anchorLinks}></cap-anchor-list>
 				</aside>
-				<article class="c-article u-bg-beige">
-					<h2 class="c-decoratedHeader" id="what-data-do-we-have">
+				<article class="interiorMain__article">
+					<h2 class="interiorMain__decorator" id="what-data-do-we-have">
 						What data do we have?
 					</h2>
 					<p>
@@ -58,7 +233,9 @@ export class CapAboutPage extends LitElement {
 						We also offer PDFs with selectable OCR text for each case published
 						up to 2018.
 					</p>
-					<h2 class="c-decoratedHeader" id="data-sources">Data sources</h2>
+					<h2 class="interiorMain__decorator" id="data-sources">
+						Data sources
+					</h2>
 					<h3>Harvard Law School Collection</h3>
 					<p>
 						We created CAP's initial collection by digitizing roughly 40 million
@@ -147,7 +324,9 @@ export class CapAboutPage extends LitElement {
 						<li>Copyrighted material such as headnotes.</li>
 					</ul>
 
-					<h2 class="c-decoratedHeader" id="data-quality">Data quality</h2>
+					<h2 class="interiorMain__decorator" id="data-quality">
+						Data quality
+					</h2>
 					<p>
 						Harvard Law School Collection data is generated by OCR from page
 						scans, using ABBYY FineReader. Case metadata, such as the party
@@ -155,24 +334,27 @@ export class CapAboutPage extends LitElement {
 						Case text and general head matter has been generated by machine OCR
 						and has not received human review.
 					</p>
-					<h2 class="c-decoratedHeader" id="data-citation">Data citation</h2>
+					<h2 class="interiorMain__decorator" id="data-citation">
+						Data citation
+					</h2>
 					<p>
 						Data made available through the Caselaw Access Project API and bulk
 						download service is citable. View our suggested citation in these
 						standard formats:
 					</p>
 					<p>
-						<strong class="u-text-purple-200">APA</strong><br />
+						<strong class="interiorMain__emphasis">APA</strong><br />
 						<span>Caselaw Access Project.</span> (2018). Retrieved [date], from
 						[url].
 					</p>
 					<p>
-						<strong class="u-text-purple-200">MLA</strong><br />
+						<strong class="interiorMain__emphasis">MLA</strong><br />
 						The President and Fellows of Harvard University. &quot;Caselaw
 						Access Project.&quot; 2018, [url].
 					</p>
 					<p>
-						<strong class="u-text-purple-200">Chicago / Turabian</strong><br />
+						<strong class="interiorMain__emphasis">Chicago / Turabian</strong
+						><br />
 						Caselaw Access Project. &quot;Caselaw Access Project.&quot; Last
 						modified [date], [url].
 					</p>
@@ -180,18 +362,18 @@ export class CapAboutPage extends LitElement {
 						Have you used Caselaw Access Project data in your research?
 						<a href="/about">Tell us about it</a>.
 					</p>
-					<h2 class="c-decoratedHeader" id="usage-and-access">
+					<h2 class="interiorMain__decorator" id="usage-and-access">
 						Usage and Access
 					</h2>
-					<p class="u-text-purple-200">
+					<p class="interiorMain__emphasis">
 						<strong>
 							The CAP data is free for the public to use and access.
 						</strong>
 					</p>
-					<h2 class="c-decoratedHeader" id="press">Press</h2>
-					<cap-media-list></cap-media-list>
+					<h2 class="interiorMain__decorator" id="press">Press</h2>
+					<cap-media-list .data=${pressLinks}></cap-media-list>
 
-					<h2 class="c-decoratedHeader" id="friends-and-partners">
+					<h2 class="interiorMain__decorator" id="friends-and-partners">
 						Friends and Partners
 					</h2>
 					<ul>
@@ -232,10 +414,12 @@ export class CapAboutPage extends LitElement {
 						</li>
 					</ul>
 
-					<h2 class="c-decoratedHeader" id="contributors">Contributors</h2>
+					<h2 class="interiorMain__decorator" id="contributors">
+						Contributors
+					</h2>
 					<cap-contributor-list></cap-contributor-list>
 
-					<h2 class="c-decoratedHeader" id="getting-legal-help">
+					<h2 class="interiorMain__decorator" id="getting-legal-help">
 						Getting Legal Help
 					</h2>
 					<p>
