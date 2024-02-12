@@ -32,6 +32,10 @@ export const anchorLinks = [
 		url: "#press",
 	},
 	{
+		title: "Community Impact",
+		url: "#community-impact",
+	},
+	{
 		title: "Friends and Partners",
 		url: "#friends-and-partners",
 	},
