@@ -373,6 +373,73 @@ export class CapAboutPage extends LitElement {
 					<h2 class="interiorMain__decorator" id="press">Press</h2>
 					<cap-media-list .data=${pressLinks}></cap-media-list>
 
+					<h2 class="interiorMain__decorator" id="community-impact">
+						Community Impact
+					</h2>
+					<p>
+						The Caselaw Access Project is shown in 50+ library guides. Here are
+						nearly a dozen examples!
+					</p>
+					<ul>
+						<li>
+							<a href="https://libguides.mit.edu/comptools"
+								>APIs for Scholarly Resources</a
+							>, Massachusetts Institute of Technology (MIT)
+						</li>
+						<li>
+							<a href="https://libguides.asu.edu/openaccess/opendata-science"
+								>Open Access</a
+							>, Arizona State University
+						</li>
+						<li>
+							<a href="https://guides.lib.utexas.edu/c.php?g=815698&p=5821508"
+								>Finding Humanities Data</a
+							>, University of Texas Libraries
+						</li>
+						<li>
+							<a href="https://umb.libguides.com/PrimarySources/openaccess"
+								>Primary Sources: A Research Guide</a
+							>, University of Massachusetts Boston
+						</li>
+						<li>
+							<a href="https://guides.library.umass.edu/legal/statecases"
+								>Law and Legal Studies</a
+							>, University of Massachusetts Amherst
+						</li>
+						<li>
+							<a href="https://guides.lib.virginia.edu/c.php?g=515084&p=5578061"
+								>Data and Statistics</a
+							>, University of Virginia
+						</li>
+						<li>
+							<a href="https://libguides.umn.edu/text-mining">Text Mining</a>,
+							University of Minnesota
+						</li>
+						<li>
+							<a href="https://libguides.princeton.edu/c.php?g=916665&p=6607543"
+								>Sources of Legal and Judicial Data</a
+							>, Princeton University
+						</li>
+						<li>
+							<a
+								href="https://guides.loc.gov/free-case-law/caselaw-access-project"
+								>How to Find Free Case Law Online</a
+							>, Library of Congress
+						</li>
+						<li>
+							<a
+								href="https://guides.library.brandeis.edu/c.php?g=633861&p=4432485"
+								>Legal History</a
+							>, Brandeis University
+						</li>
+					</ul>
+					<p>
+						Have questions about how to share CAP at your library, or ideas for
+						how we can better support your patrons? From our library to yours,
+						we're excited to hear from you. Please
+						<a href="mailto:info@case.law">reach out!</a>
+					</p>
+
 					<h2 class="interiorMain__decorator" id="friends-and-partners">
 						Friends and Partners
 					</h2>

@@ -92,6 +92,20 @@ li {
 	list-style-type: circle;
 }
 
+ol {
+	padding-inline-start: 1.8rem;
+	list-style-position: outside;
+}
+
+ol li {
+	font-family: var(--font-sans-text);
+	list-style-type: decimal;
+
+	@media (min-width: 35rem) {
+		font-size: var(--font-size-175);
+	}
+}
+
 a:link,
 a:visited,
 a:active {
