@@ -18,10 +18,10 @@ export const navLinks = [
 ];
 
 export const legalLinks = [
-	// {
-	// 	name: "Terms",
-	// 	path: "/terms/",
-	// },
+	{
+		name: "Terms",
+		path: "/terms/",
+	},
 	// {
 	// 	name: "Privacy",
 	// 	path: "/privacy/",
