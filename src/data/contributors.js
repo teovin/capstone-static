@@ -1,5 +1,15 @@
 export const contributorLinks = [
 	{
+		name: "Ebru Yucesar",
+		job_title: "Senior Software Engineer",
+		url: "https://lil.law.harvard.edu/about/#ebru-yucesar",
+	},
+	{
+		name: "Rebecca Cremona",
+		job_title: "Senior Software Engineer",
+		url: "https://lil.law.harvard.edu/about/#rebecca-cremona",
+	},
+	{
 		name: "Dakota Sexton",
 		job_title: "Senior Software Engineer",
 		url: "https://www.tinykitelab.com",
