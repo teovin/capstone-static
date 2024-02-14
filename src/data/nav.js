@@ -22,10 +22,10 @@ export const legalLinks = [
 		name: "Terms",
 		path: "/terms/",
 	},
-	// {
-	// 	name: "Privacy",
-	// 	path: "/privacy/",
-	// },
+	{
+		name: "Privacy",
+		path: "/privacy/",
+	},
 	{
 		name: "Accessibility",
 		path: "https://accessibility.huit.harvard.edu/digital-accessibility-policy",
