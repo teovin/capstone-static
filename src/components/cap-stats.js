@@ -20,9 +20,9 @@ class CapStats extends LitElement {
 				color: var(--color-white);
 				position: relative;
 				padding-block: var(--spacing-300);
-				padding-inline: calc(var(--spacing-475) * 1.5);
+				padding-inline: var(--spacing-475);
 
-				@media (min-width: 36rem) {
+				@media (min-width: 45rem) {
 					padding-block: calc(var(--spacing-300) * 1.125);
 					padding-inline: calc(var(--spacing-475) * 2);
 				}
@@ -52,7 +52,7 @@ class CapStats extends LitElement {
 				font-size: var(--font-size-150);
 				line-height: 1;
 
-				@media (min-width: 36rem) {
+				@media (min-width: 35rem) {
 					font-size: var(--font-size-225);
 				}
 			}
@@ -69,7 +69,7 @@ class CapStats extends LitElement {
 
 				border-bottom: var(--border-sm) solid var(--color-white);
 
-				@media (min-width: 36rem) {
+				@media (min-width: 35rem) {
 					border-bottom: var(--border-md) solid var(--color-white);
 				}
 			}
@@ -92,7 +92,7 @@ class CapStats extends LitElement {
 					background: var(--color-white);
 				}
 
-				@media (min-width: 36rem) {
+				@media (min-width: 35rem) {
 					font-size: 3rem;
 
 					&::before {
@@ -126,7 +126,7 @@ class CapStats extends LitElement {
 					background: var(--color-white);
 				}
 
-				@media (min-width: 36rem) {
+				@media (min-width: 35rem) {
 					&::before {
 						width: var(--border-md);
 					}
@@ -136,7 +136,7 @@ class CapStats extends LitElement {
 			.stat__number {
 				font-size: calc(var(--font-size-200) * 2);
 
-				@media (min-width: 36rem) {
+				@media (min-width: 35rem) {
 					font-size: 6rem;
 				}
 			}
@@ -148,7 +148,7 @@ class CapStats extends LitElement {
 				font-size: calc(var(--font-size-250) * 2);
 				grid-row: 1 / 3;
 
-				@media (min-width: 36rem) {
+				@media (min-width: 35rem) {
 					font-size: 9rem;
 				}
 			}
