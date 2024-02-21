@@ -62,14 +62,14 @@ export class CapDocsPage extends LitElement {
 						[URL-TO-COME]/reporter-slug/volume-number.zip. For example, to
 						download the zip for Arkansas Reports (1837-2009), Volume 14, you'd visit
 						[URL-TO-COME]/ark/14.zip. You can identify the reporter slug and volume
-						number by selecting the reporter and volume from the jurisdiction
-						landing page and examining the URL:
+						number by selecting the reporter and volume from the <a href="/caselaw">
+						Caselaw</a> page and examining the URL:
 						[URL-TO-COME]/reporter=reporter-slug&volume=volume-number.
 					</p>
 					<p>
-						An alternative way to access downloads is to use <code>wget</code>, which retries
-						when it encounters a network problem. Here's an example for the same zip
-						mentioned above:
+						An alternative way to access downloads is to use <code>wget</code>, which
+						retries when it encounters a network problem. Here's an example for the same
+						zip mentioned above:
 						<pre>wget https://[URL-TO-COME]/ark/14.zip</pre>
 					</p>
 					<h3>Data Format</h3>
