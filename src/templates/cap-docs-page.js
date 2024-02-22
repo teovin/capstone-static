@@ -59,12 +59,12 @@ export class CapDocsPage extends LitElement {
 					</p>
 					<p>
 						To access data, identify the reporter slug and volume number, then visit
-						[URL-TO-COME]/reporter-slug/volume-number.zip. For example, to
+						[URL-TO-COME]/reporter_slug/volume_number.zip. For example, to
 						download the zip for Arkansas Reports (1837-2009), Volume 14, you'd visit
 						[URL-TO-COME]/ark/14.zip. You can identify the reporter slug and volume
 						number by selecting the reporter and volume from the <a href="/caselaw">
 						Caselaw</a> page and examining the URL:
-						[URL-TO-COME]/reporter=reporter-slug&volume=volume-number.
+						[URL-TO-COME]/reporter=reporter_slug&volume=volume_number.
 					</p>
 					<p>
 						An alternative way to access downloads is to use <code>wget</code>, which
@@ -99,7 +99,7 @@ export class CapDocsPage extends LitElement {
 						The .zip file can be unzipped using third-party GUI programs like
 						<a href="https://theunarchiver.com/">The Unarchiver</a> (Mac) or
 						<a href="https://www.7-zip.org/">7-zip</a> (Windows), or from the command
-						line with a command like <code>unzip volume-number.zip</code>.
+						line with a command like <code>unzip volume_number.zip</code>.
 						Once you have the directories unzipped, you can interact directly with the
 						files themselves. Alternatively, to read the file from the command line,
 						run (for example):
