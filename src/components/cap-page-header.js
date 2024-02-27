@@ -44,6 +44,7 @@ export class CapPageHeader extends LitElement {
 			}
 
 			::slotted(p) {
+				visibility: visible !important;
 				padding-top: var(--spacing-200);
 
 				@media (min-width: 35rem) {
