@@ -10,7 +10,7 @@ import {
 	getBreadcrumbLinks,
 } from "./data.js";
 
-global.window = { BUCKET_ROOT: "https://cap-redacted-demo.lil.tools" };
+global.window = { BUCKET_ROOT: "https://static.case.law" };
 
 test("fetchJurisdictionsData fetches jurisdictions ", async (t) => {
 	await fetchJurisdictionsData((data) => {
