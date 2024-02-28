@@ -32,8 +32,12 @@ export class CapBanner extends LitElement {
 		return html`
 			<div class="banner">
 				<p class="banner__message">
-					You are currently viewing the beta version of the Caselaw Access Project's website.
-					The <a class="banner__link" href="https://old.case.law">legacy website and API</a> will be sunset on September 1, 2024.
+					You are currently viewing the beta version of the Caselaw Access
+					Project's website. The
+					<a class="banner__link" href="https://old.case.law"
+						>legacy website and API</a
+					>
+					will be sunset on September 1, 2024.
 				</p>
 			</div>
 		`;
