@@ -1,5 +1,6 @@
 import { LitElement, html, css } from "../lib/lit.js";
 import { baseStyles } from "../lib/wc-base.js";
+import "../components/cap-banner.js";
 import "../components/cap-nav.js";
 import "../components/cap-page-header.js";
 import "../components/cap-footer.js";
@@ -193,6 +194,7 @@ export class CapAboutPage extends LitElement {
 
 	render() {
 		return html`
+			<cap-banner></cap-banner>
 			<cap-nav></cap-nav>
 			<main id="main" class="interiorMain">
 				<header class="interiorMain__header">

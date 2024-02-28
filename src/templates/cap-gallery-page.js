@@ -1,4 +1,5 @@
 import { LitElement, html } from "../lib/lit.js";
+import "../components/cap-banner.js";
 import "../components/cap-nav.js";
 import "../components/cap-page-header.js";
 import "../components/cap-footer.js";
@@ -43,6 +44,7 @@ export class CapGalleryPage extends LitElement {
 
 	render() {
 		return html`
+			<cap-banner></cap-banner>
 			<cap-nav></cap-nav>
 			<main id="main" class="l-interiorPage">
 				<header class="u-bg-gray-500 u-col-span-full">
