@@ -69,7 +69,7 @@ export const baseStyles = css`
 
 	.u-skipLink {
 		position: absolute;
-		top: calc(-100% + -1rem);
+		top: calc(-200%);
 		left: 0;
 		padding-block: var(--spacing-250);
 		padding-inline: var(--spacing-300);
