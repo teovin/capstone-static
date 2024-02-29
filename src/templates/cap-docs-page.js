@@ -75,7 +75,7 @@ export class CapDocsPage extends LitElement {
 					<h3>Data Format</h3>
 					<p>
 						Bulk data files are provided as zipped directories. In these zips, you
-						will find directories called metadata, json, and html.
+						will find directories called "metadata", "json", and "html".
 						The metadata directory contains files called VolumeMetadata.json and
 						CasesMetadata.json. The json directory contains all cases for that volume
 						in JSON format. The html directory contains all cases for that volume in
