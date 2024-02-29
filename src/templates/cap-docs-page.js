@@ -1,5 +1,5 @@
 import { LitElement, html } from "../lib/lit.js";
-import "../components/cap-banner.js";
+import "../components/cap-notification-banner.js";
 import "../components/cap-nav.js";
 import "../components/cap-page-header.js";
 import "../components/cap-footer.js";
@@ -16,7 +16,7 @@ export class CapDocsPage extends LitElement {
 	render() {
 		return html`
 			<a href="#main" class="u-skipLink">Skip to main content</a>
-			<cap-banner></cap-banner>
+			<cap-notification-banner></cap-notification-banner>
 			<cap-nav></cap-nav>
 			<main id="main" class="l-interiorPage">
 				<header class="u-bg-gray-500 u-col-span-full">

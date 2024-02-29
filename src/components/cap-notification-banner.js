@@ -1,7 +1,7 @@
 import { LitElement, html, css } from "../lib/lit.js";
 import { baseStyles } from "../lib/wc-base.js";
 
-export class CapBanner extends LitElement {
+export class CapNotificationBanner extends LitElement {
 	static styles = [
 		baseStyles,
 		css`
@@ -44,4 +44,4 @@ export class CapBanner extends LitElement {
 	}
 }
 
-customElements.define("cap-banner", CapBanner);
+customElements.define("cap-notification-banner", CapNotificationBanner);
