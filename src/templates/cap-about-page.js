@@ -194,6 +194,7 @@ export class CapAboutPage extends LitElement {
 
 	render() {
 		return html`
+			<a href="#main" class="u-skipLink">Skip to main content</a>
 			<cap-banner></cap-banner>
 			<cap-nav></cap-nav>
 			<main id="main" class="interiorMain">

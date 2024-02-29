@@ -147,8 +147,6 @@ class CapNav extends LitElement {
 	render() {
 		return html`
 			<header class="header">
-				<a href="#main" class="u-skipLink">Skip to main content</a>
-
 				<nav class="nav">
 					<a href="/">
 						<cap-logo></cap-logo>
