@@ -25,6 +25,8 @@
 
 	--color-pink-100: #fff1f8;
 
+	--color-twilight: #eaeaff;
+
 	--color-gradient: linear-gradient(
 		45deg,
 		var(--color-purple-300) 0%,

@@ -71,3 +71,22 @@
 	display: block;
 	min-height: 100vh;
 }
+
+.u-skipLink {
+	position: absolute;
+	top: calc(-100% + -1rem);
+	left: 0;
+	padding-block: var(--spacing-250);
+	padding-inline: var(--spacing-300);
+	background: var(--color-white);
+	font-family: var(--font-sans-text);
+	font-size: var(--font-size-175);
+	font-weight: 700;
+	color: var(--color-blue-200);
+	text-decoration: none;
+	z-index: 1;
+}
+
+.u-skipLink:focus {
+	top: 0;
+}
