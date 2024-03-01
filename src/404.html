@@ -16,8 +16,17 @@
 			// If this is a request that originated from cite.case.law...
 			if (urlParams.get("src") === "cite.case.law"){
 
-				// TODO
-				// ...attempt to parse it as an attempt to view caselaw
+				// ...attempt to parse it as an attempt to view caselaw.
+				const refererComponents = referer.split("/").filter( (entry) => { return entry.trim() != ''; });
+				if (refererComponents.length == 1) {
+					// Attempt to load a reporter
+					// previously: cite.case.law/<str:series_slug>/
+					window.location = `/caselaw/?reporter=${refererComponents[0]}`
+				} else if (refererComponents.length == 2) {
+					// Attempt to load a volume
+					// previously: cite.case.law/<str:series_slug>/<str:volume_number_slug>/
+					window.location = `/caselaw/?reporter=${refererComponents[0]}&volume=${refererComponents[1]}`
+				}
 
 			} else {
 
