@@ -77,6 +77,22 @@ export default class CapRedirector extends LitElement {
 						}
 					}),
 				);
+			} else if (refererComponents.length == 4) {
+				// Attempt to load a single case using its case id.
+				// previously: cite.case.law/<str:series_slug>/<str:volume_number_slug>/<str:page_number>/<int:case_id>/
+				const caseId = refererComponents[3];
+				fetchOr404(() =>
+					fetchCasesList(refererComponents[0], refererComponents[1], (data) => {
+						const targetCase = data.find((o) => o.id.toString() === caseId);
+						if (targetCase) {
+							const casePath = targetCase.file_name;
+							window.location = `/caselaw/?reporter=${refererComponents[0]}&volume=${refererComponents[1]}&case=${casePath}`;
+						} else {
+							// we know we're not redirecting
+							this.checkedRedirect = true;
+						}
+					}),
+				);
 			} else {
 				// we know we're not redirecting
 				this.checkedRedirect = true;
