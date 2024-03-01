@@ -1,5 +1,8 @@
 import { LitElement, html, nothing } from "../lib/lit.js";
 
+import { fetchCasesList } from "../lib/data.js";
+import { fetchOr404 } from "../lib/fetchOr404.js";
+
 import "./cap-notification-banner.js";
 import "./cap-nav.js";
 import "./cap-page-header.js";
@@ -47,6 +50,33 @@ export default class CapRedirector extends LitElement {
 				// Attempt to load a volume
 				// previously: cite.case.law/<str:series_slug>/<str:volume_number_slug>/
 				window.location = `/caselaw/?reporter=${refererComponents[0]}&volume=${refererComponents[1]}`;
+			} else if (refererComponents.length == 3) {
+				// Attempt to load a single case using its page number.
+				// If multiple cases appear on the same page, show a disambiguation page instead.
+				// previously: cite.case.law/<str:series_slug>/<str:volume_number_slug>/<str:page_number>
+				const page = refererComponents[2];
+				fetchOr404(() =>
+					fetchCasesList(refererComponents[0], refererComponents[1], (data) => {
+						const cases = data.filter((o) => o.first_page === page);
+						if (cases.length === 1) {
+							// redirect to that case
+							const casePath = cases[0].file_name;
+							window.location = `/caselaw/?reporter=${refererComponents[0]}&volume=${refererComponents[1]}&case=${casePath}`;
+						} else if (cases.length > 1) {
+							// redirect to the disambiguation page
+							const reporter = refererComponents[0];
+							const volume = refererComponents[1];
+							const cite = cases[0].citations[0].cite;
+							const caseList = cases
+								.map((o) => `${reporter}/${volume}/${o.file_name}`)
+								.join(",");
+							window.location = `/caselaw/?disambiguate=${encodeURIComponent(caseList)}&cite=${encodeURIComponent(cite)}`;
+						} else {
+							// we know we're not redirecting
+							this.checkedRedirect = true;
+						}
+					}),
+				);
 			} else {
 				// we know we're not redirecting
 				this.checkedRedirect = true;
