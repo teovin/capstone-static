@@ -57,15 +57,18 @@ export default class CapDisambiguate extends LitElement {
 		this.volume = volume;
 
 		fetchOr404(
-			fetchReporterData(reporter, (data) => {
-				this.reporterData = data;
-			}),
-			fetchVolumeData(reporter, volume, (data) => {
-				this.volumeData = data;
-			}),
-			fetchCasesList(reporter, volume, (data) => {
-				this.casesData = data;
-			}),
+			() =>
+				fetchReporterData(reporter, (data) => {
+					this.reporterData = data;
+				}),
+			() =>
+				fetchVolumeData(reporter, volume, (data) => {
+					this.volumeData = data;
+				}),
+			() =>
+				fetchCasesList(reporter, volume, (data) => {
+					this.casesData = data;
+				}),
 		);
 	}
 
