@@ -45,15 +45,20 @@ export default class CapRedirector extends LitElement {
 			if (refererComponents.length == 1) {
 				// Attempt to load a reporter
 				// previously: cite.case.law/<str:series_slug>/
+				// Example: https://cite.case.law/ill-app/
 				window.location = `/caselaw/?reporter=${refererComponents[0]}`;
 			} else if (refererComponents.length == 2) {
 				// Attempt to load a volume
 				// previously: cite.case.law/<str:series_slug>/<str:volume_number_slug>/
+				// Example: https://cite.case.law/ill-app/302/
 				window.location = `/caselaw/?reporter=${refererComponents[0]}&volume=${refererComponents[1]}`;
 			} else if (refererComponents.length == 3) {
 				// Attempt to load a single case using its page number.
 				// If multiple cases appear on the same page, show a disambiguation page instead.
 				// previously: cite.case.law/<str:series_slug>/<str:volume_number_slug>/<str:page_number>
+				// Examples:
+				// single case - https://cite.case.law/ill-app/302/1/
+				// multiple cases - https://cite.case.law/ill-app/302/570
 				const page = refererComponents[2];
 				fetchOr404(() =>
 					fetchCasesList(refererComponents[0], refererComponents[1], (data) => {
@@ -80,6 +85,7 @@ export default class CapRedirector extends LitElement {
 			} else if (refererComponents.length == 4) {
 				// Attempt to load a single case using its case id.
 				// previously: cite.case.law/<str:series_slug>/<str:volume_number_slug>/<str:page_number>/<int:case_id>/
+				// Example: https://cite.case.law/ill-app/302/570/3143810/
 				const caseId = refererComponents[3];
 				fetchOr404(() =>
 					fetchCasesList(refererComponents[0], refererComponents[1], (data) => {
