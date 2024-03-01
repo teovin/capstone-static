@@ -24,7 +24,7 @@ export default class CapContentRouter extends LitElement {
 		const searchParams = new URLSearchParams(window.location.search);
 		const reporter = searchParams.get("reporter");
 		const volume = searchParams.get("volume");
-		const caseName = searchParams.get("case");
+		const casePath = searchParams.get("case");
 		const disambiguate = searchParams.get("disambiguate");
 		const cite = searchParams.get("cite");
 
@@ -35,11 +35,11 @@ export default class CapContentRouter extends LitElement {
 			></cap-disambiguate>`;
 		}
 
-		if (!!caseName && !!volume && !!reporter) {
+		if (!!casePath && !!volume && !!reporter) {
 			return html`<cap-case
 				reporter=${reporter}
 				volume=${volume}
-				case=${caseName}
+				case=${casePath}
 			></cap-case>`;
 		}
 

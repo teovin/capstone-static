@@ -54,10 +54,10 @@ export const fetchCasesList = async (reporter, volume, callback) => {
 export const fetchCaselawBody = async (
 	reporter,
 	volume,
-	caseName,
+	casePath,
 	callback,
 ) => {
-	const url = `${window.BUCKET_ROOT}/${reporter}/${volume}/html/${caseName}.html`;
+	const url = `${window.BUCKET_ROOT}/${reporter}/${volume}/html/${casePath}.html`;
 	const response = await fetch(url);
 	if (!response.ok) {
 		throw new Error("Fetch failed.");
@@ -68,10 +68,10 @@ export const fetchCaselawBody = async (
 export const fetchCaseMetadata = async (
 	reporter,
 	volume,
-	caseName,
+	casePath,
 	callback,
 ) => {
-	const url = `${window.BUCKET_ROOT}/${reporter}/${volume}/cases/${caseName}.json`;
+	const url = `${window.BUCKET_ROOT}/${reporter}/${volume}/cases/${casePath}.json`;
 	callback(await fetchJson(url)); //here return {} if it didn't fetch
 };
 
