@@ -38,10 +38,10 @@
 		<meta property="og:type" content="article" />
 
 		<link href="/css/global.css" rel="stylesheet" />
-		<script type="module" src="/components/cap-notification-banner.js"></script>
-		<script type="module" src="/components/cap-nav.js"></script>
-		<script type="module" src="/components/cap-page-header.js"></script>
-		<script type="module" src="/components/cap-footer.js"></script>
+		<script type="module" src="/components/cap-redirector.js"></script>
+		<script>
+			window.BUCKET_ROOT = "https://static.case.law";
+		</script>
 
 		<link
 			rel="apple-touch-icon"
@@ -85,30 +85,6 @@
 		<meta name="theme-color" content="#ffffff" />
 	</head>
 	<body>
-		<a href="#main" class="u-skipLink">Skip to main content</a>
-		<cap-notification-banner></cap-notification-banner>
-		<cap-nav></cap-nav>
-		<main id="main" class="l-interiorPage">
-			<header class="u-bg-gray-500 u-col-span-full">
-				<cap-page-header heading="Not Found.">
-					<p class="u-text-white u-text-serif" style="visibility: hidden">
-						The Caselaw Access Project has updated and simplified our site to
-						provide long-term, unrestricted access to U.S. case law.
-					</p>
-					<p class="u-text-white u-text-serif" style="visibility: hidden">
-						As part of this process we have deactivated portions of the site,
-						potentially including the page you were looking for.
-					</p>
-					<p class="u-text-white u-text-serif" style="visibility: hidden">
-						If you have questions about the changes we have made, please let us
-						know at
-						<a class="u-link-purple" href="mailto:info@case.law"
-							>info@case.law</a
-						>.
-					</p>
-				</cap-page-header>
-			</header>
-		</main>
-		<cap-footer></cap-footer>
+		<cap-redirector></cap-redirector>
 	</body>
 </html>
