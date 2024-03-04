@@ -3,11 +3,14 @@ export const fetchJurisdictionsData = async (callback) => {
 	const data = await fetchJson(url);
 	const jurisdictions = {};
 	data.forEach((element) => {
-		const jurisdiction = element.jurisdictions[0].name_long;
-		if (!jurisdictions[jurisdiction]) {
-			jurisdictions[jurisdiction] = [];
+		// skip reporters without jurisdictions for now
+		if (element.jurisdictions[0]) {
+			const jurisdiction = element.jurisdictions[0].name_long;
+			if (!jurisdictions[jurisdiction]) {
+				jurisdictions[jurisdiction] = [];
+			}
+			jurisdictions[jurisdiction].push(element);
 		}
-		jurisdictions[jurisdiction].push(element);
 	});
 	callback(jurisdictions);
 };
