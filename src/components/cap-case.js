@@ -109,6 +109,14 @@ export default class CapCase extends LitElement {
 				font-style: italic;
 			}
 
+			/* PDF link */
+
+			.pdf-link {
+				font-family: var(--font-sans-text);
+				text-align: center;
+				margin: var(--spacing-50) auto -1em;;
+			}
+
 			/**/
 			/* Styles that apply to the injected HTML */
 			/**/
@@ -444,6 +452,17 @@ export default class CapCase extends LitElement {
 		}
 	}
 
+	getPDFLink(){
+		if (this.caseMetadata.provenance.source === "Harvard"){
+			return html`
+				<div class="pdf-link">
+					<a href="${window.BUCKET_ROOT}/${this.reporter}/${this.volume}.pdf#page=${this.caseMetadata.first_page_order}"> View scanned PDF</a>
+				</div>
+			`;
+		}
+		return nothing
+	}
+
 	removeLink = (a) => {
 		a.replaceWith(a.innerHTML);
 	};
@@ -527,6 +546,7 @@ export default class CapCase extends LitElement {
 					<div class="metadata">
 						<div class="case-name">${this.caseMetadata.name}</div>
 					</div>
+					${this.getPDFLink()}
 					<!--section.casebody -->
 					${unsafeHTML(this.caseBody)}
 				</div>
