@@ -125,8 +125,8 @@ export default class CapReporter extends LitElement {
 										html`<li>
 											<a
 												href="/caselaw/?reporter=${this
-													.reporter}&volume=${v.volume_number}"
-												>${v.volume_number}</a
+													.reporter}&volume=${v.volume_folder}"
+												>${v.volume_folder}</a
 											>
 										</li>`,
 								)}
