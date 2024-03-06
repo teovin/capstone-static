@@ -114,7 +114,7 @@ export default class CapCase extends LitElement {
 			.pdf-link {
 				font-family: var(--font-sans-text);
 				text-align: center;
-				margin: var(--spacing-50) auto -1em;;
+				margin: var(--spacing-50) auto -1em;
 			}
 
 			/**/
@@ -452,15 +452,20 @@ export default class CapCase extends LitElement {
 		}
 	}
 
-	getPDFLink(){
-		if (this.caseMetadata.provenance.source === "Harvard"){
+	getPDFLink() {
+		if (this.caseMetadata.provenance.source === "Harvard") {
 			return html`
 				<div class="pdf-link">
-					<a href="${window.BUCKET_ROOT}/${this.reporter}/${this.volume}.pdf#page=${this.caseMetadata.first_page_order}"> View scanned PDF</a>
+					<a
+						href="${window.BUCKET_ROOT}/${this.reporter}/${this
+							.volume}.pdf#page=${this.caseMetadata.first_page_order}"
+					>
+						View scanned PDF</a
+					>
 				</div>
 			`;
 		}
-		return nothing
+		return nothing;
 	}
 
 	removeLink = (a) => {
