@@ -110,6 +110,13 @@ export default class CapVolume extends LitElement {
 		);
 	}
 
+	getPDFLink(){
+		if (this.casesData[0].provenance.source === "Harvard"){
+			return html`<a href="${window.BUCKET_ROOT}/${this.reporter}/${this.volume}.pdf"> View scanned PDF.</a>`;
+		}
+		return nothing
+	}
+
 	render() {
 		if (
 			!isEmpty(this.casesData) &&
@@ -131,7 +138,7 @@ export default class CapVolume extends LitElement {
 								${this.reporterData.full_name}
 								(${this.reporterData.start_year}-${this.reporterData.end_year})
 								volume ${this.volume}.
-								<a href="${window.BUCKET_ROOT}/${this.reporter}/${this.volume}.pdf"> View scanned PDF.</a>
+								${this.getPDFLink()}
 							</p>
 						</hgroup>
 						<ul class="volume__caseList">
