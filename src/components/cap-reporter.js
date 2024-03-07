@@ -164,8 +164,7 @@ export default class CapReporter extends LitElement {
 								)}
 						</ul>
 					</div>
-					<cap-caselaw-layout> </cap-caselaw-layout
-				></cap-caselaw-layout>
+				</cap-caselaw-layout>
 			`;
 		} else {
 			return nothing;
