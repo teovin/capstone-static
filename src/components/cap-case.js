@@ -585,10 +585,14 @@ export default class CapCase extends LitElement {
 					></cap-breadcrumb>
 					<div class="case__downloadLinks">
 						${this.getPDFLink()}
-						<a href="${window.BUCKET_ROOT}/${this.reporter}/${this.volume}/cases/${this.case}.json"
+						<a
+							href="${window.BUCKET_ROOT}/${this.reporter}/${this
+								.volume}/cases/${this.case}.json"
 							>Download case metadata</a
 						>
-						<a href="${window.BUCKET_ROOT}/${this.reporter}/${this.volume}/html/${this.case}.html"
+						<a
+							href="${window.BUCKET_ROOT}/${this.reporter}/${this
+								.volume}/html/${this.case}.html"
 							>Download case HTML</a
 						>
 					</div>
