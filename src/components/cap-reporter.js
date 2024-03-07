@@ -119,7 +119,11 @@ export default class CapReporter extends LitElement {
 						<ul class="reporter__volumeList">
 							<p class="reporter__volumeTitle">Volume number:</p>
 							${this.volumesData
-								.sort((a, b) => Number(a.volume_number.split(" ")[0]) - Number(b.volume_number.split(" ")[0]))
+								.sort(
+									(a, b) =>
+										Number(a.volume_number.split(" ")[0]) -
+										Number(b.volume_number.split(" ")[0]),
+								)
 								.map(
 									(v) =>
 										html`<li>
