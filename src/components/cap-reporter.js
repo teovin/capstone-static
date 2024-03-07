@@ -80,6 +80,14 @@ export default class CapReporter extends LitElement {
 				font-weight: 500;
 			}
 
+			.reporter__downloadLinks {
+				margin-block-start: var(--spacing-150);
+			}
+
+			.reporter__downloadLinks a {
+				font-weight: 400;
+			}
+
 			.reporter__volumeList {
 				margin-block-start: var(--spacing-150);
 				display: block;
@@ -116,6 +124,30 @@ export default class CapReporter extends LitElement {
 								(${this.reporterData.start_year}-${this.reporterData.end_year}).
 							</p>
 						</hgroup>
+						<div class="reporter__downloadLinks">
+							<p>
+								Download
+								<a href="${window.BUCKET_ROOT}/${this.reporter}/">bulk data</a>.
+							</p>
+						</div>
+						<div class="reporter__downloadLinks">
+							<p>
+								Download
+								<a
+									href="${window.BUCKET_ROOT}/${this
+										.reporter}/ReporterMetadata.json"
+									>reporter metadata</a
+								>.
+							</p>
+							<p>
+								Download
+								<a
+									href="${window.BUCKET_ROOT}/${this
+										.reporter}/VolumesMetadata.json"
+									>volumes metadata</a
+								>.
+							</p>
+						</div>
 						<ul class="reporter__volumeList">
 							<p class="reporter__volumeTitle">Volume number:</p>
 							${this.volumesData
