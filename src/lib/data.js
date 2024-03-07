@@ -102,20 +102,30 @@ const fetchJson = async (url) => {
 	return await response.json();
 };
 
-export const getBreadcrumbLinks = (reporterData, volume) => {
+export const getBreadcrumbLinks = (reporterData, volume, caseCitation) => {
 	const reporterLink = {
 		url: `/caselaw/?reporter=${reporterData.slug}`,
 		name: `Reporter ${reporterData.short_name}`,
 	};
 
-	if (volume) {
-		return [
-			reporterLink,
-			{
+	const volumeLink = volume
+		? {
 				url: `/caselaw/?reporter=${reporterData.slug}&volume=${volume}`,
 				name: `Volume ${volume}`,
-			},
-		];
+			}
+		: null;
+
+	const caseLink = caseCitation
+		? {
+				url: `.`,
+				name: caseCitation,
+			}
+		: null;
+
+	if (caseCitation) {
+		return [reporterLink, volumeLink, caseLink];
+	} else if (volumeLink) {
+		return [reporterLink, volumeLink];
 	}
 
 	return [reporterLink];

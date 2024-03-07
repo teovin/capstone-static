@@ -4,15 +4,19 @@ import {
 	fetchCaselawBody,
 	fetchCaseMetadata,
 	fetchCasesList,
+	fetchReporterData,
+	getBreadcrumbLinks,
 } from "../lib/data.js";
 
 import { isEmpty } from "../lib/isEmpty.js";
 import { fetchOr404 } from "../lib/fetchOr404.js";
+import "./cap-breadcrumb.js";
 
 export default class CapCase extends LitElement {
 	static properties = {
 		caseBody: { attribute: false },
 		caseMetadata: { attribute: false },
+		reporterData: { attribute: false },
 		reporter: { type: String },
 		volume: { type: String },
 		case: { type: String },
@@ -24,15 +28,17 @@ export default class CapCase extends LitElement {
 			/* Styles for HTML under our control */
 			/**/
 
+			.case__navigation {
+				padding-block-end: var(--spacing-400);
+			}
+
 			/* .case-container */
 
 			.case-container {
-				flex: 0 0 83.33333%;
-				max-width: 83.33333%;
+				grid-column: 1 / -1;
+				padding-block-end: var(--spacing-550);
+				padding-block-start: var(--spacing-400);
 				margin: auto;
-
-				padding-top: 0;
-				padding-bottom: 100px;
 
 				/*	styles inherited from "body" in capstone */
 
@@ -56,6 +62,8 @@ export default class CapCase extends LitElement {
 				font-family: var(--font-serif-titling);
 				text-align: center;
 				padding: 2em 2em 0;
+				max-width: 83.33333%;
+				margin: auto;
 			}
 
 			@media (min-width: 992px) {
@@ -90,15 +98,11 @@ export default class CapCase extends LitElement {
 			/* .metadata */
 
 			.metadata {
-				flex: 0 0 83.33333%;
 				max-width: 83.33333%;
 				margin: auto;
 			}
 
 			.metadata .case-name {
-				flex: 0 0 66.66667%;
-				max-width: 66.66667%;
-				margin-left: 16.66667%;
 				font-family: var(--font-serif);
 				text-align: center;
 			}
@@ -359,6 +363,7 @@ export default class CapCase extends LitElement {
 		super();
 		this.caseBody = "";
 		this.caseMetadata = {};
+		this.reporterData = {};
 	}
 
 	connectedCallback() {
@@ -378,6 +383,8 @@ export default class CapCase extends LitElement {
 					this.case,
 					(data) => (this.caseMetadata = data),
 				),
+			() =>
+				fetchReporterData(this.reporter, (data) => (this.reporterData = data)),
 		);
 		window.addEventListener("hashchange", this.handleHashChange.bind(this));
 	}
@@ -536,25 +543,39 @@ export default class CapCase extends LitElement {
 			window.requestAnimationFrame(this.rewriteLinks);
 
 			return html`
-				<div class="case-container">
-					<div class="case-header">
-						<h1>${this.createCaseHeaderHeader(this.caseMetadata)}</h1>
-						<div>
-							${this.getDecisionDate(this.caseMetadata.decision_date)}
-							<span class="court-name">${this.caseMetadata.court?.name}</span>
-							${this.getDocketNumber(this.caseMetadata.docket_number)}
-						</div>
-						<div class="citations">
-							${this.createCitationsString(this.caseMetadata.citations)}
-						</div>
-					</div>
-					<div class="metadata">
-						<div class="case-name">${this.caseMetadata.name}</div>
-					</div>
-					${this.getPDFLink()}
-					<!--section.casebody -->
-					${unsafeHTML(this.caseBody)}
+				<div class="case__navigation">
+					<cap-breadcrumb
+						.navItems=${getBreadcrumbLinks(
+							{
+								slug: this.reporter,
+								short_name: this.reporterData.short_name,
+							},
+							this.volume,
+							this.caseMetadata.citations[0].cite,
+						)}
+					></cap-breadcrumb>
 				</div>
+				<cap-caselaw-layout>
+					<div class="case-container">
+						<div class="case-header">
+							<h1>${this.createCaseHeaderHeader(this.caseMetadata)}</h1>
+							<div>
+								${this.getDecisionDate(this.caseMetadata.decision_date)}
+								<span class="court-name">${this.caseMetadata.court?.name}</span>
+								${this.getDocketNumber(this.caseMetadata.docket_number)}
+							</div>
+							<div class="citations">
+								${this.createCitationsString(this.caseMetadata.citations)}
+							</div>
+						</div>
+						<div class="metadata">
+							<div class="case-name">${this.caseMetadata.name}</div>
+						</div>
+						${this.getPDFLink()}
+						<!--section.casebody -->
+						${unsafeHTML(this.caseBody)}
+					</div>
+				</cap-caselaw-layout>
 			`;
 		} else {
 			return nothing;
