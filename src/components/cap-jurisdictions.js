@@ -76,7 +76,7 @@ export default class CapJurisdictions extends LitElement {
 				padding: calc(var(--spacing-125) / 2);
 			}
 
-			jurisdictions__button a:hover {
+			.jurisdictions__button a:hover {
 				color: var(--color-blue-400);
 				border-color: var(--color-blue-400);
 			}
