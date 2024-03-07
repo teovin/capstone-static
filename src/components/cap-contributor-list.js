@@ -72,7 +72,7 @@ export class CapContributorList extends LitElement {
 
 	render() {
 		const sortedContributors = contributorLinks.sort((a, b) => {
-			if (a.sort_name < b.name) {
+			if (a.sort_name < b.sort_name) {
 				return -1;
 			}
 			if (a.sort_name > b.sort_name) {
