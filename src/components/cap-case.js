@@ -29,7 +29,46 @@ export default class CapCase extends LitElement {
 			/**/
 
 			.case__navigation {
-				padding-block-end: var(--spacing-400);
+				max-width: 80%;
+				margin-inline: auto;
+
+				@media (min-width: 65rem) {
+					padding-block-end: var(--spacing-200);
+				}
+			}
+
+			.case__downloadLinks {
+				margin-block-start: var(--spacing-100);
+				font-family: var(--font-sans-text);
+
+				@media (min-width: 35rem) {
+					font-size: var(--font-size-175);
+				}
+
+				display: flex;
+				flex-wrap: wrap;
+				justify-content: space-evenly;
+				align-content: space-evenly;
+			}
+
+			.case__downloadLinks a {
+				color: var(--color-gray-500);
+				cursor: pointer;
+				background: none;
+				border: 2px solid var(--color-gray-500);
+				font-weight: 600;
+				font-size: var(--font-size-100);
+				text-align: center;
+				text-transform: uppercase;
+				padding: calc(var(--spacing-125) / 2);
+				text-decoration: none;
+				margin: var(--spacing-50);
+				flex-grow: 1;
+			}
+
+			.case__downloadLinks a:hover {
+				color: var(--color-blue-400);
+				border-color: var(--color-blue-400);
 			}
 
 			/* .case-container */
@@ -61,7 +100,7 @@ export default class CapCase extends LitElement {
 				font-size: 0.9em;
 				font-family: var(--font-serif-titling);
 				text-align: center;
-				padding: 2em 2em 0;
+				padding: 0 2em 0;
 				max-width: 83.33333%;
 				margin: auto;
 			}
@@ -84,6 +123,7 @@ export default class CapCase extends LitElement {
 				line-height: 1.4em;
 				padding: 0;
 				margin: 0;
+				margin-bottom: var(--spacing-50);
 			}
 
 			.case-header .decision-date,
@@ -111,14 +151,6 @@ export default class CapCase extends LitElement {
 				display: block;
 				margin: 0.5em;
 				font-style: italic;
-			}
-
-			/* PDF link */
-
-			.pdf-link {
-				font-family: var(--font-sans-text);
-				text-align: center;
-				margin: var(--spacing-50) auto -1em;
 			}
 
 			/**/
@@ -462,14 +494,11 @@ export default class CapCase extends LitElement {
 	getPDFLink() {
 		if (this.caseMetadata.provenance.source === "Harvard") {
 			return html`
-				<div class="pdf-link">
-					<a
-						href="${window.BUCKET_ROOT}/${this.reporter}/${this
-							.volume}.pdf#page=${this.caseMetadata.first_page_order}"
-					>
-						View scanned PDF</a
-					>
-				</div>
+				<a
+					href="${window.BUCKET_ROOT}/${this.reporter}/${this
+						.volume}.pdf#page=${this.caseMetadata.first_page_order}"
+					>View scanned PDF</a
+				>
 			`;
 		}
 		return nothing;
@@ -554,6 +583,15 @@ export default class CapCase extends LitElement {
 							this.caseMetadata.citations[0].cite,
 						)}
 					></cap-breadcrumb>
+					<div class="case__downloadLinks">
+						${this.getPDFLink()}
+						<a href="${window.BUCKET_ROOT}/${this.reporter}/${this.volume}/cases/${this.case}.json"
+							>Download case metadata</a
+						>
+						<a href="${window.BUCKET_ROOT}/${this.reporter}/${this.volume}/html/${this.case}.html"
+							>Download case HTML</a
+						>
+					</div>
 				</div>
 				<cap-caselaw-layout>
 					<div class="case-container">
@@ -571,7 +609,6 @@ export default class CapCase extends LitElement {
 						<div class="metadata">
 							<div class="case-name">${this.caseMetadata.name}</div>
 						</div>
-						${this.getPDFLink()}
 						<!--section.casebody -->
 						${unsafeHTML(this.caseBody)}
 					</div>
