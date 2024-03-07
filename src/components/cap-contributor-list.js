@@ -71,9 +71,18 @@ export class CapContributorList extends LitElement {
 	}
 
 	render() {
+		const sortedContributors = contributorLinks.sort((a, b) => {
+			if (a.sort_name < b.sort_name) {
+				return -1;
+			}
+			if (a.sort_name > b.sort_name) {
+				return 1;
+			}
+			return 0;
+		});
 		return html`
 			<ul class="contributorList">
-				${contributorLinks.map((link) => {
+				${sortedContributors.map((link) => {
 					return html`
 						<li class="contributorList__item">
 							${this._getContributorMarkup(link)}
