@@ -389,7 +389,7 @@ export default class CapCase extends LitElement {
 		if (hash) {
 			const element = this.shadowRoot.getElementById(hash);
 			if (element) {
-				await new Promise(r => setTimeout(r, 100));
+				await new Promise((r) => setTimeout(r, 100));
 				element.tabIndex = -1;
 				element.scrollIntoView();
 				element.focus();
