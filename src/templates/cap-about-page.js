@@ -180,14 +180,15 @@ export class CapAboutPage extends LitElement {
 	 potentially problematic when we have to render case HTML, so I started
 	 using this pattern here.
 	*/
-	handleHashChange() {
+	async handleHashChange() {
 		const hash = window.location.hash.substring(1); // remove the '#'
 		if (hash) {
 			const element = this.shadowRoot.getElementById(hash);
 			if (element) {
-				// wait a beat for things to draw.
-				window.requestAnimationFrame(() => {});
-				window.requestAnimationFrame(() => element.scrollIntoView());
+				await new Promise((r) => setTimeout(r, 100));
+				element.tabIndex = -1;
+				element.scrollIntoView();
+				element.focus();
 			}
 		}
 	}
