@@ -60,6 +60,27 @@ export default class CapJurisdictions extends LitElement {
 				font-family: var(--font-serif);
 			}
 
+			.jurisdictions__button {
+				margin-top: var(--spacing-75);
+			}
+
+			.jurisdictions__button a {
+				color: var(--color-gray-600);
+				cursor: pointer;
+				background: none;
+				border: 2px solid var(--color-gray-600);
+				font-weight: 700;
+				font-size: var(--font-size-100);
+				text-transform: uppercase;
+				width: fit-content;
+				padding: calc(var(--spacing-125) / 2);
+			}
+
+			.jurisdictions__button a:hover {
+				color: var(--color-blue-400);
+				border-color: var(--color-blue-400);
+			}
+
 			.jurisdictions__main {
 				grid-column: 1 / -1;
 				padding-inline: var(--spacing-500);
@@ -160,6 +181,12 @@ export default class CapJurisdictions extends LitElement {
 						<cap-page-header heading="Read Caselaw" theme="light" icon="none">
 							<p class="jurisdictions__description">
 								Browse all volumes of the Caselaw Access Project below.
+							</p>
+							<p class="jurisdictions__description">
+								Or, <a href="${window.BUCKET_ROOT}">download our data</a>.
+							</p>
+							<p class="jurisdictions__button">
+								<a href="/docs/#bulk-downloads">Learn more about bulk data</a>
 							</p>
 						</cap-page-header>
 					</header>

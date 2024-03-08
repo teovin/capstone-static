@@ -83,6 +83,20 @@ export default class CapVolume extends LitElement {
 				font-weight: 500;
 			}
 
+			.volume__downloadLinks {
+				margin-block-start: var(--spacing-150);
+			}
+
+			.volume__downloadLinks a {
+				font-weight: 400;
+			}
+
+			.volume__caseListHeading {
+				margin-block-start: var(--spacing-200);
+				font-size: var(--font-size-175);
+				font-weight: 600;
+			}
+
 			.volume__caseList {
 				margin-block-start: var(--spacing-150);
 				display: block;
@@ -110,13 +124,16 @@ export default class CapVolume extends LitElement {
 		);
 	}
 
-	getPDFLink() {
+	downloadPDF() {
 		if (this.casesData[0].provenance.source === "Harvard") {
-			return html`<a
-				href="${window.BUCKET_ROOT}/${this.reporter}/${this.volume}.pdf"
-			>
-				View scanned PDF.</a
-			>`;
+			return html` <div class="volume__downloadLinks">
+				<p>
+					View
+					<a href="${window.BUCKET_ROOT}/${this.reporter}/${this.volume}.pdf">
+						scanned PDF</a
+					>.
+				</p>
+			</div>`;
 		}
 		return nothing;
 	}
@@ -141,9 +158,33 @@ export default class CapVolume extends LitElement {
 							<p class="volume__subHeading">
 								${this.reporterData.full_name}
 								(${this.reporterData.start_year}-${this.reporterData.end_year})
-								volume ${this.volume}. ${this.getPDFLink()}
+								volume ${this.volume}.
 							</p>
 						</hgroup>
+						${this.downloadPDF()}
+						<div class="volume__downloadLinks">
+							<p>
+								Download
+								<a href="${window.BUCKET_ROOT}/${this.reporter}/">bulk data</a>.
+							</p>
+							<p>
+								Download
+								<a
+									href="${window.BUCKET_ROOT}/${this.reporter}/${this
+										.volume}/VolumeMetadata.json"
+									>volume metadata</a
+								>.
+							</p>
+							<p>
+								Download
+								<a
+									href="${window.BUCKET_ROOT}/${this.reporter}/${this
+										.volume}/CasesMetadata.json"
+									>cases metadata</a
+								>.
+							</p>
+						</div>
+						<h2 class="volume__caseListHeading">Cases</h2>
 						<ul class="volume__caseList">
 							${this.casesData.map(
 								(c) =>

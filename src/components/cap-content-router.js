@@ -11,11 +11,14 @@ export default class CapContentRouter extends LitElement {
 		css`
 			cap-case {
 				display: block;
-				flex: 0 0 58.33333%;
-				max-width: 58.33333%;
 				margin: auto;
-				padding-top: 2.5rem;
-				padding-bottom: 3rem;
+				padding-top: var(--spacing-250);
+				padding-bottom: var(--spacing-500);
+
+				@media (min-width: 65rem) {
+					flex: 0 0 58.33333%;
+					max-width: 58.33333%;
+				}
 			}
 		`,
 	];
