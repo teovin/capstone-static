@@ -142,7 +142,8 @@ export const galleryItems = [
 		description: "What's the color of caselaw?",
 		section: 2,
 		order: 10,
-		pageUrl: "https://colors.lil.tools/",
+		pageUrl:
+			"https://museum.lil.tools/archive/caselaw-access-project/colors.html",
 		repoUrl: "https://github.com/harvard-lil/colors",
 		image: "gallery-image-09.png",
 	},
