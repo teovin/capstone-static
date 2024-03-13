@@ -23,13 +23,14 @@ if __name__ == '__main__':
     import os
     import sys
 
+    BIND = "127.0.0.1"
     PORT = 5501
     DIRECTORY = 'src'
 
     parser = argparse.ArgumentParser(description="A wrapper for http.server with generous CORS headers")
-    parser.add_argument("port", nargs='?', type=int, default=PORT, help=f"specify alternate port (default: {PORT})")
-    parser.add_argument("--bind", "-b", metavar='ADDRESS', help="specify alternate bind address (default: all interfaces)")
-    parser.add_argument("--directory", "-d", default=DIRECTORY, metavar='DIRECTORY', help="specify alternate directory (default: current directory)")
+    parser.add_argument("--port", type=int, default=PORT, help=f"specify alternate port (default: {PORT})")
+    parser.add_argument("--bind", "-b", metavar='ADDRESS', default=BIND, help=f"specify alternate bind address (default: {BIND})")
+    parser.add_argument("--directory", "-d", default=DIRECTORY, help="specify alternate directory (default: current directory)")
     args = parser.parse_args()
 
     os.chdir(args.directory)
