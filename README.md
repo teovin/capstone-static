@@ -1,11 +1,10 @@
 # capstone-static
 
-The Caselaw Access Project was a large-scale digitization project hosted by the [Harvard Law School Library Innovation Lab](http://lil.law.harvard.edu/).
+The Caselaw Access Project is a large-scale digitization project hosted by the [Harvard Law School Library Innovation Lab](http://lil.law.harvard.edu/).
 
-This is a static, archival port of the [website originally hosted at case.law](https://github.com/harvard-lil/capstone), which served court opinions and an accompanying suite of tools to users in a variety of formats.
+This is a static, archival port of the [website originally hosted at case.law](https://github.com/harvard-lil/capstone), which served court opinions and an accompanying suite of tools to users in a variety of formats. The static website uses client-side javascript to allow browsing of the static case data hosted at https://static.case.law.
 
 This repository does not itself contain case data: visit the [website](https://case.law) to browse and download case data.
-
 
 ---
 

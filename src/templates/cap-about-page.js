@@ -204,7 +204,7 @@ export class CapAboutPage extends LitElement {
 						<p class="interiorMain__description">
 							The Caselaw Access Project (“CAP”) expands public access to U.S.
 							law. Our goal is to make all published U.S. court decisions freely
-							available to the public online, in a consistent format, digitized
+							available to the public online in a consistent format, digitized
 							from the collection of the Harvard Law School Library.
 						</p>
 					</cap-page-header>
@@ -218,8 +218,8 @@ export class CapAboutPage extends LitElement {
 					</h2>
 					<p>
 						CAP includes all official, book-published state and federal United
-						States case law — every volume or case designated as an official
-						report of decisions by a court within the United States.
+						States case law through 2020 — every volume or case designated as an
+						official report of decisions by a court within the United States.
 					</p>
 					<p>
 						Our scope includes all state courts, federal courts, and territorial
@@ -293,15 +293,14 @@ export class CapAboutPage extends LitElement {
 					</ul>
 					<h3 id="fastcase-collection">Fastcase Collection</h3>
 					<p>
-						Our collection is augmented with yearly caselaw donations courtesy
-						of
+						Our collection is augmented with additional caselaw donations
+						courtesy of
 						<a href="https://www.fastcase.com/">Fastcase</a>.
 					</p>
 					<p>
-						Fastcase provides updates, on a yearly basis, of all caselaw volumes
-						published more than one year ago that is not yet in the case.law
-						corpus. We currently provide Fastcase cases for volumes published
-						through 2020.
+						Fastcase updates sets include all caselaw volumes published more
+						than one year ago that are not yet in the case.law corpus. We
+						currently provide Fastcase cases for volumes published through 2020.
 					</p>
 					<p>
 						Fastcase volumes are delivered to us in an internal XML/HTML format,
@@ -317,9 +316,7 @@ export class CapAboutPage extends LitElement {
 							F. Supp. 3d, N.E.3d, N.W.2d, P.3d, S.Ct., S.E.2d, So.3d, S.W.3d,
 							and U.S.
 						</li>
-						<li>
-							Cases published in volumes during or before {{ CASE_MAX_YEAR }}.
-						</li>
+						<li>Cases published in volumes during or before 2020.</li>
 						<li>
 							Cases not otherwise published in the Harvard Law School
 							Collection.
@@ -346,19 +343,19 @@ export class CapAboutPage extends LitElement {
 						Data citation
 					</h2>
 					<p>
-						Data made available through the Caselaw Access Project API and bulk
-						download service is citable. View our suggested citation in these
-						standard formats:
+						Data made available through the Caselaw Access Project website and
+						bulk download service is citable. View our suggested citation in
+						these standard formats:
 					</p>
 					<p>
 						<strong class="interiorMain__emphasis">APA</strong><br />
-						<span>Caselaw Access Project.</span> (2018). Retrieved [date], from
+						<span>Caselaw Access Project.</span> (2024). Retrieved [date], from
 						[url].
 					</p>
 					<p>
 						<strong class="interiorMain__emphasis">MLA</strong><br />
 						The President and Fellows of Harvard University. &quot;Caselaw
-						Access Project.&quot; 2018, [url].
+						Access Project.&quot; 2024, [url].
 					</p>
 					<p>
 						<strong class="interiorMain__emphasis">Chicago / Turabian</strong
@@ -470,13 +467,9 @@ export class CapAboutPage extends LitElement {
 							cooperated with LIL on the Caselaw Access Project.
 						</li>
 						<li>
-							<a href="https://www.ravellaw.com/">Ravel Law</a> has partnered
-							with the Harvard Law School Library and LIL since the beginning of
-							the Caselaw Access Project. Ravel funded the digitization effort
-							and now offers free public access to the entire corpus through
-							their <a href="https://home.ravellaw.com">search interface</a> and
-							their
-							<a href="https://home.ravellaw.com/api">non-commercial API</a>.
+							<a href="https://www.ravellaw.com/">Ravel Law</a>, which funded
+							our digitization effort, has partnered with the Harvard Law School
+							Library and LIL since the beginning of the Caselaw Access Project.
 						</li>
 						<li>
 							Carl Jaeckel of
