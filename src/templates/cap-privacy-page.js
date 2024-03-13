@@ -3,10 +3,9 @@ import "../components/cap-notification-banner.js";
 import "../components/cap-nav.js";
 import "../components/cap-page-header.js";
 import "../components/cap-footer.js";
-import "../components/cap-anchor-list.js";
-import { anchorLinks } from "../data/privacySidebarLinks.js";
+import { AnchorListMixin } from "../components/cap-anchor-list.js";
 
-export class CapPrivacyPage extends LitElement {
+export class CapPrivacyPage extends AnchorListMixin(LitElement) {
 	// Turn Shadow DOM off
 	// Generally discouraged: https://lit.dev/docs/components/shadow-dom/#implementing-createrenderroot
 	createRenderRoot() {
@@ -16,7 +15,7 @@ export class CapPrivacyPage extends LitElement {
 	render() {
 		return html`
 			<a href="#main" class="u-skipLink">Skip to main content</a>
-			<cap-notification-banner></cap-notification-banner
+			<cap-notification-banner></cap-notification-banner>
 			<cap-nav></cap-nav>
 			<main id="main" class="l-interiorPage">
 				<header class="u-bg-gray-500 u-col-span-full">
@@ -39,7 +38,7 @@ export class CapPrivacyPage extends LitElement {
 					</cap-page-header>
 				</header>
 				<aside class="u-sm-hidden">
-					<cap-anchor-list .data=${anchorLinks}></cap-anchor-list>
+					<cap-anchor-list .data=${this.anchorLinks}></cap-anchor-list>
 				</aside>
 				<article class="c-article u-bg-beige">
 					<h2
@@ -58,30 +57,17 @@ export class CapPrivacyPage extends LitElement {
 						but is not limited to, your IP address, URL request, browser type,
 						and the date and time of a request. CAP may use cookies or other
 						automated mechanisms to collect this information and may collect
-						this information on an aggregate or individual basis. Cookies are
-						small text files that the Services can send to your browser for
-						storage on your computer. They make use of the Website easier by
-						saving your status and preferences and refreshing them every time
-						you use the Website. For instance, to facilitate registration and
-						login functions, CAP may use cookies to recognize when you return to
-						the Website so that you do not have to resubmit your logon
-						credentials. In order to clear this logon information, for example
-						if using a public terminal, you should log out of your account.
-						While many browsers allow you to change your settings in order to
-						refuse cookies or to be alerted when cookies are being sent, it is
-						recommended that you leave cookies enabled, as disabling cookies may
-						interfere with some functionality of the Services.
+						this information on an aggregate or individual basis.
 					</p>
 					<h3>Personal Information</h3>
 					<p>
-						In order to access certain parts of the Services, CAP may require
-						you to provide personal information, such as your name and email
-						address. CAP uses this information to manage your account,
-						communicate with you, and provide the Services to you. CAP will not
-						collect any personal information from your use of the Services
-						unless you choose to provide it by registering for an account or
-						otherwise posting, sending, or uploading the information to the
-						Services.
+						CAP is a static website and does not collect personal information
+						beyond what is automatically collected as described above. If you
+						choose to subscribe to our email newsletter, we will collect and
+						store your email address solely for subscribing or unsubscribing
+						from our mailing list. If you use the legacy CAP website, that
+						website may collect additional information, as described at
+						<a href="https://old.case.law/privacy">old.case.law/privacy</a>.
 					</p>
 					<h2
 						class="c-decoratedHeader"
@@ -146,10 +132,7 @@ export class CapPrivacyPage extends LitElement {
 						However, CAP cannot guarantee or warrant that any information
 						collected through the Services will remain confidential, and many
 						functions of the Services are intended to make information and
-						content publicly available. You are responsible for setting and
-						maintaining the security of your password. CAP may not keep a copy
-						of your password, so please safeguard the password associated with
-						your account and do not share your password with third parties.
+						content publicly available.
 					</p>
 					<h2 class="c-decoratedHeader" id="transfer-of-information">
 						Transfer of Information
@@ -179,7 +162,7 @@ export class CapPrivacyPage extends LitElement {
 					<p>
 						If you have questions about this privacy policy, please contact CAP.
 					</p>
-					<p>Last modified on May 2, 2019.</p>
+					<p>Last modified on March 13, 2024.</p>
 				</article>
 			</main>
 			<cap-footer></cap-footer>
