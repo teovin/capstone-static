@@ -123,13 +123,15 @@ export class CapFooter extends LitElement {
 				</ul>
 
 				<div class="footer__socialWrapper">
-				<cap-social-group theme="dark"></cap-social-group>
+					<cap-social-group theme="dark"></cap-social-group>
 				</div>
 
 				<p class="footer__copyrightNotice">
-					Site text is licensed <a class="footer__textLink footer__textLink--emphasis" href="https://creativecommons.org/licenses/by-sa/4.0/">CC BY-SA 4.0<a>. <a class="footer__textLink footer__textLink--emphasis" href="https://github.com/harvard-lil/capstone-static">Source code</a> is MIT licensed.
-					Harvard asserts no copyright in caselaw retrieved from this site.
-					©2024 The President and Fellows of Harvard University.
+					©2024 The President and Fellows of Harvard University. See
+					<a class="footer__textLink footer__textLink--emphasis" href="/terms/"
+						>Terms of Use</a
+					>
+					for licenses to Caselaw Data, site text, and source code.
 				</p>
 			</footer>
 		`;
