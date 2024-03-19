@@ -38,15 +38,8 @@ A basic configuration is included in `.vscode`. See Github for a [complete list 
 ---
 
 ## Tests and Linting
-(todo)
 
-
-[👆 Back to the summary](#summary)
-
----
-
-## Deployment
-(todo)
+Run `npm install` to install `prettier`, and then run `npm run prettier-format-fix` to reformat code.
 
 
 [👆 Back to the summary](#summary)
