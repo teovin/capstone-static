@@ -1,7 +1,7 @@
 export const navLinks = [
 	{
 		name: "Search",
-		path: "https://www.courtlistener.com/",
+		path: "https://www.courtlistener.com/opinion/",
 	},
 	{
 		name: "Caselaw",
